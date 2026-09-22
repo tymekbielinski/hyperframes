@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 3,
+  "status": "BUILT — rebuilt against context/design-system.md (full-frame scenes, not overlays)",
+  "composition": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "durationSeconds": 62.3,
+    "layout": "portrait",
+    "themeId": "contentporary-reels",
+    "seed": 62
+  },
+  "videoTrack": { "sourcePath": "input-video.mp4", "startSec": 0, "endSec": 62.3, "bounds": { "x": 0, "y": 0, "width": 1080, "height": 1920 } },
+  "subtitles": { "enabled": false, "note": "burned into the source footage; the graphic scenes cover it, which is what both reference reels do" },
+  "designSystem": {
+    "spec": "context/design-system.md — normative",
+    "structure": "full-frame graphic scenes the edit HARD-CUTS to; the speaker is covered. Face visible only during the 0.00-5.85 hook (~9% of runtime).",
+    "grounds": { "dark": "#0C0C0C + red glow floor + vignette", "light": "#ECECEC radial + faint blueprint grid" },
+    "annotation": "#EE4B4A only — arrows, underlines, blocks, rings, group outlines, handwriting, chips (#D93A39 when red is used as TEXT on a light ground, for AA)",
+    "type": { "titles": "HelveticaNowDisplay Bold (converted to woff2 from ~/Library/Fonts)", "ui": "Inter", "marginalia": "Caveat" },
+    "motion": "peer sets 125ms · chained beats 300-630ms · typewriter 67ms/char · word reveal 200ms/word · camera hold-push 2-4%/s · hard cuts between scenes, no transitions"
+  },
+  "scenes": [
+    { "id": "face", "startSec": 0.0, "endSec": 5.85, "ground": "footage", "intent": "Hook delivered to camera. The only place the face is visible." },
+    { "id": "s1", "startSec": 5.85, "endSec": 8.3667, "ground": "light", "artifact": "6 REAL client channel headers (tim, xavier, jonas, jack-rossi, william-yu, yiannis)", "intent": "'I've worked with 10 different online entrepreneurs.' The channels deck in as peers at 125ms, each rotated 0.6-1.2deg with a soft shadow, then a hand-drawn red underline groups them. No count is drawn — the VO carries the number, so the graphic can't contradict it." },
+    { "id": "s2", "startSec": 8.3667, "endSec": 15.45, "ground": "dark", "artifact": "typographic", "intent": "'They all turn to YouTube because...' Headline word-by-word with YouTube as the one accent word, then three pressure rows over ghost numerals, then pass 2 — a hand-drawn red bracket groups all three." },
+    { "id": "s3", "startSec": 15.45, "endSec": 24.65, "ground": "dark", "artifact": "Fiverr mark + capability rows", "intent": "The centrepiece two-pass. Pass 1: fiverr icon, then three capability cards each preceded by its own drawn connector, chained ~1.5s apart. Pass 2: red strikes sweep through the bottom two and they desaturate to 42% — the argument executed by mutating existing elements, not rebuilding." },
+    { "id": "s4", "startSec": 24.65, "endSec": 28.1, "ground": "dark", "artifact": "typographic + chips", "intent": "'A dedicated growth partner who owns strategy and production.' Two chips using the reference's seed-dot-then-expand-sideways grammar." },
+    { "id": "s5", "startSec": 28.1, "endSec": 34.65, "ground": "light", "artifact": "rebuilt YouTube comments UI", "intent": "'Map your ICP — the questions they ask, the objections they have, the topics they already care about.' Three comments land as peers at 125ms; then each is chained a red underline + Caveat marginalia naming what it is. Full YouTube chrome: avatars, @handles, timestamps, like/dislike glyphs, counts, Reply." },
+    { "id": "s6", "startSec": 34.65, "endSec": 41.35, "ground": "light", "artifact": "concept cards + cursor", "intent": "'You choose the ideas you like.' Three concept cards, then a cursor travels in, clicks concept 02, a hand-drawn ring strokes around it and 'you pick' lands in marginalia. Deliberately shows the OUTPUT the client sees, never the research tool." },
+    { "id": "s7", "startSec": 41.35, "endSec": 45.2, "ground": "dark", "artifact": "pipeline chips", "intent": "'My team handles the full production pipeline.' YOU chip first, then four team chips chained at 340ms, then a red bracket groups them under 'we handle everything'." },
+    { "id": "s8", "startSec": 45.2, "endSec": 50.25, "ground": "dark", "artifact": "typographic hero", "intent": "'Every video has ONE JOB.' Arrives at 2.1x oversize through a blur and keeps growing on a slow push; subline word-by-word with 'before' as the accent, then a red underline." },
+    { "id": "s9", "startSec": 50.25, "endSec": 55.45, "ground": "dark", "artifact": "seat rack", "intent": "'We only work with 5 clients at a time.' Five slots land as peers, then fill red left-to-right at 125ms with the white labels crossfading in on top." },
+    { "id": "s10", "startSec": 55.45, "endSec": 57.8, "ground": "dark", "artifact": "checklist", "intent": "The qualifier, chained not simultaneous: box strokes -> tick strokes -> label lands word by word, beat, repeat." },
+    { "id": "s11", "startSec": 57.8, "endSec": 62.3, "ground": "light", "artifact": "YouTube comment box", "intent": "CTA per Tymek's direction — comment X, get Y. 'Comment' + a solid red highlight block on FILM, then a real-looking comment box where FILM types itself at 67ms/char with a tracking caret, the Comment button turns red, and the payoff lands word by word under a hand-drawn underline. Ties back visually to s5." }
+  ]
+}

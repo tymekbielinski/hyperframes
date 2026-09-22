@@ -1,0 +1,13 @@
+{
+  "scene": "18-calendar-month",
+  "duration_s": 8.6,
+  "rules": [
+    "design-system-§6-calendar-build (card dead still, 12 peer pips at 125 ms from 0.4 s, power3.out spring-pop)",
+    "counting-dynamic-scale (scale 0.55→1 power3.out 2.2→3.6 under HFHouse.odometer rate-blur roll; '0' locks 2.97, '1' locks 3.6; label after the lock)",
+    "css-marker-patterns circle → realised as the house mark: HFHouse.ringPath + HFHouse.draw 4.0→4.55",
+    "HFHouse.push 1.00→1.10 (4.5→6.5) then hold push 1.10→1.115 (6.5→8.6), origin 1000,540"
+  ],
+  "beats_s": { "pips": [0.4, 2.02], "counter": [2.2, 3.6], "label": 3.6, "ring": [4.0, 4.55], "push": [4.5, 6.5] },
+  "exit": { "vector": "hold push about (1000,540) 1.10→1.115 sine.inOut, ≈0 px/s at the final frame (mid-hold peak ≈ 5 px/s at the card edge); glow drift ≈ 8 px/s (blurred bed)", "still_moving": true },
+  "entry": { "vector": "hard cut, artifact at full size and DEAD STILL by §6; warm glow drifting linearly ≈ 8 px/s from frame 0; first pip lands at 0.4 s", "from_rest": false }
+}

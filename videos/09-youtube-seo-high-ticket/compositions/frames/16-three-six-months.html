@@ -1,0 +1,242 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Everything the camera sees lives inside the stage so the HFMotionBlur bake matches the DOM 1:1. */
+  #f16-glow { left: 1300px; top: -180px; width: 900px; height: 680px; background: radial-gradient(circle, rgba(255,166,102,0.28) 0%, rgba(255,166,102,0) 65%); }
+  #f16-title { position: absolute; left: 200px; top: 100px; font-size: 64px; }
+  #f16-title .f16-w { display: inline-block; opacity: 0; }
+  #f16-chart { position: absolute; left: 200px; top: 180px; width: 1520px; height: 700px; overflow: visible; }
+  #f16-area { opacity: 0; }
+  #f16-line { opacity: 1; }
+  #f16-dot { opacity: 0; transform-origin: 1520px 60px; }
+  .f16-axis { position: absolute; top: 900px; font-size: 22px; color: #a3a3a3; }
+  #f16-counter { left: 1620px; top: 130px; font-size: 64px; color: var(--hf-light-ink); }
+  #f16-hand { left: 440px; top: 850px; font-size: 56px; transform: rotate(-2deg); }
+</style>
+<div data-hf-id="f16-root" id="root" class="hf-light" data-composition-id="16-three-six-months" data-width="1920" data-height="1080">
+    <div data-hf-id="f16-ground" class="hf-ground-light"></div>
+    <div data-hf-id="f16-grid" class="hf-grid"></div>
+    <div data-hf-id="f16-glow" id="f16-glow" class="hf-glow"></div>
+  <div data-hf-id="f16-stage" id="f16-stage" class="hf-stage">
+
+    <div data-hf-id="f16-title" id="f16-title" class="hf-title-text" data-layout-allow-overlap="">
+      <span data-hf-id="f16-tw1" class="f16-w">Expect</span> <span data-hf-id="f16-tw2" class="f16-w">slow</span> <span data-hf-id="f16-tw3" class="f16-w hf-accent-light">compound</span> <span data-hf-id="f16-tw4" class="f16-w">growth</span>
+    </div>
+
+    <svg data-hf-id="f16-chart" id="f16-chart" viewBox="0 0 1520 700">
+      <defs data-hf-id="f16-defs">
+        <lineargradient data-hf-id="f16-lg" id="f16-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop data-hf-id="f16-s1" offset="0" stop-color="#EE4B4A" stop-opacity=".35" />
+          <stop data-hf-id="f16-s2" offset="1" stop-color="#EE4B4A" stop-opacity="0" />
+        </lineargradient>
+      </defs>
+      <line data-hf-id="hf-qo45" id="f16-gl1" x1="0" y1="0" x2="1520" y2="0" stroke="#262626" stroke-width="1" />
+      <line data-hf-id="hf-8n9o" id="f16-gl2" x1="0" y1="130" x2="1520" y2="130" stroke="#262626" stroke-width="1" />
+      <line data-hf-id="hf-mnmz" id="f16-gl3" x1="0" y1="260" x2="1520" y2="260" stroke="#262626" stroke-width="1" />
+      <line data-hf-id="hf-7k76" id="f16-gl4" x1="0" y1="390" x2="1520" y2="390" stroke="#262626" stroke-width="1" />
+      <line data-hf-id="hf-j0tv" id="f16-gl5" x1="0" y1="520" x2="1520" y2="520" stroke="#262626" stroke-width="1" />
+      <line data-hf-id="hf-1rgy" id="f16-gl6" x1="0" y1="650" x2="1520" y2="650" stroke="#262626" stroke-width="1" />
+      <path data-hf-id="f16-area" id="f16-area" d="M0 640 L200 632 L400 622 L600 606 L760 560 L900 460 L1050 320 L1200 190 L1350 110 L1520 60 L1520 700 L0 700Z" fill="url(#f16-grad)" />
+      <path data-hf-id="f16-line" id="f16-line" d="M0 640 L200 632 L400 622 L600 606 L760 560 L900 460 L1050 320 L1200 190 L1350 110 L1520 60" fill="none" stroke="#EE4B4A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      <circle data-hf-id="f16-dot" id="f16-dot" cx="1520" cy="60" r="12" fill="#EE4B4A" />
+    </svg>
+    <div data-hf-id="f16-ax1" class="f16-axis" data-layout-allow-occlusion style="left:200px">Mar</div>
+    <div data-hf-id="f16-ax2" class="f16-axis" data-layout-allow-occlusion style="left:417px">Apr</div>
+    <div data-hf-id="f16-ax3" class="f16-axis" data-layout-allow-occlusion style="left:634px">May</div>
+    <div data-hf-id="f16-ax4" class="f16-axis" data-layout-allow-occlusion style="left:851px">Jun</div>
+    <div data-hf-id="f16-ax5" class="f16-axis" data-layout-allow-occlusion style="left:1068px">Jul</div>
+    <div data-hf-id="f16-ax6" class="f16-axis" data-layout-allow-occlusion style="left:1285px">Aug</div>
+    <div data-hf-id="f16-ax7" class="f16-axis" data-layout-allow-occlusion style="left:1502px">Sep</div>
+
+    <div data-hf-id="f16-counter" id="f16-counter" class="hf-counter">14.4K</div>
+
+    <svg data-hf-id="f16-marks" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="f16-bracket" id="f16-bracket" />
+      <path data-hf-id="f16-tick-l" id="f16-tick-l" />
+      <path data-hf-id="f16-tick-r" id="f16-tick-r" />
+      <path data-hf-id="f16-arrow-shaft" id="f16-arrow-shaft" />
+      <path data-hf-id="f16-arrow-head" id="f16-arrow-head" />
+      <path data-hf-id="f16-ring" id="f16-ring" />
+    </svg>
+
+    <div data-hf-id="f16-hand" id="f16-hand" class="hf-hand">3–6 months of nothing</div>
+  </div>
+  <canvas data-hf-id="f16-gl" id="f16-gl" class="hf-gl"></canvas>
+  <div data-hf-id="f16-vig" class="hf-vignette"></div>
+</div>
+<script>
+  (function () {
+    var ID = "16-three-six-months", DUR = 8.0;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      // Title lands word by word, one green accent ("real") — pre-marked spans so H.words' destructive
+      // rebuild isn't used; same reveal recipe (scale 1.6→1, blur 10→0, 200ms/word).
+      tl.fromTo("#f16-title .f16-w", { opacity: 0, y: 14, scale: 1.6, filter: "blur(10px)" },
+        { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.14, ease: "power4.out", stagger: 0.2, immediateRender: false }, 0);
+
+      // Warm breathing glow — ONE continuous tween across the whole scene (seek-safe: two fromTo/to
+      // tweens on the same element resolve differently across the renderer's parallel-worker seeks,
+      // which is what produced the "background changes at second 4" flicker). Now an untimed sibling
+      // of the stage (not inside it), so it shows straight through the transparent camera canvas
+      // during the leg with no repaint needed — see the camera() call below.
+      tl.fromTo("#f16-glow", { scale: 0.92, opacity: 0.60 }, { scale: 1.08, opacity: 1.0, duration: DUR, ease: "sine.inOut", immediateRender: false }, 0);
+
+      // Grid/axis chrome — pass 1, builds plainly and quickly.
+      tl.fromTo(["#f16-gl1", "#f16-gl2", "#f16-gl3", "#f16-gl4", "#f16-gl5", "#f16-gl6", ".f16-axis"], { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out", immediateRender: false }, 0);
+
+      // The line draws left→right at a steady rate while the camera holds still; the area fades in behind it.
+      H.draw(tl, document.getElementById("f16-line"), 0.4, 3.0, "none");
+      tl.fromTo("#f16-area", { opacity: 0 }, { opacity: 1, duration: 2.6, ease: "power1.out", immediateRender: false }, 0.4);
+
+      // The number ticks up and the endpoint dot pops as the line lands — both settle at 3.4, a clean
+      // 0.2s beat before the camera leg starts at 3.6 (nothing may animate inside the leg).
+      // The leg (3.6→4.6) carries the frame to the endpoint and would clip the title mid-word, so it leaves first.
+      tl.to("#f16-title", { opacity: 0, duration: 0.3, ease: "none" }, 3.45);
+      H.odometer(tl, document.getElementById("f16-counter"), 1.2, 2.35, "14.4K", { hold: 1.0, start: 0.2 });   // static "0.2K" 1.2–2.2, counts to 3.55 (leg at 3.6)
+      tl.fromTo("#f16-dot", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, 3.1);
+
+      // Chart geometry/colour, read once from the live DOM/SVG so the bake can never drift from what
+      // the DOM paints (this used to hardcode a leftover green area-fill — the reported "graph colour
+      // change" bug — plus a stale font declaration for the title/counter, see below).
+      var lineEl = document.getElementById("f16-line"), areaEl = document.getElementById("f16-area");
+      var LINE_D = lineEl.getAttribute("d"), AREA_D = areaEl.getAttribute("d");
+      var LINE_STROKE = lineEl.getAttribute("stroke"), LINE_WIDTH = parseFloat(lineEl.getAttribute("stroke-width"));
+      var gridEl = document.getElementById("f16-gl1");
+      var GRID_STROKE = gridEl.getAttribute("stroke"), GRID_WIDTH = parseFloat(gridEl.getAttribute("stroke-width"));
+      var AREA_STOPS = [].map.call(document.querySelectorAll("#f16-grad stop"), function (s) {
+        return { offset: parseFloat(s.getAttribute("offset")), color: s.getAttribute("stop-color"), opacity: parseFloat(s.getAttribute("stop-opacity") || "1") };
+      });
+      var dotEl = document.getElementById("f16-dot");
+      var DOT_FILL = dotEl.getAttribute("fill"), DOT_R = parseFloat(dotEl.getAttribute("r"));
+      var axisCS = getComputedStyle(document.querySelector(".f16-axis"));
+      var AXIS_COLOR = axisCS.color, AXIS_FONT = axisCS.fontWeight + " " + axisCS.fontSize + " " + axisCS.fontFamily;
+      function hexA(hex, a) {
+        var r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+        return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+      }
+
+      // Split the title into per-glyph spans (measurement only — identical visual layout; GSAP still
+      // animates the outer .f16-w word wrapper) so the bake can paint it glyph-by-glyph from real DOM
+      // metrics, exactly like H.odometer already does for the counter. Fixes the "font change" bug:
+      // the bake used to re-typeset the title/counter with a bare fillText() at a hardcoded font
+      // string, which drifted from the DOM's actual weight/size/tracking (_house.md "bake parity").
+      [].forEach.call(document.querySelectorAll("#f16-title .f16-w"), function (w) {
+        var text = w.textContent; w.textContent = "";
+        for (var i = 0; i < text.length; i++) {
+          var g = document.createElement("span");
+          g.className = "f16-g"; g.style.display = "inline-block"; g.textContent = text[i];
+          g.setAttribute("data-layout-allow-overlap", ""); g.setAttribute("data-layout-allow-occlusion", "");
+          w.appendChild(g);
+        }
+      });
+      var counterEl = document.getElementById("f16-counter");
+      // Exact rasters of the landed title and counter (H.rasterText: the browser's own layout, embedded Satoshi) —
+      // canvas fillText cannot draw Satoshi's tabular "1" nor match the DOM tracking exactly; glyph painting is the fallback.
+      var titleRaster = H.rasterText(document.getElementById("f16-title")), counterRaster = H.rasterText(counterEl);
+      // Paint an element's own child <span> glyphs FROM THE ACTUAL DOM (not a re-typeset fillText
+      // string) — same technique as scene 17's paintCounterFromDOM: centre each glyph on its own
+      // measured box, baseline = ascent + (lineHeight - (ascent+descent))/2, font/colour read straight
+      // off the glyph's own computed style so the baked text can't drift from the DOM original.
+      function paintGlyphsFromDOM(ctx, glyphEls, d) {
+        ctx.save(); ctx.textBaseline = "alphabetic"; ctx.textAlign = "center";
+        for (var i = 0; i < glyphEls.length; i++) {
+          var span = glyphEls[i], r = span.getBoundingClientRect();
+          if (!r.width && !r.height) continue;
+          var cs = getComputedStyle(span);
+          // letter-spacing (both .hf-title-text and .hf-counter set a negative tracking) is appended by
+          // the browser AFTER each glyph's own advance box, not split before/after — so the span's
+          // rendered rect is [glyph advance] + [letter-spacing], left-anchored at r.left. Centring on the
+          // FULL r.width (including that trailing delta) pulls every glyph off by half the tracking
+          // (~1px here) versus the real DOM glyph, which was the residual "font change" mismatch this
+          // bake still had. Subtract it back out so we centre on the true glyph advance box instead.
+          var ls = parseFloat(cs.letterSpacing); if (isNaN(ls)) ls = 0;
+          var cx = (r.left + (r.width - ls) / 2 - d.dx) / d.z, yTop = (r.top - d.dy) / d.z;
+          ctx.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+          ctx.fillStyle = cs.color;
+          var m = ctx.measureText(span.textContent);
+          var ascent = m.fontBoundingBoxAscent, descent = m.fontBoundingBoxDescent;
+          var lh = parseFloat(cs.lineHeight), natural = ascent + descent;
+          var halfLeading = isNaN(lh) ? 0 : (lh - natural) / 2;
+          ctx.fillText(span.textContent, cx, yTop + ascent + halfLeading);
+        }
+        ctx.restore();
+      }
+
+      // §8c camera: one leg, 3.6→4.6, pushing 1.00→1.18 toward the endpoint once the chart is fully drawn.
+      var rig = H.camera(tl, {
+        stage: document.getElementById("f16-stage"), canvas: document.getElementById("f16-gl"),
+        bgCss: "transparent", bg: null, dur: DUR, K: 1.5, preset: "medium",
+        // Transparent world: only the stage's own content (title, chart, axis labels, counter, marks)
+        // is baked. The ground, grid and warm glow are untimed DOM layers OUTSIDE the stage (siblings,
+        // per _house.md), so they show straight through the transparent canvas during the leg — the
+        // repainted-black ground/wash/glow here used to be a bake/DOM mismatch (a solid-black fill
+        // painted under what is actually a light amber ground), which is what produced the reported
+        // "background changes at second 4" flicker across the leg's boundary frames.
+        liveBake: true,   // the world is re-painted per tick so the title fade above actually happens inside the leg
+        bake: function (ctx, K, t) {
+          var d = rig.dom(t);
+          // title, both words landed, one red accent — painted glyph-by-glyph from the DOM (see above)
+          var titleA = Math.max(0, Math.min(1, (3.75 - t) / 0.3));   // same fade as the DOM tween above
+          if (titleRaster.img) { if (titleA > 0) { ctx.save(); ctx.globalAlpha = titleA; ctx.drawImage(titleRaster.img, titleRaster.x - titleRaster.pad, titleRaster.y - titleRaster.pad); ctx.restore(); } }
+          else if (titleA > 0) { ctx.save(); ctx.globalAlpha = titleA; paintGlyphsFromDOM(ctx, document.querySelectorAll("#f16-title .f16-g"), d); ctx.restore(); }
+          // the chart: grid + fully-drawn area + line + endpoint dot (design coords: box at 200,180,
+          // 1520x700 local) — every colour/width/path read straight off the live SVG above, so the
+          // bake can never repeat a hardcoded value the DOM disagrees with (the area-fill used to be
+          // hardcoded green here while the DOM area is red — the reported "graph colour change" bug).
+          ctx.save(); ctx.translate(200, 180);
+          ctx.strokeStyle = GRID_STROKE; ctx.lineWidth = GRID_WIDTH;
+          [0, 130, 260, 390, 520, 650].forEach(function (ly) { ctx.beginPath(); ctx.moveTo(0, ly); ctx.lineTo(1520, ly); ctx.stroke(); });
+          var ag = ctx.createLinearGradient(0, 0, 0, 700);
+          AREA_STOPS.forEach(function (s) { ag.addColorStop(s.offset, hexA(s.color, s.opacity)); });
+          ctx.fillStyle = ag; ctx.fill(new Path2D(AREA_D));
+          ctx.strokeStyle = LINE_STROKE; ctx.lineWidth = LINE_WIDTH; ctx.lineCap = "round"; ctx.lineJoin = "round";
+          ctx.stroke(new Path2D(LINE_D));
+          ctx.fillStyle = DOT_FILL; ctx.beginPath(); ctx.arc(1520, 60, DOT_R, 0, Math.PI * 2); ctx.fill();
+          ctx.restore();
+          // axis labels
+          ctx.save(); ctx.font = AXIS_FONT; ctx.fillStyle = AXIS_COLOR; ctx.textBaseline = "top";
+          [["Mar", 200], ["Apr", 417], ["May", 634], ["Jun", 851], ["Jul", 1068], ["Aug", 1285], ["Sep", 1502]].forEach(function (m) { ctx.fillText(m[0], m[1], 900); });
+          ctx.restore();
+          // counter, fully locked — painted glyph-by-glyph from H.odometer's own per-character spans
+          if (counterRaster.img) ctx.drawImage(counterRaster.img, counterRaster.x - counterRaster.pad, counterRaster.y - counterRaster.pad);
+          else paintGlyphsFromDOM(ctx, counterEl.querySelectorAll(":scope > span:not([data-layout-ignore])"), d);
+        },
+        keys: [
+          { t: 0.0, cx: 960, cy: 540, z: 1.00 },
+          { t: 3.6, cx: 960, cy: 540, z: 1.00 },   // hold — the line draws under a still camera
+          { t: 4.6, cx: 1500, cy: 340, z: 1.18 },  // the leg: push toward the endpoint
+          { t: DUR, cx: 1500, cy: 335, z: 1.20 }   // slow settle push under the hold
+        ],
+        legs: [[3.6, 4.6]]
+      });
+
+      // Pass 2, after the push lands: a red bracket groups the flat months, marginalia names them,
+      // an arrow traces up along the curve, then a ring lands on the number.
+      var bracket = document.getElementById("f16-bracket"), tickL = document.getElementById("f16-tick-l"), tickR = document.getElementById("f16-tick-r");
+      bracket.setAttribute("d", H.underlinePath(210, 826, 610, 5));
+      tickL.setAttribute("d", "M210 806 L210 830"); tickR.setAttribute("d", "M820 806 L820 830");
+      H.draw(tl, bracket, 4.9, 0.35);
+      H.draw(tl, [tickL, tickR], 4.9, 0.2);
+
+      H.handwrite(tl, document.getElementById("f16-hand"), 5.0, 67);
+
+      // Short curved arrow FROM empty space below-right of the endpoint TO just short of the dot —
+      // it used to run (1260,470)→(1650,270), which traced right along the curve itself and even
+      // crossed it near the end. (1820,420)→(1745,268) sits entirely at design-x > 1720, past the
+      // chart's own right edge (screen-x of the last data point), so it can never touch the line.
+      var a = H.arrowPath(1820, 420, 1745, 268, 35);
+      var shaft = document.getElementById("f16-arrow-shaft"), head = document.getElementById("f16-arrow-head");
+      shaft.setAttribute("d", a.shaft); head.setAttribute("d", a.head);
+      H.draw(tl, shaft, 6.2, 0.45);
+      H.draw(tl, head, 6.55, 0.15);
+
+      var ring = document.getElementById("f16-ring");
+      ring.setAttribute("d", H.ringPath(1712, 168, 130, 68, 3));
+      H.draw(tl, ring, 6.8, 0.55);
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

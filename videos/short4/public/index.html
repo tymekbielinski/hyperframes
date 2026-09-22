@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contentporary — Short4 recut</title>
+    <style>
+      @font-face { font-family:"HND"; src:url("fonts/HND-700.woff2") format("woff2"); font-weight:700; font-display:block; }
+      @font-face { font-family:"HND"; src:url("fonts/HND-500.woff2") format("woff2"); font-weight:500; font-display:block; }
+      @font-face { font-family:"Inter"; src:url("fonts/Inter-400-latin.woff2") format("woff2"); font-weight:400; font-display:block; }
+      @font-face { font-family:"Inter"; src:url("fonts/Inter-700-latin.woff2") format("woff2"); font-weight:700; font-display:block; }
+      @font-face { font-family:"Caveat"; src:url("fonts/Caveat-700-latin.woff2") format("woff2"); font-weight:700; font-display:block; }
+      :root { --red:#EE4B4A; --accent-0:#EE4B4A; --accent-1:#EE4B4A; --accent-2:#EE4B4A; --accent-3:#EE4B4A; --accent-4:#EE4B4A; }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;
+        font-family:"HND","Inter",ui-sans-serif,system-ui,sans-serif;}
+      #stage{position:relative;width:100%;height:100%;overflow:hidden}
+      .video-wrapper{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+      .video-wrapper video{width:100%;height:100%;object-fit:cover}
+      .card-host{position:absolute;pointer-events:none;overflow:hidden}
+      .card-host .card{position:relative;width:100%;height:100%;overflow:hidden}
+    </style>
+  </head>
+  <body>
+    <div id="stage" data-composition-id="short4-recut" data-start="0" data-duration="45.80"
+         data-fps="30" data-width="1080" data-height="1920">
+
+      <div class="video-wrapper" id="video-wrap">
+        <video id="bg-video" src="input-video.mp4" muted playsinline
+               data-start="0" data-duration="45.80" data-track-index="1"></video>
+      </div>
+      <audio id="source-audio" src="input-video.mp4" data-start="0" data-duration="45.80"
+             data-track-index="10" data-volume="1"></audio>
+
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+        <filter id="mb-sa" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-sa" stdDeviation="0 0"/></filter>
+        <filter id="mb-sb" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-sb" stdDeviation="0 0"/></filter>
+        <filter id="mb-sc" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-sc" stdDeviation="0 0"/></filter>
+        <filter id="mb-card-06" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-card-06" stdDeviation="0 0"/></filter>
+      </defs></svg>
+
+<!-- ══════════ SCENE A · booked but cold, then the call · 2.30 → 12.60 ══════════ -->
+      <div class="card-host clip" id="host-sa" data-card-id="sa" data-start="2.3000" data-duration="10.7600" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="sa"><style>
+          .card[data-card-id="sa"] .root{width:100%;height:100%;position:relative;overflow:hidden;
+            background:radial-gradient(ellipse 1100px 1500px at 50% 38%, #1b1d22 0%, #101114 55%, #08090b 100%);
+            font-family:"HND","Inter",Helvetica,Arial,sans-serif}
+          .card[data-card-id="sa"] .stage{position:absolute;inset:0;transform-origin:540px 960px;will-change:transform}
+          .card[data-card-id="sa"] .light{position:absolute;left:-300px;top:-150px;width:1400px;height:1400px;
+            border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 62%)}
+          .card[data-card-id="sa"] .warm{position:absolute;left:50%;top:1180px;width:1250px;height:1250px;
+            margin:-625px 0 0 -625px;border-radius:50%;
+            background:radial-gradient(circle, rgba(255,68,51,0.19) 0%, rgba(255,68,51,0) 64%);opacity:0}
+          .card[data-card-id="sa"] .kick{position:absolute;left:0;width:100%;text-align:center;
+            font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;
+            background-image:linear-gradient(to top,#585c64 0%,#b6bac2 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sa"] .k1{top:300px}
+          .card[data-card-id="sa"] .k2{top:620px}
+
+          .card[data-card-id="sa"] .calblock{position:absolute;inset:0;transform-origin:540px 780px}
+          .card[data-card-id="sa"] .cal{position:absolute;left:140px;top:400px;width:800px;height:700px;
+            border-radius:30px;opacity:0;
+            background:linear-gradient(180deg, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0.025) 100%);
+            border:1px solid rgba(255,255,255,0.10);box-shadow:0 28px 56px rgba(0,0,0,0.5)}
+          .card[data-card-id="sa"] .mon{position:absolute;left:0;top:44px;width:100%;text-align:center;
+            font-weight:700;font-size:40px;color:#eceef1}
+          .card[data-card-id="sa"] .wd{position:absolute;top:124px;width:100px;text-align:center;
+            font-weight:700;font-size:22px;letter-spacing:.12em;color:#8f939b}
+          .card[data-card-id="sa"] .day{position:absolute;width:100px;height:78px;line-height:78px;
+            text-align:center;font-weight:600;font-size:36px;color:#e9ebee}
+          .card[data-card-id="sa"] .pip{position:absolute;width:78px;height:78px;border-radius:50%;
+            background:#2f7de1;opacity:0}
+          .card[data-card-id="sa"] .stamp{position:absolute;left:0;top:1128px;width:100%;text-align:center;
+            font-weight:800;font-size:74px;letter-spacing:-.02em;
+            background-image:linear-gradient(to top,#b3b7be 0%,#ffffff 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sa"] .cold{position:absolute;left:0;top:1236px;width:100%;text-align:center;
+            font-weight:800;font-size:60px;letter-spacing:-.015em;color:#ff4433;opacity:0}
+
+          .card[data-card-id="sa"] .barwrap{position:absolute;inset:0;opacity:0}
+          .card[data-card-id="sa"] .barout{position:absolute;left:90px;top:740px;width:900px;height:200px;
+            border-radius:24px;border:1px solid rgba(255,255,255,0.14);
+            background:rgba(255,255,255,0.03);transform-origin:0% 50%}
+          .card[data-card-id="sa"] .half{position:absolute;top:743px;height:194px;transform-origin:0% 50%}
+          .card[data-card-id="sa"] .lh{left:93px;width:447px;border-radius:23px 0 0 23px;
+            background:repeating-linear-gradient(115deg, rgba(255,255,255,0.20) 0px, rgba(255,255,255,0.20) 6px, rgba(255,255,255,0.045) 6px, rgba(255,255,255,0.045) 15px)}
+          .card[data-card-id="sa"] .rh{left:540px;width:447px;border-radius:0 23px 23px 0;background:#ff4433}
+          .card[data-card-id="sa"] .hl{position:absolute;top:812px;width:440px;text-align:center;
+            font-weight:800;font-size:34px;letter-spacing:.01em;opacity:0}
+          .card[data-card-id="sa"] .hl-l{left:96px;color:#e9ebee}
+          .card[data-card-id="sa"] .hl-r{left:543px;color:#2a0d09}
+          .card[data-card-id="sa"] .ax{position:absolute;top:968px;font-weight:600;font-size:26px;
+            letter-spacing:.08em;color:#8f939b;opacity:0}
+          .card[data-card-id="sa"] .brk{position:absolute;left:96px;top:1010px}
+          .card[data-card-id="sa"] .note{position:absolute;left:0;top:1128px;width:100%;text-align:center;
+            font-family:"Caveat",cursive;font-weight:700;font-size:70px;color:#ff4433;opacity:0}
+        </style>
+        <div class="root">
+          <div class="stage" id="sa-stage">
+            <div class="light" id="sa-light"></div>
+            <div class="warm" id="sa-warm"></div>
+
+            <div class="calblock" id="sa-calblock">
+              <div class="kick k1" id="sa-k1">Your sales calendar</div>
+              <div class="cal" id="sa-cal">
+                <div class="mon">March 2026</div>
+                <div class="wd" style="left:50px">SUN</div><div class="wd" style="left:150px">MON</div>
+                <div class="wd" style="left:250px">TUE</div><div class="wd" style="left:350px">WED</div>
+                <div class="wd" style="left:450px">THU</div><div class="wd" style="left:550px">FRI</div>
+                <div class="wd" style="left:650px">SAT</div>
+                <div class="day" style="left:50px;top:196px">1</div>
+              <div class="pip" id="sa-pip-2" style="left:161px;top:201px"></div><div class="day" style="left:150px;top:196px">2</div>
+              <div class="day" style="left:250px;top:196px">3</div>
+              <div class="day" style="left:350px;top:196px">4</div>
+              <div class="pip" id="sa-pip-5" style="left:461px;top:201px"></div><div class="day" style="left:450px;top:196px">5</div>
+              <div class="day" style="left:550px;top:196px">6</div>
+              <div class="day" style="left:650px;top:196px">7</div>
+              <div class="day" style="left:50px;top:284px">8</div>
+              <div class="pip" id="sa-pip-9" style="left:161px;top:289px"></div><div class="day" style="left:150px;top:284px">9</div>
+              <div class="pip" id="sa-pip-10" style="left:261px;top:289px"></div><div class="day" style="left:250px;top:284px">10</div>
+              <div class="day" style="left:350px;top:284px">11</div>
+              <div class="day" style="left:450px;top:284px">12</div>
+              <div class="pip" id="sa-pip-13" style="left:561px;top:289px"></div><div class="day" style="left:550px;top:284px">13</div>
+              <div class="day" style="left:650px;top:284px">14</div>
+              <div class="day" style="left:50px;top:372px">15</div>
+              <div class="pip" id="sa-pip-16" style="left:161px;top:377px"></div><div class="day" style="left:150px;top:372px">16</div>
+              <div class="day" style="left:250px;top:372px">17</div>
+              <div class="pip" id="sa-pip-18" style="left:361px;top:377px"></div><div class="day" style="left:350px;top:372px">18</div>
+              <div class="day" style="left:450px;top:372px">19</div>
+              <div class="day" style="left:550px;top:372px">20</div>
+              <div class="pip" id="sa-pip-21" style="left:661px;top:377px"></div><div class="day" style="left:650px;top:372px">21</div>
+              <div class="day" style="left:50px;top:460px">22</div>
+              <div class="day" style="left:150px;top:460px">23</div>
+              <div class="pip" id="sa-pip-24" style="left:261px;top:465px"></div><div class="day" style="left:250px;top:460px">24</div>
+              <div class="day" style="left:350px;top:460px">25</div>
+              <div class="day" style="left:450px;top:460px">26</div>
+              <div class="pip" id="sa-pip-27" style="left:561px;top:465px"></div><div class="day" style="left:550px;top:460px">27</div>
+              <div class="day" style="left:650px;top:460px">28</div>
+              <div class="day" style="left:50px;top:548px">29</div>
+              <div class="day" style="left:150px;top:548px">30</div>
+              <div class="day" style="left:250px;top:548px">31</div>
+              </div>
+              <div class="stamp" id="sa-stamp">Fully booked</div>
+              <div class="cold" id="sa-cold">and none of them trust you</div>
+            </div>
+
+            <div class="barwrap" id="sa-barwrap">
+              <div class="kick k2" id="sa-k2">One 60-minute call</div>
+              <div class="barout" id="sa-barout"></div>
+              <div class="half lh" id="sa-lh"></div>
+              <div class="half rh" id="sa-rh"></div>
+              <div class="hl hl-l" id="sa-hll">Building trust</div>
+              <div class="hl hl-r" id="sa-hlr">The actual conversation</div>
+              <div class="ax" id="sa-ax0" style="left:90px">00:00</div>
+              <div class="ax" id="sa-ax1" style="left:487px">30:00</div>
+              <div class="ax" id="sa-ax2" style="left:900px">60:00</div>
+              <svg class="brk" width="460" height="80" viewBox="0 0 460 80" fill="none">
+                <path id="sa-brk" d="M8 8 C10 42, 16 50, 44 52 C130 58, 178 54, 228 64 C282 54, 330 58, 416 52 C444 50, 450 41, 452 8"
+                      stroke="#ff4433" stroke-width="7" stroke-linecap="round" fill="none"/>
+              </svg>
+              <div class="note" id="sa-note">could have happened before</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ══════════ SCENE B · the lead who's been watching · 15.60 → 27.20 ══════════ -->
+      <div class="card-host clip" id="host-sb" data-card-id="sb" data-start="15.6000" data-duration="13.8900" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="sb"><style>
+          .card[data-card-id="sb"] .root{width:100%;height:100%;position:relative;overflow:hidden;
+            background:radial-gradient(ellipse 1100px 1900px at 50% 46%, #1b1d22 0%, #101114 55%, #08090b 100%);
+            font-family:"HND","Inter",Helvetica,Arial,sans-serif}
+          /* The stage is TALLER than the frame (300 -> 2658). The camera never shows more
+             than ~64% of it, so the funnel is read in three passes instead of presented
+             all at once. transform-origin 0 0 — the pose maths does the centring. */
+          .card[data-card-id="sb"] .stage{position:absolute;left:0;top:0;width:1080px;height:2800px;
+            transform-origin:0 0;will-change:transform}
+          .card[data-card-id="sb"] .cam-canvas{position:absolute;inset:0;width:100%;height:100%;
+            opacity:0;visibility:hidden;z-index:5}
+          .card[data-card-id="sb"] .world-img{display:none}
+          .card[data-card-id="sb"] .light{position:absolute;left:-300px;top:900px;width:1400px;height:1400px;
+            border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.085) 0%, rgba(255,255,255,0) 62%)}
+          .card[data-card-id="sb"] .warm{position:absolute;left:50%;top:2400px;width:1300px;height:1300px;
+            margin:-650px 0 0 -650px;border-radius:50%;
+            background:radial-gradient(circle, rgba(255,68,51,0.22) 0%, rgba(255,68,51,0) 65%);opacity:0}
+          .card[data-card-id="sb"] .kicker{position:absolute;left:0;top:300px;width:100%;text-align:center;
+            font-weight:700;font-size:26px;letter-spacing:.16em;text-transform:uppercase;
+            color:#9aa0a8;opacity:0}
+          .card[data-card-id="sb"] .band{position:absolute;left:0;width:1080px;opacity:0;will-change:transform}
+          .card[data-card-id="sb"] .band svg{position:absolute;left:0;top:0;overflow:visible}
+          .card[data-card-id="sb"] .idx{position:absolute;left:0;width:100%;text-align:center;
+            font-weight:700;font-size:21px;letter-spacing:.22em;color:#7e828a}
+          .card[data-card-id="sb"] .lab{position:absolute;left:0;width:100%;text-align:center;
+            font-weight:800;font-size:46px;line-height:1.32;letter-spacing:-.018em;color:#F4F6F8;opacity:0}
+          .card[data-card-id="sb"] .sub{position:absolute;left:0;width:100%;text-align:center;
+            font-weight:500;font-size:25px;line-height:1.3;color:#8f939b}
+          .card[data-card-id="sb"] .chip{position:absolute;height:66px;padding:0 26px;border-radius:33px;
+            display:flex;align-items:center;gap:14px;transform-origin:50% 50%;
+            background:linear-gradient(180deg, rgba(255,255,255,0.085) 0%, rgba(255,255,255,0.03) 100%);
+            border:1px solid rgba(255,255,255,0.14);
+            font-weight:700;font-size:27px;color:#e9ebee;opacity:0;white-space:nowrap}
+          .card[data-card-id="sb"] .cdot{width:11px;height:11px;border-radius:50%;background:#1ea15e;flex:none}
+          .card[data-card-id="sb"] .stem{position:absolute;left:537px;top:2460px;width:6px;height:0;
+            background:rgba(255,68,51,0.75);border-radius:3px}
+          .card[data-card-id="sb"] .term{position:absolute;left:418px;top:2540px;height:104px;padding:0 40px;
+            border-radius:52px;background:#ff4433;display:flex;align-items:center;
+            box-shadow:0 22px 52px rgba(255,68,51,0.45);
+            font-weight:800;font-size:44px;color:#fff;letter-spacing:-.01em;opacity:0}
+        </style>
+        <div class="root">
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+            <linearGradient id="sb-fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.065"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0.018"/>
+            </linearGradient>
+            <linearGradient id="sb-fill3" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ff4433" stop-opacity="0.10"/>
+              <stop offset="100%" stop-color="#ff4433" stop-opacity="0.03"/>
+            </linearGradient>
+          </defs></svg>
+
+          <canvas class="cam-canvas" id="sb-glA" width="1080" height="1920"></canvas>
+          <canvas class="cam-canvas" id="sb-glB" width="1080" height="1920"></canvas>
+          <canvas class="cam-canvas" id="sb-glC" width="1080" height="1920"></canvas>
+          <img class="world-img" id="sb-worldA" src="assets/sb-cam/state-a.png" alt="">
+          <img class="world-img" id="sb-worldB" src="assets/sb-cam/state-b.png" alt="">
+          <img class="world-img" id="sb-worldC" src="assets/sb-cam/state-c.png" alt="">
+
+          <div class="stage" id="sb-stage">
+            <div class="light" id="sb-light"></div>
+            <div class="warm" id="sb-warm"></div>
+            <div class="kicker" id="sb-kicker">The lead who's been watching</div>
+
+            <div class="band" id="sb-b1" style="top:420px;height:380px">
+              <svg width="1080" height="380" viewBox="0 0 1080 380">
+                <path d="M130 0 L950 0 L910 380 L170 380 Z" fill="url(#sb-fill)"
+                      stroke="rgba(255,255,255,0.10)" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              <div class="idx" style="top:70px">01</div>
+              <div class="lab" id="sb-l1" style="top:110px">Top of funnel</div>
+              <div class="sub" style="top:196px">found you on YouTube</div>
+            </div>
+
+            <div class="band" id="sb-b2" style="top:900px;height:760px">
+              <svg width="1080" height="760" viewBox="0 0 1080 760">
+                <path d="M175 0 L905 0 L850 760 L230 760 Z" fill="url(#sb-fill)"
+                      stroke="rgba(255,255,255,0.10)" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              <div class="idx" style="top:96px">02</div>
+              <div class="lab" id="sb-l2" style="top:136px">Educational</div>
+              <div class="sub" style="top:222px">watched your tutorials</div>
+              <div class="chip" id="sb-h1" style="left:236px;top:360px"><span class="cdot"></span>Your point of view</div>
+              <div class="chip" id="sb-h2" style="left:566px;top:360px"><span class="cdot"></span>Your process</div>
+              <div class="chip" id="sb-h3" style="left:352px;top:456px"><span class="cdot"></span>The problems you solve</div>
+            </div>
+
+            <div class="band" id="sb-b3" style="top:1760px;height:680px">
+              <svg width="1080" height="680" viewBox="0 0 1080 680">
+                <path d="M235 0 L845 0 L540 680 Z" fill="url(#sb-fill3)"
+                      stroke="rgba(255,68,51,0.30)" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              <div class="idx" style="top:72px">03</div>
+              <div class="lab" id="sb-l3" style="top:112px">Bottom of funnel</div>
+              <div class="sub" style="top:198px">interviews + case studies</div>
+            </div>
+
+            <div class="stem" id="sb-stem"></div>
+            <div class="term" id="sb-term">The call</div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ══════════ SCENE C · the proof · 32.90 → 38.30 ══════════ -->
+      <div class="card-host clip" id="host-sc" data-card-id="sc" data-start="32.9000" data-duration="5.4000" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="sc"><style>
+          .card[data-card-id="sc"] .root{width:100%;height:100%;position:relative;overflow:hidden;
+            background:radial-gradient(ellipse 1100px 1500px at 50% 40%, #1b1d22 0%, #101114 55%, #08090b 100%);
+            font-family:"HND","Inter",Helvetica,Arial,sans-serif}
+          .card[data-card-id="sc"] .stage{position:absolute;inset:0;transform-origin:540px 960px;will-change:transform}
+          .card[data-card-id="sc"] .light{position:absolute;left:-300px;top:-150px;width:1400px;height:1400px;
+            border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 62%)}
+          .card[data-card-id="sc"] .glow{position:absolute;left:50%;top:1000px;width:1300px;height:1300px;
+            margin:-650px 0 0 -650px;border-radius:50%;
+            background:radial-gradient(circle, rgba(30,161,94,0.16) 0%, rgba(30,161,94,0) 62%);opacity:0}
+          .card[data-card-id="sc"] .kicker{position:absolute;left:0;top:284px;width:100%;text-align:center;
+            font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;
+            background-image:linear-gradient(to top,#585c64 0%,#b6bac2 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sc"] .shot{position:absolute;left:180px;top:340px;width:720px;
+            border-radius:14px;overflow:hidden;background:#fff;opacity:0;
+            box-shadow:0 30px 64px rgba(0,0,0,0.55), 0 6px 16px rgba(0,0,0,0.42)}
+          .card[data-card-id="sc"] .shot img{display:block;width:100%;height:auto}
+          .card[data-card-id="sc"] .row{position:absolute;left:60px;width:960px;height:350px;opacity:0;will-change:transform}
+          .card[data-card-id="sc"] .panel{position:absolute;inset:0;border-radius:32px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+            border:1px solid rgba(255,255,255,0.10);box-shadow:0 26px 54px rgba(0,0,0,0.5)}
+          .card[data-card-id="sc"] .num{position:absolute;left:0;top:40px;width:100%;text-align:center;
+            font-weight:800;font-size:190px;line-height:1.14;letter-spacing:-.035em;
+            background-image:linear-gradient(to top,#9ba0a8 0%,#ffffff 78%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+          .card[data-card-id="sc"] .cap{position:absolute;left:0;top:248px;width:100%;text-align:center;
+            font-weight:700;font-size:36px;letter-spacing:.02em;
+            background-image:linear-gradient(to top,#b3b7be 0%,#ffffff 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sc"] .fine{position:absolute;left:0;top:298px;width:100%;text-align:center;
+            font-weight:500;font-size:28px;color:#8f939b}
+        </style>
+        <div class="root">
+          <div class="stage" id="sc-stage">
+            <div class="light" id="sc-light"></div>
+            <div class="glow" id="sc-glow"></div>
+            <div class="kicker" id="sc-kicker">We did this for</div>
+            <div class="shot" id="sc-shot" style="transform:rotate(-1.4deg)"><img src="shots/tim.png" alt=""></div>
+
+            <div class="row" id="sc-r1" style="top:690px">
+              <div class="panel"></div>
+              <div class="num" id="sc-n1">$0</div>
+              <div class="cap" id="sc-c1">New revenue from YouTube</div>
+              <div class="fine">directly attributed</div>
+            </div>
+
+            <div class="row" id="sc-r2" style="top:1080px">
+              <div class="panel"></div>
+              <div class="num" id="sc-n2">0</div>
+              <div class="cap" id="sc-c2">Qualified calls</div>
+              <div class="fine">every month</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+<div class="card-host clip" data-card-id="card-06" id="host-card-06" data-start="37.7000" data-duration="8.1000" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="card-06">
+          <style>
+            .card[data-card-id="card-06"] .root {
+              width: 100%; height: 100%;
+              position: relative;
+              background: transparent;
+              overflow: hidden;
+              font-family: "HND", "Inter", Helvetica, Arial, sans-serif;
+            }
+            .card[data-card-id="card-06"] .scrim {
+              position: absolute; left: 0; top: 820px; width: 100%; height: 1100px;
+              background: linear-gradient(to top,
+                rgba(7,8,10,0.82) 0%, rgba(7,8,10,0.72) 34%,
+                rgba(7,8,10,0.36) 68%, rgba(7,8,10,0) 100%);
+            }
+            .card[data-card-id="card-06"] .kicker {
+              position: absolute; left: 0; top: 1052px; width: 100%;
+              text-align: center; font-weight: 700; font-size: 27px;
+              letter-spacing: 0.14em; text-transform: uppercase;
+              background-image: linear-gradient(to top, #8f939b 0%, #d4d7dc 100%);
+              -webkit-background-clip: text; background-clip: text;
+              color: transparent; -webkit-text-fill-color: transparent;
+            }
+            .card[data-card-id="card-06"] .checks {
+              position: absolute; left: 220px; top: 1126px; width: 700px;
+            }
+            .card[data-card-id="card-06"] .check-row {
+              display: flex; align-items: center; gap: 24px;
+              margin-bottom: 26px;
+            }
+            .card[data-card-id="card-06"] .check-dot {
+              flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%;
+              background: #1ea15e; display: flex; align-items: center; justify-content: center;
+              box-shadow: 0 10px 22px rgba(30,161,94,0.45);
+            }
+            .card[data-card-id="card-06"] .check-dot svg { width: 26px; height: 26px; }
+            .card[data-card-id="card-06"] .check-text {
+              font-weight: 600; font-size: 42px; color: #f2f3f5;
+            }
+            .card[data-card-id="card-06"] .comment-label {
+              position: absolute; left: 0; top: 1344px; width: 100%;
+              text-align: center; font-weight: 700; font-size: 26px;
+              letter-spacing: 0.12em; text-transform: uppercase; color: #b6bac2;
+            }
+            .card[data-card-id="card-06"] .bubble {
+              position: absolute; left: 330px; top: 1398px; width: 420px; height: 138px;
+              border-radius: 32px; background: #ff4433;
+              box-shadow: 0 24px 60px rgba(255,68,51,0.45);
+              display: flex; align-items: center; justify-content: center;
+            }
+            .card[data-card-id="card-06"] .bubble::after {
+              content: ""; position: absolute; left: 62px; bottom: -20px;
+              width: 0; height: 0;
+              border-left: 13px solid transparent; border-right: 26px solid transparent;
+              border-top: 24px solid #ff4433;
+            }
+            .card[data-card-id="card-06"] .bubble-text {
+              color: #ffffff; font-weight: 700; font-size: 58px; letter-spacing: -0.01em;
+            }
+            .card[data-card-id="card-06"] .cursor {
+              position: absolute; left: 700px; top: 1484px; width: 78px; height: 78px;
+            }
+            .card[data-card-id="card-06"] .cursor svg { width: 100%; height: 100%; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.5)); }
+            .card[data-card-id="card-06"] .subtitle {
+              position: absolute; left: 90px; top: 1584px; width: 900px;
+              text-align: center; font-weight: 500; font-size: 33px; line-height: 1.3;
+              color: #c6c9cf;
+            }
+          </style>
+
+          <div class="root">
+            <div class="scrim" id="card-06-scrim" style="opacity:0;"></div>
+            <div class="kicker" id="card-06-kicker" style="opacity:0;">Qualify In 2 Seconds</div>
+
+            <div class="checks">
+              <div class="check-row" id="card-06-check-1">
+                <div class="check-dot" id="card-06-check-1-dot" style="opacity:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></div>
+                <div class="check-text" id="card-06-check-1-text" style="opacity:0;">High-Ticket Offer</div>
+              </div>
+              <div class="check-row" id="card-06-check-2">
+                <div class="check-dot" id="card-06-check-2-dot" style="opacity:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></div>
+                <div class="check-text" id="card-06-check-2-text" style="opacity:0;">5+ Active Clients</div>
+              </div>
+            </div>
+
+            <div class="comment-label" id="card-06-comment-label" style="opacity:0;">Comment</div>
+            <div class="bubble" id="card-06-bubble" style="opacity:0;">
+              <div class="bubble-text">&ldquo;FILM&rdquo;</div>
+            </div>
+            <div class="cursor" id="card-06-cursor" style="opacity:0;">
+              <svg viewBox="0 0 32 32"><path d="M6 3 L26 15 L16 17 L12 27 Z" fill="#ffffff" stroke="#16181c" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+
+            <div class="subtitle" id="card-06-subtitle" style="opacity:0;">We'll make you a free long-form YouTube video.</div>
+          </div>
+        </div>
+      </div>
+
+      <script src="vendor/gsap.min.js"></script>
+      <script src="lib/motion-blur.js"></script>
+      <script>
+        (function () {
+          var gsap = window.gsap;
+          var tl = gsap.timeline({ paused: true });
+          function lerp(a, b, f) { return a + (b - a) * f; }
+          function smoothstep(f) { f = Math.max(0, Math.min(1, f)); return f * f * (3 - 2 * f); }
+          function track(keys) {
+            return function (t) {
+              if (t <= keys[0].t) return keys[0].v;
+              for (var i = 0; i < keys.length - 1; i++) {
+                var a = keys[i], b = keys[i + 1];
+                if (t >= a.t && t <= b.t) {
+                  var f = b.t === a.t ? 1 : (t - a.t) / (b.t - a.t);
+                  return lerp(a.v, b.v, smoothstep(f));
+                }
+              }
+              return keys[keys.length - 1].v;
+            };
+          }
+
+          /* house wipe — ported from agency-lead-sources-intro */
+          var GRAD_DIR = { left: "to left", right: "to right", down: "to bottom", up: "to top" };
+          /* Deterministic cubic-bezier solver (bisection) — the same one card-05's camera uses. */
+          function bezierEase(x1, y1, x2, y2) {
+            function bx(u) { return 3 * u * (1 - u) * (1 - u) * x1 + 3 * u * u * (1 - u) * x2 + u * u * u; }
+            function by(u) { return 3 * u * (1 - u) * (1 - u) * y1 + 3 * u * u * (1 - u) * y2 + u * u * u; }
+            return function (f) {
+              if (f <= 0) return 0; if (f >= 1) return 1;
+              var lo = 0, hi = 1, u;
+              for (var i = 0; i < 24; i++) { u = (lo + hi) / 2; if (bx(u) < f) lo = u; else hi = u; }
+              return by((lo + hi) / 2);
+            };
+          }
+          /* Symmetric ease-in-out: the wipe leaves and arrives at ZERO velocity, so neither
+             end of the transition snaps. power2.out/in put peak speed exactly at the cut,
+             which is what made the old 0.20s wipe feel aggressive. */
+          var wipeEase = bezierEase(0.65, 0, 0.35, 1);
+          /* Panels/bands travel on the same curve — GSAP takes an ease function directly.
+             power3.out was putting peak velocity on frame 1 of a 140px move, which is what
+             made the boxes feel like they were being thrown in. */
+          var slamEase = bezierEase(0.42, 0, 0.18, 1);
+          var WIPE_IN = 0.42, WIPE_OUT = 0.36;
+          function wipeInOut(id, start, end, dir) {
+            var sel = '.card-host[data-card-id="' + id + '"]';
+            var host = document.querySelector(sel);
+            var fe = document.getElementById("mbfe-" + id);
+            var horiz = dir === "left" || dir === "right";
+            var gdir = GRAD_DIR[dir];
+            function apply(raw, blurMax) {
+              var q = wipeEase(raw);
+              /* blur and mask feather ride the wipe's own speed — peak mid-travel, nothing
+                 at either end, which is how real motion blur behaves */
+              var speed = 4 * q * (1 - q);
+              if (fe) {
+                var v = blurMax * speed;
+                fe.setAttribute("stdDeviation", horiz ? v.toFixed(2) + " 0" : "0 " + v.toFixed(2));
+              }
+              if (!host) return;
+              /* The SVG filter is attached ONLY while the wipe is actually travelling.
+                 Leaving it on for the whole scene (even at stdDeviation 0) makes the
+                 renderer rasterise background-clip:text through the filter pipeline, which
+                 mis-composites those labels as offset ghosts — visible in the encoded frames
+                 but not in a live browser capture. */
+              if (q >= 1) {
+                host.style.webkitMaskImage = host.style.maskImage = "none";
+                host.style.filter = "none";
+                return;
+              }
+              host.style.filter = "url(#mb-" + id + ")";
+              var F = 8 + 34 * speed;
+              var a = q * (100 + F) - F, b = a + F;
+              var g = "linear-gradient(" + gdir + ", rgba(0,0,0,1) " + a.toFixed(2) + "%, rgba(0,0,0,0) " + b.toFixed(2) + "%)";
+              host.style.webkitMaskImage = g; host.style.maskImage = g;
+            }
+            var qi = { v: 0 }, qo = { v: 1 };
+            tl.set(sel, { visibility: "visible", opacity: 1 }, start);
+            tl.fromTo(qi, { v: 0 }, { v: 1, duration: WIPE_IN, ease: "none", immediateRender: false,
+              onUpdate: function () { apply(qi.v, 14); } }, start);
+            tl.fromTo(qo, { v: 1 }, { v: 0, duration: WIPE_OUT, ease: "none", immediateRender: false,
+              onUpdate: function () { apply(qo.v, 12); } }, end - WIPE_OUT);
+            tl.set(sel, { visibility: "hidden" }, end);
+          }
+
+          function popIn(sel, at, dur) {
+            tl.fromTo(sel, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: dur, ease: "back.out(1.6)" }, at);
+          }
+          function fadeIn(sel, at, dur) {
+            tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: dur, ease: "power2.out" }, at);
+          }
+          function kineticText(sel, at, opts) {
+            opts = opts || {};
+            var stagger = opts.stagger != null ? opts.stagger : 0.045;
+            var dur = opts.dur != null ? opts.dur : 0.45;
+            var y = opts.y != null ? opts.y : 26;
+            var el = document.querySelector(sel);
+            if (!el) return;
+            var cs = getComputedStyle(el);
+            var gradCSS = (cs.backgroundImage && cs.backgroundImage !== "none")
+              ? ("background-image:" + cs.backgroundImage + ";-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;")
+              : "";
+            var parts = el.innerHTML.split(/(<br\s*\/?>)/i);
+            el.innerHTML = parts.map(function (part) {
+              if (/^<br\s*\/?>$/i.test(part)) return part;
+              return part.split(/\s+/).filter(Boolean).map(function (w) {
+                return '<span class="kw" style="display:inline-block;opacity:0;' + gradCSS + '">' + w + '</span>';
+              }).join(' ');
+            }).join('');
+            var wds = el.querySelectorAll('.kw');
+            tl.set(el, { opacity: 1 }, at);
+            tl.fromTo(wds, { opacity: 0, y: y }, { opacity: 1, y: 0, duration: dur, ease: "back.out(1.5)", stagger: stagger }, at);
+          }
+          function draw(sel, at, D, ease) {
+            var el = document.querySelector(sel); if (!el || !el.getTotalLength) return;
+            var L = el.getTotalLength();
+            tl.set(sel, { strokeDasharray: L, strokeDashoffset: L }, 0);
+            tl.to(sel, { strokeDashoffset: 0, duration: D, ease: ease || "power2.out" }, at);
+          }
+          function chipIn(sel, at) {
+            tl.fromTo(sel, { scaleX: 0.08, opacity: 0 }, { scaleX: 0.08, opacity: 1, duration: 0.05, ease: "none" }, at);
+            tl.to(sel, { scaleX: 1, duration: 0.17, ease: "power3.out" }, at + 0.05);
+          }
+
+          /* ══════════════════════════════════════════════════════════════════
+             SCENE A — booked but cold, then the call. 2.30 → 12.60
+             Reel A's canonical two-pass (design-system §6) applied to short4's own
+             argument: fill the calendar, then recolour the SAME pips and relabel them.
+             Then the block exits and the 60-minute call bar takes over.
+             ══════════════════════════════════════════════════════════════════ */
+          wipeInOut("sa", 2.30, 13.06, "down");
+          (function () {
+            var S = 2.30, TOT = 10.76;
+            var LAND = [0.28, 6.55];
+            var stageEl = document.getElementById("sa-stage");
+            var lightEl = document.getElementById("sa-light");
+            function render(t) {
+              var bed = 1 + 0.05 * (t / TOT), jy = 0, js = 0;
+              for (var i = 0; i < LAND.length; i++) {
+                var dt = t - LAND[i];
+                if (dt > 0) { jy += 9 * Math.exp(-10 * dt) * Math.sin(34 * dt); js += 0.016 * Math.exp(-9 * dt); }
+              }
+              stageEl.style.transform = "translateY(" + jy.toFixed(2) + "px) scale(" + (bed + js).toFixed(4) + ")";
+              lightEl.style.transform =
+                "translate(" + lerp(-150, 400, t / TOT).toFixed(1) + "px," + lerp(0, 250, t / TOT).toFixed(1) + "px)";
+            }
+
+            /* ── pass 1: the calendar fills ── */
+            kineticText("#sa-k1", S + 0.10, { stagger: 0.035, dur: 0.35, y: 16 });
+            tl.fromTo("#sa-cal", { opacity: 0, scale: 1.14, y: 90 },
+              { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "power3.out" }, S + 0.28);
+            var BOOKED = [2, 5, 9, 10, 13, 16, 18, 21, 24, 27];
+            /* spatial-bounce order, 125ms apart — the measured peer-set rate */
+            var ORDER = [13, 2, 21, 9, 27, 5, 16, 10, 24, 18];
+            ORDER.forEach(function (d, i) {
+              tl.fromTo("#sa-pip-" + d, { opacity: 0, scale: 1.7 },
+                { opacity: 1, scale: 1, duration: 0.13, ease: "power4.out" }, S + 0.55 + i * 0.125);
+            });
+            kineticText("#sa-stamp", S + 1.92, { stagger: 0.05, dur: 0.4 });
+
+            /* ── pass 2: the SAME pips recolour in one 133ms hard swap, then the verdict ── */
+            tl.to(BOOKED.map(function (d) { return "#sa-pip-" + d; }),
+              { backgroundColor: "#ff4433", duration: 0.133, ease: "power2.out" }, S + 2.70);
+            tl.to("#sa-warm", { opacity: 1, duration: 0.55, ease: "power2.out" }, S + 2.70);
+            kineticText("#sa-cold", S + 3.02, { stagger: 0.04, dur: 0.4, y: 20 });
+
+            /* ── the calendar block leaves, the call bar takes the frame ── */
+            tl.to("#sa-calblock", { opacity: 0, scale: 1.5, filter: "blur(18px)", duration: 0.24, ease: "power2.in" }, S + 6.10);
+            tl.set("#sa-barwrap", { opacity: 1 }, S + 6.40);
+            tl.set(["#sa-lh", "#sa-rh"], { scaleX: 0 }, S + 6.40);
+            kineticText("#sa-k2", S + 6.42, { stagger: 0.035, dur: 0.35, y: 16 });
+            tl.fromTo("#sa-barout", { scaleX: 0 }, { scaleX: 1, duration: 0.34, ease: "power3.out" }, S + 6.55);
+            tl.to("#sa-lh", { scaleX: 1, duration: 0.40, ease: "power3.inOut" }, S + 7.00);
+            tl.fromTo("#sa-hll", { opacity: 0, scale: 1.35 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.out" }, S + 7.32);
+            tl.to("#sa-rh", { scaleX: 1, duration: 0.40, ease: "power3.inOut" }, S + 7.62);
+            tl.fromTo("#sa-hlr", { opacity: 0, scale: 1.35 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.out" }, S + 7.94);
+            [["#sa-ax0", 8.20], ["#sa-ax1", 8.32], ["#sa-ax2", 8.44]].forEach(function (a) {
+              tl.fromTo(a[0], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.20, ease: "power3.out" }, S + a[1]);
+            });
+            /* annotation pass, in a different register */
+            draw("#sa-brk", S + 8.90, 0.52);
+            tl.fromTo("#sa-note", { opacity: 0, scale: 0.66, rotation: -4 },
+              { opacity: 1, scale: 1, rotation: -2, duration: 0.36, ease: "back.out(1.7)" }, S + 9.48);
+
+            var d = { t: 0 };
+            tl.to(d, { t: TOT, duration: TOT, ease: "none", onUpdate: function () { render(d.t); } }, S);
+          })();
+
+          /* ══════ SCENE B — the funnel, read in three camera passes · 15.60 → 27.83 ══════
+             The stage is 2800px tall against a 1920px frame, and the camera holds ~64% of
+             it at a time, so the layout is never presented all at once. Two legs, both on
+             the house cubic-bezier, both pure vertical translation at a constant zoom —
+             which means the motion blur can be derived analytically from the camera's own
+             velocity and applied as a directional feGaussianBlur (same technique card-04
+             uses on its row slams, driven by the camera instead of a tween). */
+          wipeInOut("sb", 15.60, 29.49, "down");
+          (function () {
+            var S = 15.60, TOT = 13.89;
+            var LAND = [0.70, 2.15, 9.60];   /* each band lands exactly as its leg settles */
+            var JOLT = [8, 9, 12];
+            var Z0 = 1.28;
+            var camEase = bezierEase(0.65, 0, 0.35, 1);
+            function ctrack(keys) {
+              return function (t) {
+                if (t <= keys[0].t) return keys[0].v;
+                for (var i = 0; i < keys.length - 1; i++) {
+                  var a = keys[i], b = keys[i + 1];
+                  if (t >= a.t && t <= b.t) {
+                    var f = b.t === a.t ? 1 : (t - a.t) / (b.t - a.t);
+                    return lerp(a.v, b.v, camEase(f));
+                  }
+                }
+                return keys[keys.length - 1].v;
+              };
+            }
+            /* legs sit in the quiet gaps — nothing animates inside a move window */
+            var cyOf = ctrack([
+              { t: 0.00, v: 640 }, { t: 1.55, v: 640 },     /* pass 1 — the mouth */
+              { t: 2.15, v: 1500 }, { t: 9.00, v: 1500 },   /* pass 2 — what it transfers */
+              { t: 9.60, v: 2200 }, { t: 11.30, v: 2200 },  /* pass 3 — the cone and the call */
+              { t: 12.50, v: 1490 }, { t: TOT, v: 1490 }    /* pull out to the whole funnel */
+            ]);
+            var zOf = ctrack([
+              { t: 0.00, v: Z0 }, { t: 11.30, v: Z0 },
+              { t: 12.50, v: 0.80 }, { t: TOT, v: 0.80 }
+            ]);
+            var stageEl = document.getElementById("sb-stage");
+            /* REAL motion blur (lib/motion-blur.js). Each camera leg hands the frame to a
+               WebGL pass that marches samples along the analytic per-pixel velocity of the
+               camera transform over a pre-baked texture of the settled layout. The DOM stage
+               hides for the duration of the leg; nothing animates inside a leg window, so the
+               texture is always a faithful still of what the DOM would be showing.
+               PAD_X/PAD_Y: the textures are padded so an off-centre or pulled-back camera
+               still samples real pixels instead of running off the edge. */
+            /* The shader maps the world texture onto rect [0,1080]x[0,1920], so the texture
+               has to carry the canvas aspect — K is that blow-up factor and the pose scales
+               by Z*K to compensate (same derivation as card-05's TEX_K). The stage origin
+               sits at (PAD_X, PAD_Y) inside the texture. */
+            var K = 2.1, PAD_X = 594, PAD_Y = 600;
+            function pose(t) {
+              var Z = zOf(t), cy = cyOf(t);
+              return { tx: 540 - Z * (540 + PAD_X), ty: 960 - Z * (cy + PAD_Y), s: Z * K };
+            }
+            var MOVES = [
+              { a: 1.55, b: 2.15, c: "sb-glA", w: "sb-worldA", blur: null },
+              { a: 9.00, b: 9.60, c: "sb-glB", w: "sb-worldB", blur: null },
+              { a: 11.30, b: 12.50, c: "sb-glC", w: "sb-worldC", blur: null }
+            ];
+            MOVES.forEach(function (m) {
+              var cv = document.getElementById(m.c);
+              tl.set(cv, { autoAlpha: 1 }, S + m.a);
+              tl.set(stageEl, { opacity: 0 }, S + m.a);
+              tl.set(cv, { autoAlpha: 0 }, S + m.b);
+              tl.set(stageEl, { opacity: 1 }, S + m.b);
+            });
+            function blurFor(m) {
+              if (!m.blur) {
+                m.blur = window.HFMotionBlur.createCameraBlur({
+                  canvas: document.getElementById(m.c),
+                  world: document.getElementById(m.w),
+                  camera: { T: pose },
+                  fps: 30, preset: "medium", bg: [0.031, 0.035, 0.043, 1]
+                });
+              }
+              return m.blur;
+            }
+            function render(t) {
+              var cy = cyOf(t), Z = zOf(t);
+              var jy = 0;
+              for (var i = 0; i < LAND.length; i++) {
+                var dt = t - LAND[i];
+                if (dt > 0) jy += JOLT[i] * Math.exp(-10 * dt) * Math.sin(34 * dt);
+              }
+              var tx = 540 - 540 * Z, ty = 960 - cy * Z + jy;
+              stageEl.style.transform = "translate(" + tx.toFixed(2) + "px," + ty.toFixed(2) + "px) scale(" + Z.toFixed(4) + ")";
+              for (var k = 0; k < MOVES.length; k++) {
+                if (t >= MOVES[k].a - 0.02 && t <= MOVES[k].b + 0.02) blurFor(MOVES[k]).render(t);
+              }
+            }
+            function slam(sel, at, rot) {
+              tl.fromTo(sel, { opacity: 0, scale: 1.16, rotation: rot, y: 140 },
+                { opacity: 1, scale: 1, rotation: 0, y: 0, duration: 0.40, ease: slamEase }, S + at);
+            }
+            kineticText("#sb-kicker", S + 0.12, { stagger: 0.035, dur: 0.35, y: 16 });
+            slam("#sb-b1", LAND[0], -2.4);
+            kineticText("#sb-l1", S + LAND[0] + 0.12, { stagger: 0.045, dur: 0.35 });
+            slam("#sb-b2", LAND[1], 2.2);
+            kineticText("#sb-l2", S + LAND[1] + 0.12, { stagger: 0.045, dur: 0.35 });
+            popIn("#sb-h1", S + 5.10, 0.30);
+            popIn("#sb-h2", S + 6.20, 0.30);
+            popIn("#sb-h3", S + 7.70, 0.30);
+            slam("#sb-b3", LAND[2], -2.0);
+            kineticText("#sb-l3", S + LAND[2] + 0.12, { stagger: 0.045, dur: 0.35 });
+            tl.fromTo("#sb-stem", { height: 0 }, { height: 66, duration: 0.22, ease: slamEase }, S + 10.50);
+            tl.fromTo("#sb-term", { opacity: 0, scale: 0.72, y: 24 },
+              { opacity: 1, scale: 1, y: 0, duration: 0.34, ease: "back.out(1.7)" }, S + 10.68);
+            tl.to("#sb-warm", { opacity: 1, duration: 0.5, ease: "power2.out" }, S + 10.68);
+            var d = { t: 0 };
+            tl.to(d, { t: TOT, duration: TOT, ease: "none", onUpdate: function () { render(d.t); } }, S);
+          })();
+
+          /* ══════ SCENE C — the proof · 32.90 → 38.30 ══════ */
+          wipeInOut("sc", 32.90, 37.60, "down");
+          (function () {
+            var S = 32.90, TOT = 4.70;
+            var LAND = [1.35, 3.50];
+            var stageEl = document.getElementById("sc-stage");
+            var lightEl = document.getElementById("sc-light");
+            var n1El = document.getElementById("sc-n1");
+            var n2El = document.getElementById("sc-n2");
+            /* odometers: blur rides the rate of change, locks sharp at rest (§6) */
+            var v1Of = track([{ t: 1.60, v: 0 }, { t: 2.45, v: 50 }, { t: TOT, v: 50 }]);
+            var v2Of = track([{ t: 3.75, v: 0 }, { t: 4.35, v: 20 }, { t: TOT, v: 20 }]);
+            var EPS = 0.008;
+            function rollBlur(fn, t, k) {
+              var rate = Math.abs(fn(t + EPS) - fn(t - EPS)) / (2 * EPS);
+              var b = Math.min(12, rate * k);
+              return b > 0.2 ? "blur(" + b.toFixed(2) + "px)" : "none";
+            }
+            function render(t) {
+              n1El.textContent = "$" + Math.round(v1Of(t)) + "K";
+              n1El.style.filter = rollBlur(v1Of, t, 0.12);
+              n2El.textContent = "" + Math.round(v2Of(t));
+              n2El.style.filter = rollBlur(v2Of, t, 0.28);
+              var bed = 1 + 0.045 * (t / TOT), jy = 0, js = 0;
+              for (var i = 0; i < LAND.length; i++) {
+                var dt = t - LAND[i];
+                if (dt > 0) { jy += 10 * Math.exp(-10 * dt) * Math.sin(34 * dt); js += 0.018 * Math.exp(-9 * dt); }
+              }
+              stageEl.style.transform = "translateY(" + jy.toFixed(2) + "px) scale(" + (bed + js).toFixed(4) + ")";
+              lightEl.style.transform =
+                "translate(" + lerp(-140, 360, t / TOT).toFixed(1) + "px," + lerp(0, 220, t / TOT).toFixed(1) + "px)";
+            }
+            function slam(sel, at, rot) {
+              tl.fromTo(sel, { opacity: 0, scale: 1.16, rotation: rot, y: 130 },
+                { opacity: 1, scale: 1, rotation: 0, y: 0, duration: 0.40, ease: slamEase }, S + at);
+            }
+            kineticText("#sc-kicker", S + 0.12, { stagger: 0.035, dur: 0.35, y: 16 });
+            tl.fromTo("#sc-shot",
+              { opacity: 0, scale: 1.16, rotation: -5.5, y: 70, filter: "blur(10px)" },
+              { opacity: 1, scale: 1, rotation: -1.4, y: 0, filter: "blur(0px)", duration: 0.30, ease: "power3.out" }, S + 0.35);
+            slam("#sc-r1", LAND[0], -2.2);
+            kineticText("#sc-c1", S + LAND[0] + 0.95, { stagger: 0.04, dur: 0.35 });
+            slam("#sc-r2", LAND[1], 2.0);
+            kineticText("#sc-c2", S + LAND[1] + 0.85, { stagger: 0.04, dur: 0.35 });
+            tl.to("#sc-glow", { opacity: 1, duration: 0.6, ease: "power2.out" }, S + LAND[1]);
+            var d = { t: 0 };
+            tl.to(d, { t: TOT, duration: TOT, ease: "none", onUpdate: function () { render(d.t); } }, S);
+          })();
+
+          /* ══════════════════════════════════════════════════════════════════
+             SCENE D — card-06, reused. On-talking-head overlay: the scrim arrives
+             on its own over 1.2s, settles at 38.90, then a full second of nothing
+             before the first line lands at 39.90. 37.70 → 45.80
+             ══════════════════════════════════════════════════════════════════ */
+          tl.set('.card-host[data-card-id="card-06"]', { visibility: "visible", opacity: 1 }, 37.70);
+          tl.fromTo("#card-06-scrim", { opacity: 0 }, { opacity: 1, duration: 1.20, ease: "power2.out" }, 37.70);
+          kineticText("#card-06-kicker", 39.90, { stagger: 0.035, dur: 0.35, y: 16 });
+          popIn("#card-06-check-1-dot", 40.35, 0.30);       /* "high ticket offer" 40.06-40.90 */
+          kineticText("#card-06-check-1-text", 40.40, { stagger: 0.045, dur: 0.4 });
+          popIn("#card-06-check-2-dot", 41.65, 0.30);       /* "five plus active clients" 41.32-42.78 */
+          kineticText("#card-06-check-2-text", 41.70, { stagger: 0.045, dur: 0.4 });
+          fadeIn("#card-06-comment-label", 42.95, 0.25);
+          popIn("#card-06-bubble", 43.28, 0.40);            /* "film" 43.32-43.64 */
+          popIn("#card-06-cursor", 43.66, 0.30);
+          kineticText("#card-06-subtitle", 44.30, { stagger: 0.03, dur: 0.35, y: 18 });
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["short4-recut"] = tl;
+        })();
+
+      </script>
+    </div>
+  </body>
+</html>

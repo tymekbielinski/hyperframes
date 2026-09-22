@@ -1,0 +1,102 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Lit dark ground: a soft green (#10A37F) breathing glow floor. */
+  #f11-glow { left: -160px; top: 300px; width: 1150px; height: 920px; background: radial-gradient(circle, rgba(255,166,102,0.36) 0%, rgba(255,166,102,0) 62%); }
+  /* The real ChatGPT capture, cropped to the conversation column (capture 1920x1080, crop x:660-1650 y:0-1080) —
+     the shot is taller than the frame (§8b): the camera pans/zooms through it. */
+  #f11-shot { left: 320px; top: 40px; width: 1280px; height: 1396px; transform: rotate(-1deg); background: #0F0F0F; }
+  #f11-shot img { width: 2482px; height: 1396px; margin-left: -853px; margin-top: 0px; object-fit: fill; }
+  /* Fixed HUD strip — the three model chips ride ABOVE the scroll, not tied to the document.
+     Stacked vertically on the empty dark ground to the right of the capture (the conversation
+     column never reaches past x≈1330 at 1x, and the shot itself ends at x=1600 — this band stays
+     clear of the capture at every sampled camera pose across the scene, verified via snapshot). */
+  #f11-chip-gpt { left: 1540px; top: 260px; background: #10A37F; }
+  #f11-chip-claude { left: 1540px; top: 398px; background: #D97757; }
+  #f11-chip-gemini { left: 1540px; top: 536px; background: #4285F4; }
+</style>
+<div data-hf-id="hf-b11r" id="root" class="hf-dark" data-composition-id="11-llm-citation" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-b11g" class="hf-ground-dark"></div>
+  <div data-hf-id="hf-b11w" id="f11-glow" class="hf-glow"></div>
+
+  <div data-hf-id="hf-b11s" id="f11-stage" class="hf-stage">
+    <div data-hf-id="hf-b11h" id="f11-shot" class="hf-shot"><img data-hf-id="hf-b11i" id="f11-img" src="assets/captures/chatgpt-citation-dark.png" alt=""></div>
+
+    <svg data-hf-id="hf-b11m" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-b11k" id="f11-ring" />
+    </svg>
+  </div>
+  <canvas data-hf-id="hf-b11c" id="f11-gl" class="hf-gl"></canvas>
+  <div data-hf-id="hf-b11v" class="hf-vignette"></div>
+
+  <div data-hf-id="hf-b11p1" id="f11-chip-gpt" class="hf-chip"><span data-hf-id="hf-b11r1" class="hf-roundel"><img data-hf-id="hf-b11m1" src="assets/logos/openai.svg" alt=""></span>ChatGPT</div>
+  <div data-hf-id="hf-b11p2" id="f11-chip-claude" class="hf-chip"><span data-hf-id="hf-b11r2" class="hf-roundel"><img data-hf-id="hf-b11m2" src="assets/logos/claude.svg" alt=""></span>Claude</div>
+  <div data-hf-id="hf-b11p3" id="f11-chip-gemini" class="hf-chip"><span data-hf-id="hf-b11r3" class="hf-roundel"><img data-hf-id="hf-b11m3" src="assets/logos/gemini.svg" alt=""></span>Gemini</div>
+</div>
+<script>
+  (function () {
+    var ID = "11-llm-citation", DUR = 7.75;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      function rr(ctx, x, y, w, h, r) {
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+      }
+      var img = document.getElementById("f11-img");
+
+      // Bed from t=0: the green glow floor breathes (independent of the camera).
+      tl.fromTo("#f11-glow", { scale: 0.94, opacity: 0.78 }, { scale: 1.06, opacity: 1.0, duration: DUR, ease: "sine.inOut" }, 0);
+
+      // §8c camera: standing micro-push 0→0.3, then the leg (HFMotionBlur) 0.3→1.6 travelling DOWN the answer
+      // (single-axis pan) toward the numbered process, then a slow push hold. Bake = opaque ground + the artifact.
+      H.camera(tl, {
+        stage: document.getElementById("f11-stage"), canvas: document.getElementById("f11-gl"),
+        bgCss: "transparent", bg: null, dur: DUR, K: 1.5, preset: "medium",
+        // Transparent world: only the artifact card is baked. The ground, green glow and vignette are DOM layers
+        // outside the camera stage; they show through the blur canvas, so the leg handoffs are exact by construction.
+        bake: function (ctx) {
+          var SX = 320, SY = 40, SW = 1280, SH = 1396, ROT = -1, R = 14, DW = 2482, DH = 1396, MGL = -853, MGT = 0;
+          ctx.save(); ctx.translate(SX + SW / 2, SY + SH / 2); ctx.rotate(ROT * Math.PI / 180);
+          ctx.fillStyle = "#000"; ctx.shadowColor = "rgba(0,0,0,0.55)"; ctx.shadowBlur = 110; ctx.shadowOffsetY = 48;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.fill();
+          ctx.shadowColor = "rgba(0,0,0,0)"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.clip();
+          ctx.drawImage(img, -SW / 2 + MGL, -SH / 2 + MGT, DW, DH);
+          // DS card chrome (hairline + orange glow-bar on the top edge) — the crop means this bake can't
+          // route through H.bakeImage, but the chrome MUST match what .hf-shot::before/::after paints in
+          // the DOM during holds, or the border appears/disappears at every leg boundary (Tymek: "the
+          // border is flickering again"). Same geometry/values as HFHouse.bakeImage's chrome branch.
+          ctx.save(); ctx.lineWidth = 1; ctx.strokeStyle = "#262626"; ctx.strokeRect(-SW / 2 + 0.5, -SH / 2 + 0.5, SW - 1, SH - 1); ctx.restore();
+          var g1 = ctx.createLinearGradient(-SW / 4, 0, SW / 4, 0); g1.addColorStop(0, "rgba(249,115,22,0)"); g1.addColorStop(0.5, "rgba(249,115,22,0.5)"); g1.addColorStop(1, "rgba(249,115,22,0)");
+          ctx.save(); ctx.filter = "blur(8px)"; ctx.fillStyle = g1; ctx.fillRect(-SW / 4, -SH / 2 - 1, SW / 2, 8); ctx.restore();
+          var g2 = ctx.createLinearGradient(-SW / 4, 0, SW / 4, 0); g2.addColorStop(0, "rgba(251,146,60,0)"); g2.addColorStop(0.5, "rgba(251,146,60,0.9)"); g2.addColorStop(1, "rgba(251,146,60,0)");
+          ctx.save(); ctx.fillStyle = g2; ctx.fillRect(-SW / 4, -SH / 2, SW / 2, 1); ctx.restore();
+          ctx.restore();
+        },
+        keys: [
+          { t: 0.0, cx: 960, cy: 357, z: 1.000 },
+          { t: 0.3, cx: 960, cy: 357, z: 1.015 },   // standing micro-push
+          { t: 1.6, cx: 960, cy: 550, z: 1.180 },   // the leg: travel down toward the numbered process
+          { t: DUR, cx: 955, cy: 545, z: 1.220 }    // slow push under the hold
+        ],
+        legs: [[0.3, 1.6]]
+      });
+
+      // Pass 2 (after the leg) — a red ring draws onto the first source chip in the answer ("Google Help +1").
+      var ring = document.getElementById("f11-ring");
+      ring.setAttribute("d", H.ringPath(613, 411, 100, 35, 2));
+      H.draw(tl, ring, 2.0, 0.55);
+
+      // The causal chain (§7): each model chip seeds + grows sideways as he names it — real dead air between,
+      // these are his words (ChatGPT / Claude / Gemini), not a stagger.
+      H.chip(tl, document.getElementById("f11-chip-gpt"), 4.4);
+      H.chip(tl, document.getElementById("f11-chip-claude"), 4.9);
+      H.chip(tl, document.getElementById("f11-chip-gemini"), 5.5);
+      // 5.77 → 7.75: held, fully annotated, still pushing.
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

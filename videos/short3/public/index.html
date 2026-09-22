@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contentporary — Short3 recut</title>
+    <style>
+      @font-face { font-family:"HND"; src:url("fonts/HND-700.woff2") format("woff2"); font-weight:700; font-display:block; }
+      @font-face { font-family:"HND"; src:url("fonts/HND-500.woff2") format("woff2"); font-weight:500; font-display:block; }
+      @font-face { font-family:"Inter"; src:url("fonts/Inter-400-latin.woff2") format("woff2"); font-weight:400; font-display:block; }
+      @font-face { font-family:"Inter"; src:url("fonts/Inter-700-latin.woff2") format("woff2"); font-weight:700; font-display:block; }
+      @font-face { font-family:"Caveat"; src:url("fonts/Caveat-700-latin.woff2") format("woff2"); font-weight:700; font-display:block; }
+      :root {
+        --light-bg:#ECECEC; --light-edge:#E5E5E5; --light-ink:#3A3A3A;
+        --red:#EE4B4A; --red-ink:#D93A39;
+        --accent-0:#EE4B4A; --accent-1:#EE4B4A; --accent-2:#EE4B4A; --accent-3:#EE4B4A; --accent-4:#EE4B4A;
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;
+        font-family:"HND","Inter",ui-sans-serif,system-ui,sans-serif;}
+      #stage{position:relative;width:100%;height:100%;overflow:hidden}
+      .video-wrapper{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+      .video-wrapper video{width:100%;height:100%;object-fit:cover}
+      .card-host{position:absolute;pointer-events:none;overflow:hidden}
+      .card-host .card{position:relative;width:100%;height:100%;overflow:hidden}
+      .card-host .word{display:inline-block}
+      .gl{position:absolute;inset:0;background:radial-gradient(ellipse 70% 46% at 50% 44%, #EFEFEF 0%, var(--light-bg) 52%, var(--light-edge) 100%)}
+      .grid{position:absolute;inset:0;opacity:.55;
+        background-image:linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px);
+        background-size:120px 120px}
+      .t-l{font-family:"HND",sans-serif;font-weight:700;color:var(--light-ink)}
+      .kick-l{font-family:"HND",sans-serif;font-weight:700;font-size:26px;letter-spacing:.24em;
+        text-transform:uppercase;color:var(--red)}
+      .hand{font-family:"Caveat",cursive;font-weight:700;color:var(--red-ink)}
+    </style>
+  </head>
+  <body>
+    <div id="stage" data-composition-id="short3-recut" data-start="0" data-duration="58.36"
+         data-fps="30" data-width="1080" data-height="1920">
+
+      <div class="video-wrapper" id="video-wrap">
+        <video id="bg-video" src="input-video.mp4" muted playsinline
+               data-start="0" data-duration="58.36" data-track-index="1"></video>
+      </div>
+      <audio id="source-audio" src="input-video.mp4" data-start="0" data-duration="58.36"
+             data-track-index="10" data-volume="1"></audio>
+
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+        <filter id="mb-sa" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-sa" stdDeviation="0 0"/></filter>
+        <filter id="mb-sb" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-sb" stdDeviation="0 0"/></filter>
+        <filter id="mb-sc" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-sc" stdDeviation="0 0"/></filter>
+        <filter id="mb-s5" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-s5" stdDeviation="0 0"/></filter>
+        <filter id="mb-s6" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-s6" stdDeviation="0 0"/></filter>
+      </defs></svg>
+
+      <!-- ══════════ SCENE A · volume vs return · 2.20 → 7.86 ══════════ -->
+      <div class="card-host clip" id="host-sa" data-card-id="sa" data-start="2.2000" data-duration="5.6600" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="sa"><style>
+          .card[data-card-id="sa"] .root{width:100%;height:100%;position:relative;overflow:hidden;
+            background:radial-gradient(ellipse 1100px 1500px at 50% 38%, #1b1d22 0%, #101114 55%, #08090b 100%);
+            font-family:"HND","Inter",Helvetica,Arial,sans-serif}
+          .card[data-card-id="sa"] .stage{position:absolute;inset:0;transform-origin:540px 960px;will-change:transform}
+          .card[data-card-id="sa"] .light{position:absolute;left:-300px;top:-150px;width:1400px;height:1400px;
+            border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 62%)}
+          .card[data-card-id="sa"] .warm{position:absolute;left:50%;top:1300px;width:1250px;height:1250px;
+            margin:-625px 0 0 -625px;border-radius:50%;
+            background:radial-gradient(circle, rgba(255,68,51,0.17) 0%, rgba(255,68,51,0) 64%);opacity:0}
+          .card[data-card-id="sa"] .kicker{position:absolute;left:0;top:296px;width:100%;text-align:center;
+            font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;
+            background-image:linear-gradient(to top,#585c64 0%,#b6bac2 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sa"] .tile{position:absolute;width:120px;height:86px;border-radius:10px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.035) 100%);
+            border:1px solid rgba(255,255,255,0.11);opacity:0}
+          .card[data-card-id="sa"] .cnt{position:absolute;left:0;top:908px;width:100%;text-align:center;
+            font-weight:800;font-size:158px;line-height:1.12;letter-spacing:-.035em;color:#F4F6F8;opacity:0}
+          .card[data-card-id="sa"] .cap{position:absolute;left:0;top:1142px;width:100%;text-align:center;
+            font-weight:700;font-size:34px;letter-spacing:.04em;color:#c6c9cf;opacity:0}
+          .card[data-card-id="sa"] .brk{position:absolute;left:300px;top:1206px}
+          .card[data-card-id="sa"] .note{position:absolute;left:0;top:1288px;width:100%;text-align:center;
+            font-family:"Caveat",cursive;font-weight:700;font-size:70px;color:#ff4433;opacity:0}
+        </style>
+        <div class="root">
+          <div class="stage" id="sa-stage">
+            <div class="light" id="sa-light"></div>
+            <div class="warm" id="sa-warm"></div>
+            <div class="kicker" id="sa-kicker">Short form, every single day</div>
+            <div id="sa-grid"><div class="tile" id="sa-t0" style="left:150px;top:380px"></div><div class="tile" id="sa-t1" style="left:282px;top:380px"></div><div class="tile" id="sa-t2" style="left:414px;top:380px"></div><div class="tile" id="sa-t3" style="left:546px;top:380px"></div><div class="tile" id="sa-t4" style="left:678px;top:380px"></div><div class="tile" id="sa-t5" style="left:810px;top:380px"></div><div class="tile" id="sa-t6" style="left:150px;top:478px"></div><div class="tile" id="sa-t7" style="left:282px;top:478px"></div><div class="tile" id="sa-t8" style="left:414px;top:478px"></div><div class="tile" id="sa-t9" style="left:546px;top:478px"></div><div class="tile" id="sa-t10" style="left:678px;top:478px"></div><div class="tile" id="sa-t11" style="left:810px;top:478px"></div><div class="tile" id="sa-t12" style="left:150px;top:576px"></div><div class="tile" id="sa-t13" style="left:282px;top:576px"></div><div class="tile" id="sa-t14" style="left:414px;top:576px"></div><div class="tile" id="sa-t15" style="left:546px;top:576px"></div><div class="tile" id="sa-t16" style="left:678px;top:576px"></div><div class="tile" id="sa-t17" style="left:810px;top:576px"></div><div class="tile" id="sa-t18" style="left:150px;top:674px"></div><div class="tile" id="sa-t19" style="left:282px;top:674px"></div><div class="tile" id="sa-t20" style="left:414px;top:674px"></div><div class="tile" id="sa-t21" style="left:546px;top:674px"></div><div class="tile" id="sa-t22" style="left:678px;top:674px"></div><div class="tile" id="sa-t23" style="left:810px;top:674px"></div><div class="tile" id="sa-t24" style="left:150px;top:772px"></div><div class="tile" id="sa-t25" style="left:282px;top:772px"></div><div class="tile" id="sa-t26" style="left:414px;top:772px"></div><div class="tile" id="sa-t27" style="left:546px;top:772px"></div><div class="tile" id="sa-t28" style="left:678px;top:772px"></div><div class="tile" id="sa-t29" style="left:810px;top:772px"></div></div>
+            <div class="cnt" id="sa-cnt">0</div>
+            <div class="cap" id="sa-cap">posts this month</div>
+            <svg class="brk" width="480" height="70" viewBox="0 0 480 70" fill="none">
+              <path id="sa-brk" d="M8 8 C10 38, 16 46, 44 48 C138 54, 190 50, 240 60 C294 50, 344 54, 436 48 C464 46, 470 37, 472 8"
+                    stroke="#ff4433" stroke-width="7" stroke-linecap="round" fill="none"/>
+            </svg>
+            <div class="note" id="sa-note">and almost nothing back</div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ══════════ SCENE B · time a buyer needs · 9.90 → 14.69 ══════════ -->
+      <div class="card-host clip" id="host-sb" data-card-id="sb" data-start="9.9000" data-duration="4.7900" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="sb"><style>
+          .card[data-card-id="sb"] .root{width:100%;height:100%;position:relative;overflow:hidden;
+            background:radial-gradient(ellipse 1100px 1500px at 50% 40%, #1b1d22 0%, #101114 55%, #08090b 100%);
+            font-family:"HND","Inter",Helvetica,Arial,sans-serif}
+          .card[data-card-id="sb"] .stage{position:absolute;inset:0;transform-origin:540px 960px;will-change:transform}
+          .card[data-card-id="sb"] .light{position:absolute;left:-300px;top:-150px;width:1400px;height:1400px;
+            border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 62%)}
+          .card[data-card-id="sb"] .warm{position:absolute;left:50%;top:1180px;width:1250px;height:1250px;
+            margin:-625px 0 0 -625px;border-radius:50%;
+            background:radial-gradient(circle, rgba(255,68,51,0.17) 0%, rgba(255,68,51,0) 64%);opacity:0}
+          .card[data-card-id="sb"] .kicker{position:absolute;left:0;top:560px;width:100%;text-align:center;
+            font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;
+            background-image:linear-gradient(to top,#585c64 0%,#b6bac2 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sb"] .track{position:absolute;left:90px;top:700px;width:900px;height:34px;
+            border:1px solid rgba(255,255,255,0.16);border-radius:17px;background:rgba(255,255,255,0.03);
+            transform-origin:0% 50%}
+          .card[data-card-id="sb"] .sf{position:absolute;left:93px;top:703px;width:78px;height:28px;
+            border-radius:14px;background:#ff4433;transform-origin:0% 50%}
+          .card[data-card-id="sb"] .sflab{position:absolute;left:60px;top:756px;width:200px;text-align:center;
+            font-weight:700;font-size:26px;letter-spacing:.05em;color:#ff6a54;opacity:0}
+          .card[data-card-id="sb"] .thr{position:absolute;left:786px;top:660px;width:4px;height:114px;
+            background:repeating-linear-gradient(180deg,#e9ebee 0px,#e9ebee 10px,transparent 10px,transparent 20px);
+            transform-origin:50% 0%}
+          .card[data-card-id="sb"] .thrlab{position:absolute;left:600px;top:790px;width:376px;text-align:center;
+            font-weight:700;font-size:30px;line-height:1.3;color:#e9ebee;opacity:0}
+          .card[data-card-id="sb"] .brk{position:absolute;left:168px;top:900px}
+          .card[data-card-id="sb"] .note{position:absolute;left:0;top:986px;width:100%;text-align:center;
+            font-family:"Caveat",cursive;font-weight:700;font-size:72px;color:#ff4433;opacity:0}
+        </style>
+        <div class="root">
+          <div class="stage" id="sb-stage">
+            <div class="light" id="sb-light"></div>
+            <div class="warm" id="sb-warm"></div>
+            <div class="kicker" id="sb-kicker">Time a high-ticket buyer needs</div>
+            <div class="track" id="sb-track"></div>
+            <div class="sf" id="sb-sf"></div>
+            <div class="sflab" id="sb-sflab">short form</div>
+            <div class="thr" id="sb-thr"></div>
+            <div class="thrlab" id="sb-thrlab">enough to trust you<br/>before the call</div>
+            <svg class="brk" width="630" height="70" viewBox="0 0 630 70" fill="none">
+              <path id="sb-brk" d="M8 8 C10 38, 16 46, 44 48 C180 56, 250 50, 314 60 C382 50, 452 56, 586 48 C614 46, 620 37, 622 8"
+                    stroke="#ff4433" stroke-width="7" stroke-linecap="round" fill="none"/>
+            </svg>
+            <div class="note" id="sb-note">not enough time</div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+<div class="card-host clip" id="host-sc" data-card-id="sc" data-start="21.5000" data-duration="9.1600" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="sc"><style>
+          .card[data-card-id="sc"] .root{width:100%;height:100%;position:relative;overflow:hidden;
+            background:radial-gradient(ellipse 1100px 1500px at 50% 40%, #1b1d22 0%, #101114 55%, #08090b 100%);
+            font-family:"HND","Inter",Helvetica,Arial,sans-serif}
+          .card[data-card-id="sc"] .stage{position:absolute;inset:0;transform-origin:540px 960px;will-change:transform}
+          .card[data-card-id="sc"] .light{position:absolute;left:-300px;top:-150px;width:1400px;height:1400px;
+            border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 62%)}
+          .card[data-card-id="sc"] .glow{position:absolute;left:50%;top:1000px;width:1300px;height:1300px;
+            margin:-650px 0 0 -650px;border-radius:50%;
+            background:radial-gradient(circle, rgba(30,161,94,0.16) 0%, rgba(30,161,94,0) 62%);opacity:0}
+          .card[data-card-id="sc"] .kicker{position:absolute;left:0;top:284px;width:100%;text-align:center;
+            font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;
+            background-image:linear-gradient(to top,#585c64 0%,#b6bac2 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sc"] .shot{position:absolute;left:180px;top:340px;width:720px;
+            border-radius:14px;overflow:hidden;background:#fff;opacity:0;
+            box-shadow:0 30px 64px rgba(0,0,0,0.55), 0 6px 16px rgba(0,0,0,0.42)}
+          .card[data-card-id="sc"] .shot img{display:block;width:100%;height:auto}
+          .card[data-card-id="sc"] .row{position:absolute;left:60px;width:960px;height:350px;opacity:0;will-change:transform}
+          .card[data-card-id="sc"] .panel{position:absolute;inset:0;border-radius:32px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+            border:1px solid rgba(255,255,255,0.10);box-shadow:0 26px 54px rgba(0,0,0,0.5)}
+          .card[data-card-id="sc"] .num{position:absolute;left:0;top:40px;width:100%;text-align:center;
+            font-weight:800;font-size:190px;line-height:1.14;letter-spacing:-.035em;
+            background-image:linear-gradient(to top,#9ba0a8 0%,#ffffff 78%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+          .card[data-card-id="sc"] .cap{position:absolute;left:0;top:248px;width:100%;text-align:center;
+            font-weight:700;font-size:36px;letter-spacing:.02em;
+            background-image:linear-gradient(to top,#b3b7be 0%,#ffffff 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="sc"] .fine{position:absolute;left:0;top:298px;width:100%;text-align:center;
+            font-weight:500;font-size:28px;color:#8f939b}
+        </style>
+        <div class="root">
+          <div class="stage" id="sc-stage">
+            <div class="light" id="sc-light"></div>
+            <div class="glow" id="sc-glow"></div>
+            <div class="kicker" id="sc-kicker">The Printing Prediction System</div>
+            <div class="shot" id="sc-shot" style="transform:rotate(-1.4deg)"><img src="shots/tim.png" alt=""></div>
+
+            <div class="row" id="sc-r1" style="top:690px">
+              <div class="panel"></div>
+              <div class="num" id="sc-n1">0</div>
+              <div class="cap" id="sc-c1">Qualified calls</div>
+              <div class="fine">every month</div>
+            </div>
+
+            <div class="row" id="sc-r2" style="top:1080px">
+              <div class="panel"></div>
+              <div class="num" id="sc-n2">$0</div>
+              <div class="cap" id="sc-c2">New revenue from YouTube</div>
+              <div class="fine">directly attributed</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+<div class="card-host clip" id="host-s5" data-card-id="s5" data-start="30.8500" data-duration="6.3100" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="s5"><style>
+          .card[data-card-id="s5"] .root{width:100%;height:100%;position:relative;overflow:hidden}
+          .card[data-card-id="s5"] .hdr{position:absolute;left:72px;top:150px;font-family:"Inter",sans-serif;
+            font-weight:700;font-size:40px;color:#0F0F0F}
+          .card[data-card-id="s5"] .hdrn{font-family:"Inter",sans-serif;font-weight:400;font-size:32px;color:#606060;margin-left:18px}
+          .card[data-card-id="s5"] .cm{position:absolute;left:72px;width:944px;font-family:"Inter",sans-serif}
+          .card[data-card-id="s5"] .av{position:absolute;left:0;top:4px;width:88px;height:88px;border-radius:50%;
+            display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40px;color:#fff}
+          .card[data-card-id="s5"] .meta{margin-left:118px;font-weight:700;font-size:30px;color:#0F0F0F}
+          .card[data-card-id="s5"] .ago{font-weight:400;font-size:28px;color:#4B4B4B;margin-left:14px}
+          .card[data-card-id="s5"] .body{margin-left:118px;margin-top:12px;font-weight:400;font-size:34px;
+            line-height:48px;color:#0F0F0F}
+          .card[data-card-id="s5"] .acts{margin-left:118px;margin-top:18px;display:flex;align-items:center;gap:16px;
+            font-weight:500;font-size:26px;color:#4B4B4B}
+          .card[data-card-id="s5"] .lbl{position:absolute;font-family:"Caveat",cursive;font-weight:700;
+            font-size:56px;color:var(--red-ink)}
+        </style>
+        <div class="root">
+          <div class="gl"></div><div class="grid"></div>
+          <div class="cam" data-layout-allow-overflow id="s5-cam" style="position:absolute;inset:0">
+            <div class="hdr">142 Comments<span class="hdrn">Sort by</span></div>
+
+            <div class="cm" id="s5-c0" style="top:300px">
+              <div class="av" style="background:#5B8DEF">M</div>
+              <div class="meta">@markbuilds<span class="ago">2 days ago</span></div>
+              <div class="body">How do you actually get people to book a call after watching? I get the views, the calls just don't come.</div>
+              <div class="acts">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M7 22V11l5-9a2.5 2.5 0 0 1 2.4 3.2L13.5 9H20a2 2 0 0 1 2 2.4l-1.6 8A2 2 0 0 1 18.4 21H7z"/></svg>
+                <span>48</span>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M17 2v11l-5 9a2.5 2.5 0 0 1-2.4-3.2L10.5 15H4a2 2 0 0 1-2-2.4l1.6-8A2 2 0 0 1 5.6 3H17z"/></svg>
+                <span style="margin-left:10px">Reply</span>
+              </div>
+            </div>
+
+            <div class="cm" id="s5-c1" style="top:700px">
+              <div class="av" style="background:#C96A22">D</div>
+              <div class="meta">@dan.agencyops<span class="ago">5 days ago</span></div>
+              <div class="body">Feels like this only works if you already have an audience. Starting at zero seems like a 2 year project.</div>
+              <div class="acts">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M7 22V11l5-9a2.5 2.5 0 0 1 2.4 3.2L13.5 9H20a2 2 0 0 1 2 2.4l-1.6 8A2 2 0 0 1 18.4 21H7z"/></svg>
+                <span>31</span>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M17 2v11l-5 9a2.5 2.5 0 0 1-2.4-3.2L10.5 15H4a2 2 0 0 1-2-2.4l1.6-8A2 2 0 0 1 5.6 3H17z"/></svg>
+                <span style="margin-left:10px">Reply</span>
+              </div>
+            </div>
+
+            <div class="cm" id="s5-c2" style="top:1120px">
+              <div class="av" style="background:#7C5BD9">J</div>
+              <div class="meta">@jules.scaling<span class="ago">1 week ago</span></div>
+              <div class="body">What's your actual editing setup? Been looking for a system that doesn't eat my whole week.</div>
+              <div class="acts">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M7 22V11l5-9a2.5 2.5 0 0 1 2.4 3.2L13.5 9H20a2 2 0 0 1 2 2.4l-1.6 8A2 2 0 0 1 18.4 21H7z"/></svg>
+                <span>77</span>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M17 2v11l-5 9a2.5 2.5 0 0 1-2.4-3.2L10.5 15H4a2 2 0 0 1-2-2.4l1.6-8A2 2 0 0 1 5.6 3H17z"/></svg>
+                <span style="margin-left:10px">Reply</span>
+              </div>
+            </div>
+
+            <svg id="s5-u0" style="position:absolute;left:180px;top:512px" width="760" height="40" viewBox="0 0 760 40" fill="none">
+              <path id="s5-p0" d="M8 22 C170 10, 380 32, 560 16 C640 9, 700 22, 750 14" stroke="#EE4B4A" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+            <svg id="s5-u1" style="position:absolute;left:180px;top:912px" width="790" height="40" viewBox="0 0 790 40" fill="none">
+              <path id="s5-p1" d="M8 20 C190 32, 400 8, 590 24 C670 30, 730 16, 780 22" stroke="#EE4B4A" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+            <svg id="s5-u2" style="position:absolute;left:180px;top:1332px" width="740" height="40" viewBox="0 0 740 40" fill="none">
+              <path id="s5-p2" d="M8 18 C160 30, 360 8, 540 22 C620 28, 680 14, 730 20" stroke="#EE4B4A" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+
+            <div class="lbl" id="s5-l0" style="left:196px;top:552px;transform:rotate(-2deg)">the questions they ask</div>
+            <div class="lbl" id="s5-l1" style="left:196px;top:952px;transform:rotate(-1.4deg)">the objections they have</div>
+            <div class="lbl" id="s5-l2" style="left:196px;top:1372px;transform:rotate(-2.2deg)">what they already care about</div>
+          </div>
+        </div></div>
+      </div>
+
+<div class="card-host clip" id="host-s6" data-card-id="s6" data-start="38.6000" data-duration="6.0000" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="s6"><style>
+          .card[data-card-id="s6"] .root{width:100%;height:100%;position:relative;overflow:hidden}
+          .card[data-card-id="s6"] .badge{position:absolute;left:72px;top:330px;height:64px;border-radius:32px;
+            background:var(--red);color:#fff;display:flex;align-items:center;padding:0 30px;
+            font-family:"HND",sans-serif;font-weight:700;font-size:26px;letter-spacing:.2em;text-transform:uppercase}
+          .card[data-card-id="s6"] .cc{position:absolute;left:72px;width:936px;border-radius:18px;background:#FAFAFA;
+            border:1px solid #DCDCDC;box-shadow:0 18px 44px rgba(0,0,0,.10);padding:38px 42px}
+          .card[data-card-id="s6"] .cn{font-family:"HND",sans-serif;font-weight:700;font-size:24px;letter-spacing:.2em;
+            text-transform:uppercase;color:#909090;margin-bottom:16px}
+          .card[data-card-id="s6"] .ct{font-family:"HND",sans-serif;font-weight:700;font-size:46px;line-height:58px;
+            color:var(--light-ink);letter-spacing:-.015em}
+          .card[data-card-id="s6"] .cur{position:absolute;left:0;top:0}
+        </style>
+        <div class="root">
+          <div class="gl"></div><div class="grid"></div>
+          <div class="cam" data-layout-allow-overflow id="s6-cam" style="position:absolute;inset:0">
+            <div class="badge" id="s6-badge">This week's concepts</div>
+            <div class="cc" id="s6-k0" style="top:470px;transform:rotate(-0.6deg)">
+              <div class="cn">Concept 01</div>
+              <div class="ct">How We Book 20 Calls A Month From 500 Views</div>
+            </div>
+            <div class="cc" id="s6-k1" style="top:816px;transform:rotate(0.5deg)">
+              <div class="cn">Concept 02</div>
+              <div class="ct">The Offer Teardown: Why Your Retainer Isn't Closing</div>
+            </div>
+            <div class="cc" id="s6-k2" style="top:1162px;transform:rotate(-0.4deg)">
+              <div class="cn">Concept 03</div>
+              <div class="ct">I Rebuilt A $50K/Mo Agency's Funnel In 48 Hours</div>
+            </div>
+            <svg id="s6-ring" style="position:absolute;left:38px;top:780px" width="1004" height="330" viewBox="0 0 1004 330" fill="none">
+              <path id="s6-ringp" d="M116 40 C360 8, 700 12, 902 46 C982 62, 986 240, 890 282 C640 322, 330 320, 118 288 C24 268, 20 68, 130 42"
+                    stroke="#EE4B4A" stroke-width="7" stroke-linecap="round" fill="none"/></svg>
+            <svg class="cur" id="s6-cur" width="54" height="66" viewBox="0 0 54 66" fill="none">
+              <path d="M6 4 L6 52 L18 41 L26 60 L36 55 L28 37 L44 36 Z" fill="#151515" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>
+            <div class="hand" id="s6-pick" style="position:absolute;left:660px;top:1104px;font-size:56px;transform:rotate(-3deg)">you pick</div>
+          </div>
+        </div></div>
+      </div>
+
+<div class="card-host clip" data-card-id="card-06" id="host-card-06" data-start="50.2000" data-duration="8.1600" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="card-06">
+          <style>
+            .card[data-card-id="card-06"] .root {
+              width: 100%; height: 100%;
+              position: relative;
+              background: transparent;
+              overflow: hidden;
+              font-family: "HND", "Inter", Helvetica, Arial, sans-serif;
+            }
+            .card[data-card-id="card-06"] .scrim {
+              position: absolute; left: 0; top: 820px; width: 100%; height: 1100px;
+              background: linear-gradient(to top,
+                rgba(7,8,10,0.82) 0%, rgba(7,8,10,0.72) 34%,
+                rgba(7,8,10,0.36) 68%, rgba(7,8,10,0) 100%);
+            }
+            .card[data-card-id="card-06"] .kicker {
+              position: absolute; left: 0; top: 1052px; width: 100%;
+              text-align: center; font-weight: 700; font-size: 27px;
+              letter-spacing: 0.14em; text-transform: uppercase;
+              background-image: linear-gradient(to top, #8f939b 0%, #d4d7dc 100%);
+              -webkit-background-clip: text; background-clip: text;
+              color: transparent; -webkit-text-fill-color: transparent;
+            }
+            .card[data-card-id="card-06"] .checks {
+              position: absolute; left: 220px; top: 1126px; width: 700px;
+            }
+            .card[data-card-id="card-06"] .check-row {
+              display: flex; align-items: center; gap: 24px;
+              margin-bottom: 26px;
+            }
+            .card[data-card-id="card-06"] .check-dot {
+              flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%;
+              background: #1ea15e; display: flex; align-items: center; justify-content: center;
+              box-shadow: 0 10px 22px rgba(30,161,94,0.45);
+            }
+            .card[data-card-id="card-06"] .check-dot svg { width: 26px; height: 26px; }
+            .card[data-card-id="card-06"] .check-text {
+              font-weight: 600; font-size: 42px; color: #f2f3f5;
+            }
+            .card[data-card-id="card-06"] .comment-label {
+              position: absolute; left: 0; top: 1344px; width: 100%;
+              text-align: center; font-weight: 700; font-size: 26px;
+              letter-spacing: 0.12em; text-transform: uppercase; color: #b6bac2;
+            }
+            .card[data-card-id="card-06"] .bubble {
+              position: absolute; left: 330px; top: 1398px; width: 420px; height: 138px;
+              border-radius: 32px; background: #ff4433;
+              box-shadow: 0 24px 60px rgba(255,68,51,0.45);
+              display: flex; align-items: center; justify-content: center;
+            }
+            .card[data-card-id="card-06"] .bubble::after {
+              content: ""; position: absolute; left: 62px; bottom: -20px;
+              width: 0; height: 0;
+              border-left: 13px solid transparent; border-right: 26px solid transparent;
+              border-top: 24px solid #ff4433;
+            }
+            .card[data-card-id="card-06"] .bubble-text {
+              color: #ffffff; font-weight: 700; font-size: 58px; letter-spacing: -0.01em;
+            }
+            .card[data-card-id="card-06"] .cursor {
+              position: absolute; left: 700px; top: 1484px; width: 78px; height: 78px;
+            }
+            .card[data-card-id="card-06"] .cursor svg { width: 100%; height: 100%; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.5)); }
+            .card[data-card-id="card-06"] .subtitle {
+              position: absolute; left: 90px; top: 1584px; width: 900px;
+              text-align: center; font-weight: 500; font-size: 33px; line-height: 1.3;
+              color: #c6c9cf;
+            }
+          </style>
+
+          <div class="root">
+            <div class="scrim" id="card-06-scrim" style="opacity:0;"></div>
+            <div class="kicker" id="card-06-kicker" style="opacity:0;">Qualify In 2 Seconds</div>
+
+            <div class="checks">
+              <div class="check-row" id="card-06-check-1">
+                <div class="check-dot" id="card-06-check-1-dot" style="opacity:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></div>
+                <div class="check-text" id="card-06-check-1-text" style="opacity:0;">High-Ticket Offer</div>
+              </div>
+              <div class="check-row" id="card-06-check-2">
+                <div class="check-dot" id="card-06-check-2-dot" style="opacity:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></div>
+                <div class="check-text" id="card-06-check-2-text" style="opacity:0;">5+ Active Clients</div>
+              </div>
+            </div>
+
+            <div class="comment-label" id="card-06-comment-label" style="opacity:0;">Comment</div>
+            <div class="bubble" id="card-06-bubble" style="opacity:0;">
+              <div class="bubble-text">&ldquo;FILM&rdquo;</div>
+            </div>
+            <div class="cursor" id="card-06-cursor" style="opacity:0;">
+              <svg viewBox="0 0 32 32"><path d="M6 3 L26 15 L16 17 L12 27 Z" fill="#ffffff" stroke="#16181c" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+
+            <div class="subtitle" id="card-06-subtitle" style="opacity:0;">We'll make you a free long-form YouTube video.</div>
+          </div>
+        </div>
+      </div>
+
+      <script src="vendor/gsap.min.js"></script>
+      <script>
+        (function () {
+          var gsap = window.gsap;
+          var tl = gsap.timeline({ paused: true });
+          var FPS = 30;
+          function q(t) { return Math.round(t * FPS) / FPS; }
+          function lerp(a, b, f) { return a + (b - a) * f; }
+          function smoothstep(f) { f = Math.max(0, Math.min(1, f)); return f * f * (3 - 2 * f); }
+          function track(keys) {
+            return function (t) {
+              if (t <= keys[0].t) return keys[0].v;
+              for (var i = 0; i < keys.length - 1; i++) {
+                var a = keys[i], b = keys[i + 1];
+                if (t >= a.t && t <= b.t) {
+                  var f = b.t === a.t ? 1 : (t - a.t) / (b.t - a.t);
+                  return lerp(a.v, b.v, smoothstep(f));
+                }
+              }
+              return keys[keys.length - 1].v;
+            };
+          }
+          var GRAD_DIR = { left: "to left", right: "to right", down: "to bottom", up: "to top" };
+          function bezierEase(x1, y1, x2, y2) {
+            function bx(u) { return 3 * u * (1 - u) * (1 - u) * x1 + 3 * u * u * (1 - u) * x2 + u * u * u; }
+            function by(u) { return 3 * u * (1 - u) * (1 - u) * y1 + 3 * u * u * (1 - u) * y2 + u * u * u; }
+            return function (f) {
+              if (f <= 0) return 0; if (f >= 1) return 1;
+              var lo = 0, hi = 1, u;
+              for (var i = 0; i < 24; i++) { u = (lo + hi) / 2; if (bx(u) < f) lo = u; else hi = u; }
+              return by((lo + hi) / 2);
+            };
+          }
+          var wipeEase = bezierEase(0.65, 0, 0.35, 1);
+          var slamEase = bezierEase(0.42, 0, 0.18, 1);
+          var WIPE_IN = 0.42, WIPE_OUT = 0.36;
+          function wipeInOut(id, start, end, dir) {
+            var sel = '.card-host[data-card-id="' + id + '"]';
+            var host = document.querySelector(sel);
+            var fe = document.getElementById("mbfe-" + id);
+            var horiz = dir === "left" || dir === "right";
+            var gdir = GRAD_DIR[dir];
+            function apply(raw, blurMax) {
+              var qv = wipeEase(raw);
+              var speed = 4 * qv * (1 - qv);
+              if (fe) {
+                var v = blurMax * speed;
+                fe.setAttribute("stdDeviation", horiz ? v.toFixed(2) + " 0" : "0 " + v.toFixed(2));
+              }
+              if (!host) return;
+              if (qv >= 1) {
+                host.style.webkitMaskImage = host.style.maskImage = "none";
+                host.style.filter = "none";
+                return;
+              }
+              host.style.filter = "url(#mb-" + id + ")";
+              var F = 8 + 34 * speed;
+              var a = qv * (100 + F) - F, b = a + F;
+              var g = "linear-gradient(" + gdir + ", rgba(0,0,0,1) " + a.toFixed(2) + "%, rgba(0,0,0,0) " + b.toFixed(2) + "%)";
+              host.style.webkitMaskImage = g; host.style.maskImage = g;
+            }
+            var qi = { v: 0 }, qo = { v: 1 };
+            tl.set(sel, { visibility: "visible", opacity: 1 }, start);
+            tl.fromTo(qi, { v: 0 }, { v: 1, duration: WIPE_IN, ease: "none", immediateRender: false,
+              onUpdate: function () { apply(qi.v, 14); } }, start);
+            tl.fromTo(qo, { v: 1 }, { v: 0, duration: WIPE_OUT, ease: "none", immediateRender: false,
+              onUpdate: function () { apply(qo.v, 12); } }, end - WIPE_OUT);
+            tl.set(sel, { visibility: "hidden" }, end);
+          }
+          function popIn(sel, at, dur) {
+            tl.fromTo(sel, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: dur, ease: "back.out(1.6)" }, at);
+          }
+          function fadeIn(sel, at, dur) {
+            tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: dur, ease: "power2.out" }, at);
+          }
+          function kineticText(sel, at, opts) {
+            opts = opts || {};
+            var stagger = opts.stagger != null ? opts.stagger : 0.045;
+            var dur = opts.dur != null ? opts.dur : 0.45;
+            var y = opts.y != null ? opts.y : 26;
+            var el = document.querySelector(sel);
+            if (!el) return;
+            var cs = getComputedStyle(el);
+            var gradCSS = (cs.backgroundImage && cs.backgroundImage !== "none")
+              ? ("background-image:" + cs.backgroundImage + ";-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;")
+              : "";
+            var parts = el.innerHTML.split(/(<br\s*\/?>)/i);
+            el.innerHTML = parts.map(function (part) {
+              if (/^<br\s*\/?>$/i.test(part)) return part;
+              return part.split(/\s+/).filter(Boolean).map(function (w) {
+                return '<span class="kw" style="display:inline-block;opacity:0;' + gradCSS + '">' + w + '</span>';
+              }).join(' ');
+            }).join('');
+            var wds = el.querySelectorAll('.kw');
+            tl.set(el, { opacity: 1 }, at);
+            tl.fromTo(wds, { opacity: 0, y: y }, { opacity: 1, y: 0, duration: dur, ease: "back.out(1.5)", stagger: stagger }, at);
+          }
+          function pop(sel, T, o) { o = o || {};
+            tl.fromTo(sel, { opacity: 0, scale: o.from == null ? 1.55 : o.from, filter: "blur(10px)" },
+              { opacity: 1, scale: 1, filter: "blur(0px)", duration: o.d == null ? 0.14 : o.d, ease: "power4.out" }, q(T));
+            tl.fromTo(sel, { y: o.sy == null ? 14 : o.sy }, { y: 0, duration: 0.7, ease: "power2.out" }, q(T)); }
+          function riseIn(sel, T, d) {
+            tl.fromTo(sel, { opacity: 0, y: 34, filter: "blur(8px)" },
+              { opacity: 1, y: 0, filter: "blur(0px)", duration: d == null ? 0.30 : d, ease: "power3.out" }, q(T)); }
+          function peers(list, T, step) { for (var i = 0; i < list.length; i++) riseIn(list[i], T + i * (step == null ? 0.125 : step)); }
+          function draw(sel, T, D, ease) {
+            var el = document.querySelector(sel); if (!el || !el.getTotalLength) return;
+            var L = el.getTotalLength();
+            tl.set(sel, { strokeDasharray: L, strokeDashoffset: L }, 0);
+            tl.to(sel, { strokeDashoffset: 0, duration: D, ease: ease || "power2.out" }, q(T)); }
+          function camPush(sel, T, dur, from, to) {
+            tl.fromTo(sel, { scale: from }, { scale: to, duration: dur, ease: "sine.inOut" }, q(T)); }
+          var EPS = 0.008;
+          function rollBlur(fn, t, k) {
+            var rate = Math.abs(fn(t + EPS) - fn(t - EPS)) / (2 * EPS);
+            var b = Math.min(12, rate * k);
+            return b > 0.2 ? "blur(" + b.toFixed(2) + "px)" : "none";
+          }
+
+          /* ══════ SCENE A — volume vs return · 2.20 → 7.86 ══════
+             30 daily posts flood in, the count rolls with them, then a bracket and one
+             line of marginalia say what came back. No fabricated return figure. */
+          wipeInOut("sa", 2.20, 7.86, "down");
+          (function () {
+            var S = 2.20, TOT = 5.66;
+            var stageEl = document.getElementById("sa-stage");
+            var lightEl = document.getElementById("sa-light");
+            var cntEl = document.getElementById("sa-cnt");
+            var cOf = track([{ t: 0.55, v: 0 }, { t: 2.35, v: 30 }, { t: TOT, v: 30 }]);
+            function render(t) {
+              cntEl.textContent = Math.round(cOf(t));
+              cntEl.style.filter = rollBlur(cOf, t, 0.14);
+              var bed = 1 + 0.05 * (t / TOT);
+              stageEl.style.transform = "scale(" + bed.toFixed(4) + ")";
+              lightEl.style.transform =
+                "translate(" + lerp(-140, 380, t / TOT).toFixed(1) + "px," + lerp(0, 240, t / TOT).toFixed(1) + "px)";
+            }
+            kineticText("#sa-kicker", S + 0.12, { stagger: 0.035, dur: 0.35, y: 16 });
+            /* a flood, not a peer set — 30 tiles at 60ms reads as volume piling up */
+            for (var i = 0; i < 30; i++) {
+              tl.fromTo("#sa-t" + i, { opacity: 0, scale: 1.5 },
+                { opacity: 1, scale: 1, duration: 0.12, ease: "power4.out" }, q(S + 0.55 + i * 0.060));
+            }
+            tl.fromTo("#sa-cnt", { opacity: 0, scale: 1.6, filter: "blur(12px)" },
+              { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out" }, q(S + 0.60));
+            kineticText("#sa-cap", S + 2.55, { stagger: 0.04, dur: 0.35, y: 14 });
+            draw("#sa-brk", S + 3.35, 0.50);
+            tl.fromTo("#sa-note", { opacity: 0, scale: 0.68, rotation: -4 },
+              { opacity: 1, scale: 1, rotation: -1.6, duration: 0.36, ease: "back.out(1.7)" }, q(S + 3.90));
+            tl.to("#sa-warm", { opacity: 1, duration: 0.55, ease: "power2.out" }, q(S + 3.90));
+            var d = { t: 0 };
+            tl.to(d, { t: TOT, duration: TOT, ease: "none", onUpdate: function () { render(d.t); } }, S);
+          })();
+
+          /* ══════ SCENE B — time a buyer needs · 9.90 → 14.69 ══════ */
+          wipeInOut("sb", 9.90, 14.69, "down");
+          (function () {
+            var S = 9.90, TOT = 4.79;
+            var stageEl = document.getElementById("sb-stage");
+            var lightEl = document.getElementById("sb-light");
+            function render(t) {
+              stageEl.style.transform = "scale(" + (1 + 0.05 * (t / TOT)).toFixed(4) + ")";
+              lightEl.style.transform =
+                "translate(" + lerp(-140, 360, t / TOT).toFixed(1) + "px," + lerp(0, 220, t / TOT).toFixed(1) + "px)";
+            }
+            tl.set(["#sb-track", "#sb-sf"], { scaleX: 0 }, q(S));
+            tl.set("#sb-thr", { scaleY: 0 }, q(S));
+            kineticText("#sb-kicker", S + 0.12, { stagger: 0.035, dur: 0.35, y: 16 });
+            tl.to("#sb-track", { scaleX: 1, duration: 0.44, ease: slamEase }, q(S + 0.45));
+            tl.to("#sb-sf", { scaleX: 1, duration: 0.28, ease: slamEase }, q(S + 0.98));
+            kineticText("#sb-sflab", S + 1.20, { stagger: 0.04, dur: 0.3, y: 12 });
+            tl.to("#sb-thr", { scaleY: 1, duration: 0.30, ease: slamEase }, q(S + 1.78));
+            kineticText("#sb-thrlab", S + 1.98, { stagger: 0.04, dur: 0.35, y: 14 });
+            draw("#sb-brk", S + 2.62, 0.52);
+            tl.fromTo("#sb-note", { opacity: 0, scale: 0.68, rotation: -4 },
+              { opacity: 1, scale: 1, rotation: -2, duration: 0.36, ease: "back.out(1.7)" }, q(S + 3.16));
+            tl.to("#sb-warm", { opacity: 1, duration: 0.55, ease: "power2.out" }, q(S + 3.16));
+            var d = { t: 0 };
+            tl.to(d, { t: TOT, duration: TOT, ease: "none", onUpdate: function () { render(d.t); } }, S);
+          })();
+
+          /* ══════ SCENE C — the proof · 21.50 → 30.66 ══════
+             short4's proof card, reused. Order swapped: short3 says the calls first,
+             then the revenue, so the panels land in that order. */
+          wipeInOut("sc", 21.50, 30.66, "down");
+          (function () {
+            var S = 21.50, TOT = 9.16;
+            var LAND = [3.30, 5.25];
+            var stageEl = document.getElementById("sc-stage");
+            var lightEl = document.getElementById("sc-light");
+            var n1El = document.getElementById("sc-n1");
+            var n2El = document.getElementById("sc-n2");
+            var v1Of = track([{ t: 3.55, v: 0 }, { t: 4.35, v: 20 }, { t: TOT, v: 20 }]);   /* qualified calls */
+            var v2Of = track([{ t: 5.50, v: 0 }, { t: 6.40, v: 50 }, { t: TOT, v: 50 }]);   /* $50K */
+            function render(t) {
+              n1El.textContent = "" + Math.round(v1Of(t));
+              n1El.style.filter = rollBlur(v1Of, t, 0.28);
+              n2El.textContent = "$" + Math.round(v2Of(t)) + "K";
+              n2El.style.filter = rollBlur(v2Of, t, 0.12);
+              var bed = 1 + 0.045 * (t / TOT), jy = 0, js = 0;
+              for (var i = 0; i < LAND.length; i++) {
+                var dt = t - LAND[i];
+                if (dt > 0) { jy += 10 * Math.exp(-10 * dt) * Math.sin(34 * dt); js += 0.018 * Math.exp(-9 * dt); }
+              }
+              stageEl.style.transform = "translateY(" + jy.toFixed(2) + "px) scale(" + (bed + js).toFixed(4) + ")";
+              lightEl.style.transform =
+                "translate(" + lerp(-140, 360, t / TOT).toFixed(1) + "px," + lerp(0, 220, t / TOT).toFixed(1) + "px)";
+            }
+            function slam(sel, at, rot) {
+              tl.fromTo(sel, { opacity: 0, scale: 1.16, rotation: rot, y: 130 },
+                { opacity: 1, scale: 1, rotation: 0, y: 0, duration: 0.40, ease: slamEase }, S + at);
+            }
+            kineticText("#sc-kicker", S + 0.12, { stagger: 0.035, dur: 0.35, y: 16 });
+            tl.fromTo("#sc-shot",
+              { opacity: 0, scale: 1.16, rotation: -5.5, y: 70, filter: "blur(10px)" },
+              { opacity: 1, scale: 1, rotation: -1.4, y: 0, filter: "blur(0px)", duration: 0.34, ease: slamEase }, S + 1.75);
+            slam("#sc-r1", LAND[0], -2.2);
+            kineticText("#sc-c1", S + LAND[0] + 0.95, { stagger: 0.04, dur: 0.35 });
+            slam("#sc-r2", LAND[1], 2.0);
+            kineticText("#sc-c2", S + LAND[1] + 1.00, { stagger: 0.04, dur: 0.35 });
+            tl.to("#sc-glow", { opacity: 1, duration: 0.6, ease: "power2.out" }, S + LAND[1]);
+            var d = { t: 0 };
+            tl.to(d, { t: TOT, duration: TOT, ease: "none", onUpdate: function () { render(d.t); } }, S);
+          })();
+
+          /* ══════ SCENE D — the ICP comments · 30.85 → 37.16 ══════ (reused from short2) */
+          wipeInOut("s5", 30.85, 37.16, "down");
+          camPush("#s5-cam", 30.85, 6.31, 1.00, 1.07);
+          peers(["#s5-c0", "#s5-c1", "#s5-c2"], 31.05, 0.125);
+          draw("#s5-p0", 32.20, 0.34); pop("#s5-l0", 32.52, { from: 1.35 });
+          draw("#s5-p1", 33.55, 0.34); pop("#s5-l1", 33.87, { from: 1.35 });
+          draw("#s5-p2", 35.10, 0.34); pop("#s5-l2", 35.42, { from: 1.35 });
+
+          /* ══════ SCENE E — you pick the concept · 38.60 → 44.60 ══════ (reused from short2) */
+          wipeInOut("s6", 38.60, 44.60, "down");
+          camPush("#s6-cam", 38.60, 6.00, 1.00, 1.06);
+          pop("#s6-badge", 38.75, { from: 1.4 });
+          peers(["#s6-k0", "#s6-k1", "#s6-k2"], 39.15, 0.125);
+          tl.set("#s6-cur", { x: 980, y: 1720, opacity: 0 }, q(41.50));
+          tl.to("#s6-cur", { opacity: 1, duration: 0.12 }, q(41.60));
+          tl.to("#s6-cur", { x: 600, y: 994, duration: 0.85, ease: "power2.inOut" }, q(41.70));
+          tl.to("#s6-cur", { scale: 0.86, duration: 0.07, ease: "power2.in" }, q(42.58));
+          tl.to("#s6-cur", { scale: 1, duration: 0.12, ease: "power2.out" }, q(42.65));
+          draw("#s6-ringp", 42.85, 0.40);
+          pop("#s6-pick", 43.32, { from: 1.4 });
+          tl.to("#s6-cur", { opacity: 0, duration: 0.14 }, q(43.60));
+
+          /* ══════ SCENE F — the CTA · 50.20 → 58.44 ══════ (reused card-06)
+             Scrim fades over 1.2s, settles at 51.40, then a full second before the
+             first line lands at 52.40. */
+          tl.set('.card-host[data-card-id="card-06"]', { visibility: "visible", opacity: 1 }, 50.20);
+          tl.fromTo("#card-06-scrim", { opacity: 0 }, { opacity: 1, duration: 1.20, ease: "power2.out" }, 50.20);
+          kineticText("#card-06-kicker", 52.40, { stagger: 0.035, dur: 0.35, y: 16 });
+          popIn("#card-06-check-1-dot", 52.95, 0.30);      /* "high ticket offer" 52.42-53.38 */
+          kineticText("#card-06-check-1-text", 53.00, { stagger: 0.045, dur: 0.4 });
+          popIn("#card-06-check-2-dot", 54.30, 0.30);      /* "five plus active clients" 54.01-55.46 */
+          kineticText("#card-06-check-2-text", 54.35, { stagger: 0.045, dur: 0.4 });
+          fadeIn("#card-06-comment-label", 55.55, 0.25);
+          popIn("#card-06-bubble", 55.94, 0.40);           /* "film" 55.98-56.30 */
+          popIn("#card-06-cursor", 56.32, 0.30);
+          kineticText("#card-06-subtitle", 56.95, { stagger: 0.03, dur: 0.35, y: 18 });
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["short3-recut"] = tl;
+        })();
+
+      </script>
+    </div>
+  </body>
+</html>

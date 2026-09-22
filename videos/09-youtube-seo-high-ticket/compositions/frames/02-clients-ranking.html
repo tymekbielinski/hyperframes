@@ -1,0 +1,76 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Lit light ground: warm breathing glow under the faint blueprint grid */
+  #f02-glow { left: 360px; top: -100px; width: 1200px; height: 1200px; background: radial-gradient(circle, rgba(255,166,102,0.34) 0%, rgba(255,166,102,0) 65%); }
+  /* Six real channel headers — the sketch's 2x3 stack. The slot takes the entrance transform; the rotation lives on the shot inside it. */
+  .f02-slot { position: absolute; will-change: transform, opacity, filter; }
+  .f02-slot .hf-shot { position: absolute; inset: 0; }
+  #f02-s1 { left: 100px;  top: 150px; width: 560px; height: 227px; }
+  #f02-s2 { left: 680px;  top: 130px; width: 560px; height: 227px; }
+  #f02-s3 { left: 1260px; top: 150px; width: 560px; height: 212px; }
+  #f02-s4 { left: 100px;  top: 470px; width: 560px; height: 227px; }
+  #f02-s5 { left: 680px;  top: 490px; width: 560px; height: 212px; }
+  #f02-s6 { left: 1260px; top: 470px; width: 560px; height: 212px; }
+  #f02-hand { left: 760px; top: 830px; font-size: 60px; transform: rotate(-3deg); }
+</style>
+<div data-hf-id="hf-pet5" id="root" class="hf-light" data-composition-id="02-clients-ranking" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-5zjt" class="hf-ground-light"></div>
+  <div data-hf-id="hf-f9og" id="f02-glow" class="hf-glow"></div>
+  <div data-hf-id="hf-7jrf" class="hf-grid"></div>
+  <div data-hf-id="hf-271l" class="hf-vignette"></div>
+
+  <div data-hf-id="hf-htt6" id="f02-stage" class="hf-stage">
+    <div data-hf-id="hf-omt6" id="f02-s1" class="f02-slot"><div data-hf-id="hf-67xk" class="hf-shot" style="transform: rotate(-1.5deg)"><img data-hf-id="hf-98ye" src="assets/user/client-channels/tim.png" alt=""></div></div>
+    <div data-hf-id="hf-kop5" id="f02-s2" class="f02-slot"><div data-hf-id="hf-z308" class="hf-shot" style="transform: rotate(1deg)"><img data-hf-id="hf-f941" src="assets/user/client-channels/xavier.png" alt=""></div></div>
+    <div data-hf-id="hf-hpfk" id="f02-s3" class="f02-slot"><div data-hf-id="hf-xysj" class="hf-shot" style="transform: rotate(-1deg)"><img data-hf-id="hf-8j3j" src="assets/user/client-channels/yiannis.png" alt=""></div></div>
+    <div data-hf-id="hf-drbj" id="f02-s4" class="f02-slot"><div data-hf-id="hf-vcr0" class="hf-shot" style="transform: rotate(1.2deg)"><img data-hf-id="hf-7ilt" src="assets/user/client-channels/jonas.png" alt=""></div></div>
+    <div data-hf-id="hf-9t7i" id="f02-s5" class="f02-slot"><div data-hf-id="hf-ut2b" class="hf-shot" style="transform: rotate(-1.2deg)"><img data-hf-id="hf-biye" src="assets/user/client-channels/jack%20rossi.png" alt=""></div></div>
+    <div data-hf-id="hf-5v3h" id="f02-s6" class="f02-slot"><div data-hf-id="hf-fjgf" class="hf-shot" style="transform: rotate(1.5deg)"><img data-hf-id="hf-q69u" src="assets/user/client-channels/william%20yu.png" alt=""></div></div>
+
+    <!-- Red underlines under each channel NAME, each tilted with its own card (rotate about the card centre) -->
+    <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+      <g data-hf-id="hf-qams" transform="rotate(-1.5 380 263.5)"><path data-hf-id="hf-jz4s" id="f02-u1" /></g>
+      <g data-hf-id="hf-rqeo" transform="rotate(1 960 243.5)"><path data-hf-id="hf-sn0n" id="f02-u2" /></g>
+      <g data-hf-id="hf-ukhp" transform="rotate(-1 1540 256)"><path data-hf-id="hf-oowm" id="f02-u3" /></g>
+      <g data-hf-id="hf-mm0p" transform="rotate(1.2 380 583.5)"><path data-hf-id="hf-xcsh" id="f02-u4" /></g>
+      <g data-hf-id="hf-2iut" transform="rotate(-1.2 960 596)"><path data-hf-id="hf-wl4o" id="f02-u5" /></g>
+      <g data-hf-id="hf-3irw" transform="rotate(1.5 1540 576)"><path data-hf-id="hf-7gmb" id="f02-u6" /></g>
+    </svg>
+    <div data-hf-id="hf-by9l" id="f02-hand" class="hf-hand">10+ clients · every niche · all ranking</div>
+  </div>
+</div>
+<script>
+  (function () {
+    var ID = "02-clients-ranking", DUR = 8.85;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      // Bed from frame 0: the warm glow breathes + drifts; the stage carries a barely-there push during the build,
+      // then the dispatched slow push 1.00→1.08 runs from 5.5s over the hold-out.
+      tl.fromTo("#f02-glow", { scale: 0.94, opacity: 0.72, x: -30, y: 10 }, { scale: 1.06, opacity: 1.0, x: 30, y: -10, duration: DUR, ease: "sine.inOut" }, 0);
+      H.push(tl, "#f02-stage", 0, 5.5, 1.0, 1.015, "960px 520px");
+      H.push(tl, "#f02-stage", 5.5, DUR - 5.5, 1.015, 1.08, "960px 520px");
+
+      // Pass 1 — the six headers land as a PEER SET, 125 ms apart from 0.3s (spring-pop, power3.out, no bounce; set done ≈1.2s).
+      ["#f02-s1", "#f02-s2", "#f02-s3", "#f02-s4", "#f02-s5", "#f02-s6"].forEach(function (s, i) {
+        tl.fromTo(s, { opacity: 0, scale: 1.14, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0.3 + i * 0.125);
+      });
+
+      // Pass 2 — red underlines under each channel name (Tim Yakubson · Xavier Caffrey GTM · Johnny · Jonas Massie · Jack Rossi · William Yu),
+      // 125 ms apart from 2.0s. Coordinates = card origin + the name's baseline inside the real header (1054px → 560px, ×0.531).
+      var U = [[297, 208, 243, 1], [877, 188, 334, 2], [1457, 220, 124, 3], [297, 528, 236, 4], [877, 538, 184, 5], [1465, 518, 180, 6]];
+      U.forEach(function (u, i) {
+        var p = document.getElementById("f02-u" + (i + 1));
+        p.setAttribute("d", H.underlinePath(u[0], u[1], u[2], u[3]));
+        H.draw(tl, p, 2.0 + i * 0.125, 0.38);
+      });
+
+      // Marginalia writes itself on "10 plus other clients" (39 chars × 67 ms ≈ 2.6s → lands ≈7.2s).
+      H.handwrite(tl, document.getElementById("f02-hand"), 4.6, 67);
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

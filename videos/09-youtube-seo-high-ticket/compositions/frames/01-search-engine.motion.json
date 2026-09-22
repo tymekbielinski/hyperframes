@@ -1,0 +1,7 @@
+{
+  "scene": "01-search-engine",
+  "duration_s": 8.35,
+  "rules": ["viewport-change", "svg-path-draw", "css-marker-patterns"],
+  "exit": { "vector": "static, still pushing in at ~0.8%/s (z 1.22→1.27 over 6.85s)", "still_moving": true },
+  "entry": { "vector": "static hold at z=1.00, glow + ghost drifting", "from_rest": false }
+}

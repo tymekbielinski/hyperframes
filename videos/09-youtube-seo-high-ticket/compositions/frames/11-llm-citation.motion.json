@@ -1,0 +1,7 @@
+{
+  "scene": "11-llm-citation",
+  "duration_s": 7.75,
+  "rules": ["viewport-change", "css-marker-patterns"],
+  "exit": { "vector": "static, still pushing in at ~0.5%/s (z 1.18→1.22 over 6.15s)", "still_moving": true },
+  "entry": { "vector": "static hold at z=1.00, glow breathing", "from_rest": false }
+}

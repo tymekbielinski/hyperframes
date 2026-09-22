@@ -1,0 +1,100 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  #f08-glow { left: 460px; top: 560px; width: 1000px; height: 720px; background: radial-gradient(circle, rgba(255,166,102,0.26) 0%, rgba(255,255,255,0) 65%); opacity: 0.9; }
+  #f08-mark { left: 1220px; top: -260px; width: 1040px; height: 730px; }
+  #f08-mark img { width: 100%; height: 100%; object-fit: contain; }
+  /* the client watch page — cropped to player + title + channel row (capture x 16→1360, y 66→915), small, centre, 1.5° off-axis */
+  #f08-shot { left: 640px; top: 340px; width: 640px; height: 404px; transform: rotate(1.5deg); background: #0F0F0F; }
+  #f08-shot img { width: 914.3px; height: 514.3px; margin-left: -7.6px; margin-top: -31.4px; object-fit: fill; }
+  /* real thumbnail over the player region: native player rect x16-1359,y68-823, scaled by the same s=10/21 used for the capture crop */
+  #f08-shot #f08-thumb { position: absolute; left: 0; top: 1px; width: 640px; height: 359.5px; margin: 0; object-fit: cover; border-radius: 6px; }
+  /* chips (§7) — tinted to the product, real mark in a white roundel; final size authored here, HFHouse.chip grows them */
+  #f08-chip-book { left: 260px; top: 136px; background: #1F1F1F; border: 2px solid rgba(255,255,255,0.92); box-sizing: border-box; }
+  #f08-chip-book .hf-roundel { width: 104px; border-radius: 23px; }
+  #f08-chip-book .hf-roundel img { width: 78px; height: 18px; }
+  #f08-chip-lead { left: 1240px; top: 100px; height: 150px; border-radius: 75px; padding: 0 40px 0 36px; gap: 22px; background: #2B5FD9; }
+  #f08-chip-ig { left: 240px; top: 860px; background: #C13584; }
+  #f08-chip-ig .hf-roundel img { width: 30px; height: 30px; }
+  #f08-chip-sub { left: 1290px; top: 860px; background: #D62828; }
+  #f08-chip-sub .hf-roundel img { width: 30px; height: 30px; }
+  /* real colourful brand marks for YouTube + Instagram only — house.css tints all chip logos white by default */
+  #f08-chip-ig .hf-roundel img, #f08-chip-sub .hf-roundel img { filter: none; }
+  #f08-chip-ig .hf-roundel, #f08-chip-sub .hf-roundel { background: #fff; }
+  /* the lead-magnet page mockup (user exception): a 300x190 light page card, shown at 0.6 inside the chip */
+  .f08-page-wrap { width: 180px; height: 114px; border-radius: 8px; overflow: hidden; flex: 0 0 auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.22)); }
+  .f08-page { width: 300px; height: 190px; transform: scale(0.6); transform-origin: 0 0; background: #F7F7F7; border-radius: 13px; box-sizing: border-box; padding: 26px 28px; font-family: var(--hf-ui); color: #1F1F1F; text-transform: none; letter-spacing: 0; }
+  .f08-page-title { font-size: 28px; font-weight: 700; line-height: 1; margin-bottom: 22px; }
+  .f08-page-input { height: 40px; border: 2px solid #D5D5D5; border-radius: 8px; background: #fff; margin-bottom: 14px; }
+  .f08-page-btn { height: 40px; border-radius: 8px; background: #1F1F1F; }
+  #f08-hand { left: 760px; top: 878px; font-size: 54px; transform: rotate(-3deg); }
+</style>
+<div data-hf-id="hf-vvzi" id="root" class="hf-dark" data-composition-id="08-offer-chips" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-f3u3" class="hf-ground-dark"></div>
+  <div data-hf-id="hf-3zkn" id="f08-mark" class="hf-brandmark"><img data-hf-id="hf-lhmy" src="assets/logos/youtube.svg" alt=""></div>
+  <div data-hf-id="hf-g2om" id="f08-glow" class="hf-glow"></div>
+  <div data-hf-id="hf-271l" class="hf-vignette"></div>
+
+  <div data-hf-id="hf-xtjc" id="f08-stage" class="hf-stage">
+    <div data-hf-id="hf-mys2" id="f08-shot" class="hf-shot"><img data-hf-id="hf-h4ty" src="assets/captures/yt-watch-tim-dark.png" alt=""><img data-hf-id="hf-thmb" id="f08-thumb" src="assets/user/tim-thumbnail.jpg" alt=""></div>
+
+    <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-24l7" id="f08-arc-book" class="hf-thin" /><path data-hf-id="hf-x9es" id="f08-arc-book-h" class="hf-thin" />
+      <path data-hf-id="hf-4dmm" id="f08-arc-lead" class="hf-thin" /><path data-hf-id="hf-wnf9" id="f08-arc-lead-h" class="hf-thin" />
+      <path data-hf-id="hf-rgmg" id="f08-arc-ig" class="hf-thin" /><path data-hf-id="hf-h5bz" id="f08-arc-ig-h" class="hf-thin" />
+      <path data-hf-id="hf-iha2" id="f08-arc-sub" class="hf-thin" /><path data-hf-id="hf-fokp" id="f08-arc-sub-h" class="hf-thin" />
+      <path data-hf-id="hf-ofm3" id="f08-hand-arrow" /><path data-hf-id="hf-wb3o" id="f08-hand-arrow-h" />
+    </svg>
+
+    <div data-hf-id="hf-p3uv" id="f08-chip-book" class="hf-chip"><span data-hf-id="hf-ghkn" class="hf-roundel"><img data-hf-id="hf-mimk" src="assets/logos/calcom.svg" alt=""></span>Booking</div>
+    <div data-hf-id="hf-0ptn" id="f08-chip-lead" class="hf-chip">
+      <span data-hf-id="hf-pcsw" class="f08-page-wrap"><span data-hf-id="hf-nz20" class="f08-page" style="display:block">
+        <div data-hf-id="hf-iqz1" class="f08-page-title">Free guide</div>
+        <div data-hf-id="hf-nmvh" class="f08-page-input"></div>
+        <div data-hf-id="hf-a2w9" class="f08-page-btn"></div>
+      </span></span>Lead magnet</div>
+    <div data-hf-id="hf-mal5" id="f08-chip-ig" class="hf-chip"><span data-hf-id="hf-jl6f" class="hf-roundel"><img data-hf-id="hf-0v0p" src="assets/logos/instagram.svg" alt=""></span>Instagram</div>
+    <div data-hf-id="hf-tdl9" id="f08-chip-sub" class="hf-chip"><span data-hf-id="hf-j6ve" class="hf-roundel"><img data-hf-id="hf-tbny" src="assets/logos/youtube-mark.svg" alt=""></span>Subscribe</div>
+
+    <div data-hf-id="hf-ylc4" id="f08-hand" class="hf-hand">high-intent leads</div>
+  </div>
+</div>
+<script>
+  (function () {
+    var ID = "08-offer-chips", DUR = 8.95;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      var $ = function (id) { return document.getElementById(id); };
+      /* ---- bed from t=0: the watch page is already on screen; gentle push, breathing red glow, drifting blurred YouTube mark ---- */
+      H.push(tl, "#f08-stage", 0, DUR, 1.0, 1.06, "960px 540px");
+      tl.fromTo("#f08-glow", { scale: 0.92, opacity: 0.7 }, { scale: 1.1, opacity: 1.0, duration: DUR, ease: "sine.inOut" }, 0);
+      tl.fromTo("#f08-mark", { x: 0, y: 0, rotation: -6 }, { x: -70, y: 50, rotation: -2, duration: DUR, ease: "sine.inOut" }, 0);
+
+      /* ---- the causal chain (§7): each chip seeds + grows sideways on its spoken word, its thin red arc draws to the artifact as it lands.
+             Real dead air between links — these are his words (≈242.5 / 244.5 / 247.0 / 249.0 on the master), not a stagger. ---- */
+      // artifact corners after the 1.5° rotation: TL (645,332) TR (1285,349) BR (1275,752) BL (635,736)
+      function link(chipId, shaftId, headId, T, x1, y1, x2, y2, curve) {
+        var a = H.arrowPath(x1, y1, x2, y2, curve);
+        $(shaftId).setAttribute("d", a.shaft); $(headId).setAttribute("d", a.head);
+        H.chip(tl, $(chipId), T);                       // dot at T, pill exposed by T+0.27
+        H.draw(tl, $(shaftId), T + 0.20, 0.45);         // arc leaves the chip as the label lands
+        H.draw(tl, $(headId), T + 0.60, 0.14);
+      }
+      link("f08-chip-book", "f08-arc-book", "f08-arc-book-h", 1.0, 485, 226, 707, 322, -55);      // "booking call funnel"
+      link("f08-chip-lead", "f08-arc-lead", "f08-arc-lead-h", 3.0, 1420, 262, 1223, 335, 50);     // "a lead magnet"
+      link("f08-chip-ig",   "f08-arc-ig",   "f08-arc-ig-h",   5.5, 470, 848, 697, 749, -55);      // "following you on Instagram"
+      link("f08-chip-sub",  "f08-arc-sub",  "f08-arc-sub-h",  7.5, 1450, 848, 1212, 762, 55);     // "a subscription on YouTube"
+
+      /* ---- closing marginalia under the artifact: "high-intent leads" writes itself, then its drawn arrow → the offers.
+             Compressed to 38 ms/char so the last stroke lands by 8.55 (nothing may arrive in the final 0.4 s). ---- */
+      var w = H.handwrite(tl, $("f08-hand"), 7.9, 38);
+      var ha = H.arrowPath(1150, 912, 1248, 900, 22);
+      $("f08-hand-arrow").setAttribute("d", ha.shaft); $("f08-hand-arrow-h").setAttribute("d", ha.head);
+      H.draw(tl, $("f08-hand-arrow"), 7.9 + w - 0.25, 0.22);
+      H.draw(tl, $("f08-hand-arrow-h"), 7.9 + w - 0.10, 0.10);   // last stroke lands 8.55
+    }
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

@@ -1,0 +1,90 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Lit light ground: a faint Google-blue breathing glow under the blueprint grid. */
+  #f12-glow { left: 300px; top: -160px; width: 1100px; height: 850px; background: radial-gradient(circle, rgba(255,166,102,0.22) 0%, rgba(255,166,102,0) 65%); }
+  /* The real Google AI Overview capture, cropped to the overview column + right-panel source cards
+     (capture 1920x1080, crop x:0-1345 y:145-760). */
+  #f12-shot { left: 200px; top: 180px; width: 1520px; height: 695px; transform: rotate(1deg); background: #fff; }
+  #f12-shot img { width: 2170px; height: 1221px; margin-left: 0px; margin-top: -164px; object-fit: fill; }
+  #f12-hand { left: 650px; top: 930px; font-size: 56px; transform: rotate(-3deg); }
+</style>
+<div data-hf-id="hf-c12r" id="root" class="hf-light" data-composition-id="12-ai-overview" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-c12g" class="hf-ground-light"></div>
+  <div data-hf-id="hf-c12w" id="f12-glow" class="hf-glow"></div>
+  <div data-hf-id="hf-c12x" class="hf-grid"></div>
+
+  <div data-hf-id="hf-c12s" id="f12-stage" class="hf-stage">
+    <div data-hf-id="hf-c12h" id="f12-shot" class="hf-shot"><img data-hf-id="hf-c12i" id="f12-img" src="assets/captures/google-ai-overview-light.png" alt=""></div>
+
+    <svg data-hf-id="hf-c12m" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-c12a" id="f12-ring" />
+    </svg>
+    <div data-hf-id="hf-c12n" id="f12-hand" class="hf-hand">structured tutorial → cited</div>
+  </div>
+  <canvas data-hf-id="hf-c12c" id="f12-gl" class="hf-gl"></canvas>
+  <div data-hf-id="hf-c12v" class="hf-vignette"></div>
+</div>
+<script>
+  (function () {
+    var ID = "12-ai-overview", DUR = 8.55;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      function rr(ctx, x, y, w, h, r) {
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+      }
+      var img = document.getElementById("f12-img");
+
+      // Bed from t=0: the faint blue glow breathes.
+      tl.fromTo("#f12-glow", { scale: 0.92, opacity: 0.70 }, { scale: 1.08, opacity: 1.0, duration: DUR, ease: "sine.inOut" }, 0);
+
+      // §8c camera: standing micro-push 0→0.3, then the leg (HFMotionBlur) 0.3→1.5 panning onto the AI Overview's
+      // inline YouTube video card (and enough of the right panel to reach it later), then a slow push hold.
+      H.camera(tl, {
+        stage: document.getElementById("f12-stage"), canvas: document.getElementById("f12-gl"),
+        bgCss: "#000000", bg: [0.925, 0.925, 0.925, 1], dur: DUR, K: 1.5, preset: "medium",
+        bake: function (ctx) {
+          ctx.save(); ctx.translate(960, 486);
+          var g = ctx.createRadialGradient(0, 0, 0, 0, 0, 1400);
+          g.addColorStop(0, "#000000"); g.addColorStop(0.45, "#000000"); g.addColorStop(1, "#000000");
+          ctx.fillStyle = g; ctx.fillRect(-2000, -2000, 4000, 4000); ctx.restore();
+
+          var SX = 200, SY = 180, SW = 1520, SH = 695, ROT = 1, R = 14, DW = 2170, DH = 1221, MGL = 0, MGT = -164;
+          ctx.save(); ctx.translate(SX + SW / 2, SY + SH / 2); ctx.rotate(ROT * Math.PI / 180);
+          ctx.fillStyle = "#000"; ctx.shadowColor = "rgba(0,0,0,0.20)"; ctx.shadowBlur = 90; ctx.shadowOffsetY = 40;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.fill();
+          ctx.shadowColor = "rgba(0,0,0,0)"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.clip();
+          ctx.drawImage(img, -SW / 2 + MGL, -SH / 2 + MGT, DW, DH); ctx.restore();
+        },
+        keys: [
+          { t: 0.0, cx: 960, cy: 528, z: 1.000 },
+          { t: 0.3, cx: 960, cy: 528, z: 1.015 },   // standing micro-push
+          { t: 1.5, cx: 750, cy: 700, z: 1.100 },   // the leg: onto the inline video card
+          { t: DUR, cx: 745, cy: 690, z: 1.150 }    // slow push under the hold
+        ],
+        legs: [[0.3, 1.5]]
+      });
+
+      // Red ring encloses the cited video row — thumbnail + title "YouTube SEO: Rank #1 on YouTube
+      // (Complete Guide)" — bottom-left of the card (≈4.0s). Box measured from the capture's own
+      // pixels (assets/captures/google-ai-overview-light.png, native 1920x1080) via the same
+      // SX/SY/SW/SH/ROT/MGL/MGT/DW/DH bake geometry above: row spans native x 230–801, y 634–729;
+      // mapped through that geometry into stage/world coords, the row's rotated AABB centres at
+      // ~(778,783) with half-extents ~(324,59). rx:420/ry:82 gives ~99.6% pixel coverage of the row
+      // with zero bleed onto neighboring paragraph text (verified against the source PNG) and stays
+      // inside the shot's own clip box (SX..SX+SW, SY..SY+SH) with margin to spare.
+      var ring = document.getElementById("f12-ring");
+      ring.setAttribute("d", H.ringPath(778, 783, 420, 82, 7));
+      H.draw(tl, ring, 4.0, 0.55);
+      // "structured tutorial → cited" writes itself in the margin (≈5.2s).
+      H.handwrite(tl, document.getElementById("f12-hand"), 5.2, 67);   // 27 chars → ends 7.009
+      // 7.0 → 8.55: held, fully annotated, still pushing.
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

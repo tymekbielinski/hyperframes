@@ -1,0 +1,191 @@
+<div class="card" data-card-id="card-02">
+  <style>
+    .card[data-card-id="card-02"] .root {
+      width: 100%; height: 100%;
+      position: relative;
+      background: #ffffff;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+    .card[data-card-id="card-02"] .beat {
+      position: absolute; inset: 0;
+    }
+    .card[data-card-id="card-02"] .beat-bg {
+      position: absolute; inset: 0;
+      background: #ffffff;
+    }
+    .card[data-card-id="card-02"] .beat-content {
+      position: absolute; inset: 0;
+    }
+    .card[data-card-id="card-02"] .ghost-num {
+      position: absolute;
+      left: 540px; top: 840px;
+      transform: translate(-50%, -50%);
+      font-weight: 700;
+      font-size: 980px;
+      line-height: 1;
+      color: rgba(10,10,10,0.05);
+      user-select: none;
+    }
+    .card[data-card-id="card-02"] .kicker {
+      position: absolute;
+      left: 0; top: 300px; width: 100%;
+      text-align: center;
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9a9a9a;
+    }
+    .card[data-card-id="card-02"] .circle {
+      position: absolute;
+      left: 280px; top: 560px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card[data-card-id="card-02"] .circle .icon { width: 220px; height: 220px; }
+    .card[data-card-id="card-02"] .circle .icon svg {
+      width: 100%; height: 100%;
+      fill: none; stroke: #ffffff; stroke-width: 2.4;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .card[data-card-id="card-02"] .circle .icon svg .play {
+      fill: #ffffff; stroke: none;
+    }
+    .card[data-card-id="card-02"] .label {
+      position: absolute;
+      left: 0; top: 1130px; width: 100%;
+      padding: 0 60px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 100px;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
+    }
+
+    /* per-beat circle colors */
+    .card[data-card-id="card-02"] .beat--meta .circle {
+      background: radial-gradient(circle at 35% 30%, #3B9BFF, #1560C4);
+      box-shadow: 0 30px 70px rgba(24,120,242,0.35);
+    }
+    .card[data-card-id="card-02"] .beat--email .circle {
+      background: radial-gradient(circle at 35% 30%, #FFB067, #E67E22);
+      box-shadow: 0 30px 70px rgba(230,126,34,0.35);
+    }
+    .card[data-card-id="card-02"] .beat--content .circle {
+      background: radial-gradient(circle at 35% 30%, #FF5B95, #E01E68);
+      box-shadow: 0 30px 70px rgba(224,30,104,0.35);
+    }
+
+    /* bottom recap trail */
+    .card[data-card-id="card-02"] .trail {
+      position: absolute;
+      left: 290px; top: 1680px;
+      width: 500px; height: 140px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .card[data-card-id="card-02"] .trail-chip {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card[data-card-id="card-02"] .trail-chip .icon { width: 60px; height: 60px; }
+    .card[data-card-id="card-02"] .trail-chip .icon svg {
+      width: 100%; height: 100%;
+      fill: none; stroke: #ffffff; stroke-width: 2.6;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .card[data-card-id="card-02"] .trail-chip .icon svg .play { fill: #ffffff; stroke: none; }
+    .card[data-card-id="card-02"] .trail-chip--meta { background: #1878F2; }
+    .card[data-card-id="card-02"] .trail-chip--email { background: #E67E22; }
+    .card[data-card-id="card-02"] .trail-chip--content { background: #E01E68; }
+  </style>
+
+  <div class="root">
+
+    <!-- BEAT 1 / 3 — Meta Ads -->
+    <div class="beat beat--meta" id="card-02-beat-meta">
+      <div class="beat-bg"></div>
+      <div class="beat-content">
+        <div class="ghost-num" id="card-02-ghost-1" data-layout-ignore="true">1</div>
+        <div class="kicker" id="card-02-kicker-1">CHANNEL 01 / 03</div>
+        <div class="circle" id="card-02-circle-1">
+          <div class="icon">
+            <svg viewBox="0 0 48 48">
+              <path d="M6 20v8a4 4 0 0 0 4 4h2l16 9V7l-16 9H10a4 4 0 0 0-4 4z"/>
+              <path d="M31 17a11 11 0 0 1 0 14"/>
+            </svg>
+          </div>
+        </div>
+        <div class="label" id="card-02-label-1">Meta Ads</div>
+      </div>
+    </div>
+
+    <!-- BEAT 2 / 3 — Cold Email -->
+    <div class="beat beat--email" id="card-02-beat-email">
+      <div class="beat-bg" id="card-02-bg-2" style="clip-path: inset(0 100% 0 0);"></div>
+      <div class="beat-content">
+        <div class="ghost-num" id="card-02-ghost-2" data-layout-ignore="true">2</div>
+        <div class="kicker" id="card-02-kicker-2">CHANNEL 02 / 03</div>
+        <div class="circle" id="card-02-circle-2">
+          <div class="icon">
+            <svg viewBox="0 0 48 48">
+              <rect x="5" y="10" width="38" height="28" rx="5"/>
+              <path d="M7 12l17 15 17-15"/>
+            </svg>
+          </div>
+        </div>
+        <div class="label" id="card-02-label-2">Cold Email</div>
+      </div>
+    </div>
+
+    <!-- BEAT 3 / 3 — Short-Form Content -->
+    <div class="beat beat--content" id="card-02-beat-content">
+      <div class="beat-bg" id="card-02-bg-3" style="clip-path: inset(0 0 0 100%);"></div>
+      <div class="beat-content">
+        <div class="ghost-num" id="card-02-ghost-3" data-layout-ignore="true">3</div>
+        <div class="kicker" id="card-02-kicker-3">CHANNEL 03 / 03</div>
+        <div class="circle" id="card-02-circle-3">
+          <div class="icon">
+            <svg viewBox="0 0 48 48">
+              <rect x="11" y="4" width="26" height="40" rx="7" fill="none" stroke="#ffffff" stroke-width="2.4"/>
+              <path class="play" d="M20 17l11 7-11 7z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="label" id="card-02-label-3">Short-Form Content</div>
+
+        <!-- recap trail: all three channels, once all have been shown -->
+        <div class="trail" id="card-02-trail" style="opacity:0;">
+          <div class="trail-chip trail-chip--meta">
+            <div class="icon">
+              <svg viewBox="0 0 48 48">
+                <path d="M6 20v8a4 4 0 0 0 4 4h2l16 9V7l-16 9H10a4 4 0 0 0-4 4z"/>
+                <path d="M31 17a11 11 0 0 1 0 14"/>
+              </svg>
+            </div>
+          </div>
+          <div class="trail-chip trail-chip--email">
+            <div class="icon">
+              <svg viewBox="0 0 48 48">
+                <rect x="5" y="10" width="38" height="28" rx="5"/>
+                <path d="M7 12l17 15 17-15"/>
+              </svg>
+            </div>
+          </div>
+          <div class="trail-chip trail-chip--content">
+            <div class="icon">
+              <svg viewBox="0 0 48 48">
+                <rect x="11" y="4" width="26" height="40" rx="7" fill="none" stroke="#ffffff" stroke-width="2.4"/>
+                <path class="play" d="M20 17l11 7-11 7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

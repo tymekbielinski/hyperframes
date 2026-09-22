@@ -1,0 +1,13 @@
+{
+  "scene": "19-book-a-call",
+  "duration_s": 8.5,
+  "rules": ["svg-path-draw (arrow, ring)", "camera-leg (HFHouse.camera + HFMotionBlur, 1.00→1.30 over 0.5–2.0s, house bezier)", "viewport-change (DOM push 1.30→1.34 under the hold)"],
+  "exit": { "vector": "hold; push 1.30→1.34 on the house bezier decelerating to rest at 8.5s (≈0 px/s at the last frame); glow breathe + mark drift still easing", "still_moving": true },
+  "entry": { "vector": "hard cut in; page at full size; micro-push 1.000→1.012 over 0–0.5s (≈2.4%/s) with glow breathe and mark drift from t=0; blurred leg begins 0.5s", "from_rest": false },
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f19-hand", "bySec": 2.1 },
+    { "kind": "appearsBy", "selector": "#f19-arrow-shaft", "bySec": 3.6 },
+    { "kind": "appearsBy", "selector": "#f19-ring", "bySec": 5.4 },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 2 }
+  ]
+}

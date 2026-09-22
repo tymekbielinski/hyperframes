@@ -1,0 +1,7 @@
+{
+  "scene": "07-title-promise",
+  "duration_s": 8.0,
+  "rules": ["viewport-change", "svg-path-draw"],
+  "exit": { "vector": "settled push, camera z climbing 1.05→1.07 at rest, still moving", "still_moving": true },
+  "entry": { "vector": "tight punch-in on the title at z1.6 with glow/mark already animating in", "from_rest": false }
+}

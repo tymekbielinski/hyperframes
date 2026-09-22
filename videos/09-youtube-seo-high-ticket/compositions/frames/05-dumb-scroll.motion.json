@@ -1,0 +1,12 @@
+{
+  "scene": "05-dumb-scroll",
+  "duration_s": 8.0,
+  "rules": ["svg-path-draw (curved arrow)", "sine-wave-loop (lateral drift, glow breathe)", "viewport-change (DOM push 1.00→1.03 sine.inOut)"],
+  "exit": { "vector": "hold; lateral drift +x ≈2 px/s decelerating to rest at 8.0s; feed footage still scrolling inside the phone", "still_moving": true },
+  "entry": { "vector": "hard cut in; feed already playing (media 5s in); drift −16px→+16px, push and glow breathe start at t=0", "from_rest": false },
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f05-hand1", "bySec": 2.2 },
+    { "kind": "appearsBy", "selector": "#f05-arrow-shaft", "bySec": 4.7 },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 2 }
+  ]
+}

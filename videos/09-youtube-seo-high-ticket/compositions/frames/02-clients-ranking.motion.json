@@ -1,0 +1,13 @@
+{
+  "scene": "02-clients-ranking",
+  "duration_s": 8.85,
+  "rules": ["css-marker-patterns (hand-drawn underline via HFHouse.underlinePath + draw)", "viewport-change (single-wrapper DOM push on .hf-stage, HFHouse.push)", "peer-set stagger 125 ms (six headers, six underlines)", "handwriting-type-on (67 ms/char)"],
+  "phases": [
+    { "t": [0.0, 1.25], "artifact": "assets/user/client-channels/{tim,xavier,yiannis,jonas,jack rossi,william yu}.png", "camera": "near-still (1.00→1.015 over 0–5.5s about 960,520)", "reveal": "six headers spring-pop in 125 ms apart from 0.3s (scale 1.14→1, blur 10→0, power3.out, 0.3s each); glow breathing from frame 0" },
+    { "t": [2.0, 3.0], "marks": "six red underlines under the channel names, 125 ms apart from 2.0s, 0.38s each, tilted with their cards" },
+    { "t": [4.6, 7.2], "marks": "handwriting '10+ clients · every niche · all ranking' from 4.6s (on '10 plus other clients')" },
+    { "t": [5.5, 8.85], "camera": "slow push 1.015→1.08 sine.inOut about (960,520); peak ≈27 px/s at the layout edge mid-push" }
+  ],
+  "exit": { "vector": "push-in settling at 1.08 about (960,520), sine.inOut → ≈0 px/s at the last frame; glow still breathing (≈4 px/s drift). No exit tween (hard cut).", "still_moving": true },
+  "entry": { "vector": "camera at 1.00, push starts from zero velocity; glow breathing/drifting ≈7 px/s from frame 0; first header lands at 0.3s", "from_rest": true }
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Perfect Cuts"
+  short_description: "Clean retakes and build synced edit timelines"
+  default_prompt: "Use $perfect-cuts to remove silences and repeated takes, then deliver an editable synced timeline."
+
+policy:
+  allow_implicit_invocation: true

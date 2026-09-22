@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="lib/motion-blur.js"></script>
+    <script src="lib/house.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+    <link rel="stylesheet" href="lib/house.css">
+    <style>
+      @font-face { font-family: "Satoshi"; src: url("assets/fonts/Satoshi-Variable.ttf") format("truetype"); font-weight: 300 900; font-style: normal; }
+      @font-face { font-family: "Satoshi"; src: url("assets/fonts/Satoshi-VariableItalic.ttf") format("truetype"); font-weight: 300 900; font-style: italic; }
+      @font-face { font-family: "HelveticaNowDisplay"; src: url("assets/fonts/HelveticaNowDisplayMedium.otf") format("opentype"); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "HelveticaNowDisplay"; src: url("assets/fonts/HelveticaNowDisplayBold.otf") format("opentype"); font-weight: 700; font-style: normal; }
+      @font-face { font-family: "HelveticaNowDisplay"; src: url("assets/fonts/HelveticaNowDisplayBlack.otf") format("opentype"); font-weight: 900; font-style: normal; }
+      @font-face { font-family: "Garet"; src: url("assets/fonts/Garet-Heavy.otf") format("opentype"); font-weight: 800; font-style: normal; }
+      @font-face { font-family: "NanumPenScript"; src: url("assets/fonts/NanumPenScript-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #000000; }
+      #root > div[data-composition-src] { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <!--
+      09 — YouTube SEO for high-ticket clients · graphic scene REEL.
+      18 full-frame scenes back to back (review surface + single render). The deliverable is this
+      reel sliced per scene into clips (scripts/slice.mjs → deliver/), each named with its
+      Premiere timeline TC from STORYBOARD.md. Order = timeline order.
+    -->
+    <div data-hf-id="hf-owri" id="root" data-composition-id="main" data-start="0" data-duration="151.25" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-zatf" id="s01" data-composition-id="01-search-engine" data-composition-src="compositions/frames/01-search-engine.html" data-start="0" data-duration="8.35" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-wbbp" id="s02" data-composition-id="02-clients-ranking" data-composition-src="compositions/frames/02-clients-ranking.html" data-start="8.35" data-duration="8.85" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-aspb" id="s03" data-composition-id="03-proof-yiannis" data-composition-src="compositions/frames/03-proof-yiannis.html" data-start="17.2" data-duration="8.6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-hh23" id="s04" data-composition-id="04-booking-and-dm" data-composition-src="compositions/frames/04-booking-and-dm.html" data-start="25.8" data-duration="10.85" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-8e05" id="s05" data-composition-id="05-dumb-scroll" data-composition-src="compositions/frames/05-dumb-scroll.html" data-start="36.65" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-i0hl" id="s06" data-composition-id="06-typed-search" data-composition-src="compositions/frames/06-typed-search.html" data-start="44.65" data-duration="7.85" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-clll" id="s07" data-composition-id="07-title-promise" data-composition-src="compositions/frames/07-title-promise.html" data-start="52.5" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-08qx" id="s08" data-composition-id="08-offer-chips" data-composition-src="compositions/frames/08-offer-chips.html" data-start="60.5" data-duration="8.95" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-uoes" id="s09" data-composition-id="09-calendar-week" data-composition-src="compositions/frames/09-calendar-week.html" data-start="69.45" data-duration="8.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-z063" id="s11" data-composition-id="11-llm-citation" data-composition-src="compositions/frames/11-llm-citation.html" data-start="77.95" data-duration="7.75" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-4jqx" id="s12" data-composition-id="12-ai-overview" data-composition-src="compositions/frames/12-ai-overview.html" data-start="85.7" data-duration="8.55" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-bu8g" id="s13" data-composition-id="13-chapters-queries" data-composition-src="compositions/frames/13-chapters-queries.html" data-start="94.25" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-jna2" id="s14" data-composition-id="14-vidiq-grind" data-composition-src="compositions/frames/14-vidiq-grind.html" data-start="102.25" data-duration="8.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-1sg3" id="s15" data-composition-id="15-calendar-hours" data-composition-src="compositions/frames/15-calendar-hours.html" data-start="110.75" data-duration="8.7" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-9hxh" id="s16" data-composition-id="16-three-six-months" data-composition-src="compositions/frames/16-three-six-months.html" data-start="119.45" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-8wru" id="s17" data-composition-id="17-rank-revenue" data-composition-src="compositions/frames/17-rank-revenue.html" data-start="127.45" data-duration="6.7" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-seel" id="s18" data-composition-id="18-calendar-month" data-composition-src="compositions/frames/18-calendar-month.html" data-start="134.15" data-duration="8.6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-ihfk" id="s19" data-composition-id="19-book-a-call" data-composition-src="compositions/frames/19-book-a-call.html" data-start="142.75" data-duration="8.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

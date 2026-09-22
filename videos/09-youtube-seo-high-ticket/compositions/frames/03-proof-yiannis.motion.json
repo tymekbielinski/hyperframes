@@ -1,0 +1,12 @@
+{
+  "scene": "03-proof-yiannis",
+  "duration_s": 8.6,
+  "rules": ["svg-path-draw (ring)", "sine-wave-loop (glow breathe, mark drift)", "viewport-change (DOM push 1.00→1.07 sine.inOut)"],
+  "exit": { "vector": "hold; push ~0.6%/s decelerating to rest at 8.6s; handwriting landed 8.19s; recording still playing (Jonas card)", "still_moving": true },
+  "entry": { "vector": "hard cut in; recording already playing from frame 0 (Tim card); push, glow breathe and mark drift start at t=0", "from_rest": false },
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f03-slab", "bySec": 4.1 },
+    { "kind": "appearsBy", "selector": "#f03-hand1", "bySec": 6.7 },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 2 }
+  ]
+}

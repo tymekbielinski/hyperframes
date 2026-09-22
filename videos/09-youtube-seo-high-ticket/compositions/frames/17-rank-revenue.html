@@ -1,0 +1,245 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Solid bed in the recording's margin as Chromium paints it (#000); the unmasked clip blends into it. No card/clip/rotation/blur. */
+  #f17-bed { position: absolute; inset: 0; background: #000000; }
+  #f17-card { position: absolute; left: 120px; top: 237px; width: 1180px; height: 606px; }
+  #f17-legframes { display: none; }
+  #f17-card video { display: block; width: 1560px; height: 801px; margin-left: -190px; margin-top: -98px; }
+  #f17-counter { left: 1300px; top: 395px; font-size: 118px; color: var(--hf-dark-title); }
+  #f17-hand { left: 1318px; top: 560px; font-size: 50px; transform: rotate(-3deg); }
+</style>
+<div data-hf-id="hf-o26h" id="root" class="hf-dark" data-composition-id="17-rank-revenue" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-f3u3" id="f17-bed"></div>
+
+  <div data-hf-id="hf-did4" id="f17-stage" class="hf-stage">
+    <div data-hf-id="hf-6j4s" id="f17-card">
+      <video data-hf-id="hf-nkkd" id="f17-proof" src="assets/media/proof-1080.mp4" data-start="0" data-duration="6.7" data-media-start="1.2" data-track-index="2" muted playsinline></video>
+    </div>
+    <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-i2lj" id="f17-uline" />
+    </svg>
+    <div data-hf-id="hf-yxri" id="f17-counter" class="hf-counter">$150,000</div>
+    <div data-hf-id="hf-etmr" id="f17-hand" class="hf-hand" data-layout-allow-occlusion>attributed in new revenue</div>
+  </div>
+  <!-- Leg frames of the recording, pre-extracted (ffmpeg, frame-exact) for the two blurred legs. The runtime decodes
+       <video> through its own presenter during capture, so the element's currentTime is not the frame on screen —
+       drawImage(video) paints a stale card. These are the frames the recording shows at those exact times. -->
+  <div data-hf-id="hf-f17lf" id="f17-legframes" data-layout-ignore aria-hidden="true">
+    <img data-hf-id="hf-l101" class="f17-lf" data-leg="1" data-i="0" src="assets/media/proof-legs/l1-01.jpg" alt="">
+    <img data-hf-id="hf-l102" class="f17-lf" data-leg="1" data-i="1" src="assets/media/proof-legs/l1-02.jpg" alt="">
+    <img data-hf-id="hf-l103" class="f17-lf" data-leg="1" data-i="2" src="assets/media/proof-legs/l1-03.jpg" alt="">
+    <img data-hf-id="hf-l104" class="f17-lf" data-leg="1" data-i="3" src="assets/media/proof-legs/l1-04.jpg" alt="">
+    <img data-hf-id="hf-l105" class="f17-lf" data-leg="1" data-i="4" src="assets/media/proof-legs/l1-05.jpg" alt="">
+    <img data-hf-id="hf-l106" class="f17-lf" data-leg="1" data-i="5" src="assets/media/proof-legs/l1-06.jpg" alt="">
+    <img data-hf-id="hf-l107" class="f17-lf" data-leg="1" data-i="6" src="assets/media/proof-legs/l1-07.jpg" alt="">
+    <img data-hf-id="hf-l108" class="f17-lf" data-leg="1" data-i="7" src="assets/media/proof-legs/l1-08.jpg" alt="">
+    <img data-hf-id="hf-l109" class="f17-lf" data-leg="1" data-i="8" src="assets/media/proof-legs/l1-09.jpg" alt="">
+    <img data-hf-id="hf-l110" class="f17-lf" data-leg="1" data-i="9" src="assets/media/proof-legs/l1-10.jpg" alt="">
+    <img data-hf-id="hf-l111" class="f17-lf" data-leg="1" data-i="10" src="assets/media/proof-legs/l1-11.jpg" alt="">
+    <img data-hf-id="hf-l112" class="f17-lf" data-leg="1" data-i="11" src="assets/media/proof-legs/l1-12.jpg" alt="">
+    <img data-hf-id="hf-l113" class="f17-lf" data-leg="1" data-i="12" src="assets/media/proof-legs/l1-13.jpg" alt="">
+    <img data-hf-id="hf-l114" class="f17-lf" data-leg="1" data-i="13" src="assets/media/proof-legs/l1-14.jpg" alt="">
+    <img data-hf-id="hf-l115" class="f17-lf" data-leg="1" data-i="14" src="assets/media/proof-legs/l1-15.jpg" alt="">
+    <img data-hf-id="hf-l116" class="f17-lf" data-leg="1" data-i="15" src="assets/media/proof-legs/l1-16.jpg" alt="">
+    <img data-hf-id="hf-l117" class="f17-lf" data-leg="1" data-i="16" src="assets/media/proof-legs/l1-17.jpg" alt="">
+    <img data-hf-id="hf-l118" class="f17-lf" data-leg="1" data-i="17" src="assets/media/proof-legs/l1-18.jpg" alt="">
+    <img data-hf-id="hf-l119" class="f17-lf" data-leg="1" data-i="18" src="assets/media/proof-legs/l1-19.jpg" alt="">
+    <img data-hf-id="hf-l120" class="f17-lf" data-leg="1" data-i="19" src="assets/media/proof-legs/l1-20.jpg" alt="">
+    <img data-hf-id="hf-l121" class="f17-lf" data-leg="1" data-i="20" src="assets/media/proof-legs/l1-21.jpg" alt="">
+    <img data-hf-id="hf-l122" class="f17-lf" data-leg="1" data-i="21" src="assets/media/proof-legs/l1-22.jpg" alt="">
+    <img data-hf-id="hf-l123" class="f17-lf" data-leg="1" data-i="22" src="assets/media/proof-legs/l1-23.jpg" alt="">
+    <img data-hf-id="hf-l124" class="f17-lf" data-leg="1" data-i="23" src="assets/media/proof-legs/l1-24.jpg" alt="">
+    <img data-hf-id="hf-l125" class="f17-lf" data-leg="1" data-i="24" src="assets/media/proof-legs/l1-25.jpg" alt="">
+    <img data-hf-id="hf-l201" class="f17-lf" data-leg="2" data-i="0" src="assets/media/proof-legs/l2-01.jpg" alt="">
+    <img data-hf-id="hf-l202" class="f17-lf" data-leg="2" data-i="1" src="assets/media/proof-legs/l2-02.jpg" alt="">
+    <img data-hf-id="hf-l203" class="f17-lf" data-leg="2" data-i="2" src="assets/media/proof-legs/l2-03.jpg" alt="">
+    <img data-hf-id="hf-l204" class="f17-lf" data-leg="2" data-i="3" src="assets/media/proof-legs/l2-04.jpg" alt="">
+    <img data-hf-id="hf-l205" class="f17-lf" data-leg="2" data-i="4" src="assets/media/proof-legs/l2-05.jpg" alt="">
+    <img data-hf-id="hf-l206" class="f17-lf" data-leg="2" data-i="5" src="assets/media/proof-legs/l2-06.jpg" alt="">
+    <img data-hf-id="hf-l207" class="f17-lf" data-leg="2" data-i="6" src="assets/media/proof-legs/l2-07.jpg" alt="">
+    <img data-hf-id="hf-l208" class="f17-lf" data-leg="2" data-i="7" src="assets/media/proof-legs/l2-08.jpg" alt="">
+    <img data-hf-id="hf-l209" class="f17-lf" data-leg="2" data-i="8" src="assets/media/proof-legs/l2-09.jpg" alt="">
+    <img data-hf-id="hf-l210" class="f17-lf" data-leg="2" data-i="9" src="assets/media/proof-legs/l2-10.jpg" alt="">
+    <img data-hf-id="hf-l211" class="f17-lf" data-leg="2" data-i="10" src="assets/media/proof-legs/l2-11.jpg" alt="">
+    <img data-hf-id="hf-l212" class="f17-lf" data-leg="2" data-i="11" src="assets/media/proof-legs/l2-12.jpg" alt="">
+    <img data-hf-id="hf-l213" class="f17-lf" data-leg="2" data-i="12" src="assets/media/proof-legs/l2-13.jpg" alt="">
+    <img data-hf-id="hf-l214" class="f17-lf" data-leg="2" data-i="13" src="assets/media/proof-legs/l2-14.jpg" alt="">
+    <img data-hf-id="hf-l215" class="f17-lf" data-leg="2" data-i="14" src="assets/media/proof-legs/l2-15.jpg" alt="">
+    <img data-hf-id="hf-l216" class="f17-lf" data-leg="2" data-i="15" src="assets/media/proof-legs/l2-16.jpg" alt="">
+    <img data-hf-id="hf-l217" class="f17-lf" data-leg="2" data-i="16" src="assets/media/proof-legs/l2-17.jpg" alt="">
+    <img data-hf-id="hf-l218" class="f17-lf" data-leg="2" data-i="17" src="assets/media/proof-legs/l2-18.jpg" alt="">
+    <img data-hf-id="hf-l219" class="f17-lf" data-leg="2" data-i="18" src="assets/media/proof-legs/l2-19.jpg" alt="">
+    <img data-hf-id="hf-l220" class="f17-lf" data-leg="2" data-i="19" src="assets/media/proof-legs/l2-20.jpg" alt="">
+    <img data-hf-id="hf-l221" class="f17-lf" data-leg="2" data-i="20" src="assets/media/proof-legs/l2-21.jpg" alt="">
+    <img data-hf-id="hf-l222" class="f17-lf" data-leg="2" data-i="21" src="assets/media/proof-legs/l2-22.jpg" alt="">
+    <img data-hf-id="hf-l223" class="f17-lf" data-leg="2" data-i="22" src="assets/media/proof-legs/l2-23.jpg" alt="">
+    <img data-hf-id="hf-l224" class="f17-lf" data-leg="2" data-i="23" src="assets/media/proof-legs/l2-24.jpg" alt="">
+  </div>
+  <canvas data-hf-id="hf-f17gl" id="f17-gl" class="hf-gl"></canvas>
+</div>
+<script>
+  (function () {
+    var ID = "17-rank-revenue", DUR = 6.7;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      var videoEl = document.getElementById("f17-proof");
+      var LEGF = { 1: [], 2: [] };
+      [].forEach.call(document.querySelectorAll("#f17-legframes img"), function (im) { LEGF[im.getAttribute("data-leg")][+im.getAttribute("data-i")] = im; });
+      // Card geometry (unchanged from the original layout): the video sits at 0.8125x inside the
+      // card window, offset so its own black margin blends into the solid #f17-bed (no clip/mask).
+      var VX = -70, VY = 139, VW = 1560, VH = 801;
+      var ulEl = document.getElementById("f17-uline");
+      var UL_D = H.underlinePath(1302, 528, 470, 4);
+      ulEl.setAttribute("d", UL_D);
+      var ulPath2D = null;
+      try { ulPath2D = new Path2D(UL_D); } catch (e) { ulPath2D = null; }
+
+      // A slow, small sine drift (different periods on x/y) rides under all three phases so the
+      // two holds never sit dead-still (§ "the first frames must move"). Pure fn of t -> seek-safe.
+      function drift(t) {
+        return { dx: 5 * Math.sin((2 * Math.PI * t) / 4.3 + 0.7), dy: 4 * Math.sin((2 * Math.PI * t) / 3.1 + 2.1) };
+      }
+
+      var LEG2_START = 4.20;
+      var counterEl = document.getElementById("f17-counter");
+
+      // Paint "$150,000" glyph-by-glyph FROM THE ACTUAL DOM (not a re-typeset fillText string).
+      // H.odometer() already split it into one <span> per character laid out by the browser
+      // (tabular-nums, the parent's own letter-spacing) — those spans exist and are laid out even
+      // while the stage sits at opacity:0 during a leg. rig.dom(t) gives the SAME {dx,dy,z} the
+      // stage's own CSS transform is using at this instant, so a span's getBoundingClientRect()
+      // (screen px) divides back out to the exact design-space position: design = (screen-dx)/z.
+      // Each span's own computed font/weight/size/colour is read straight off the DOM, so the
+      // baked glyph is pixel-parity with the DOM one — no separate hardcoded font declaration to
+      // drift out of sync. Corrections verified against the live DOM (measured, not eyeballed):
+      // 1) the baseline accounts for the line-height's half-leading: `.hf-counter` sets
+      //    line-height:1, which is TIGHTER than this font's natural (ascent+descent) box, so the
+      //    line box clips into the font's own metrics symmetrically top/bottom. Using
+      //    fontBoundingBoxAscent alone as "distance from box top to baseline" ignored that
+      //    negative leading and sat the glyph ~15 design-px (~20 screen-px at leg-2's 1.3x) too low.
+      //    baselineOffset = ascent + (lineHeight - (ascent+descent))/2 matches the DOM's own
+      //    text-box math.
+      // 2) THE ACTUAL "font changes" BUG: Canvas 2D's `font` shorthand has no equivalent of the
+      //    DOM's `font-variant-numeric: tabular-nums` — that OpenType feature isn't reachable from
+      //    ctx.font at all, so ctx.measureText() reports each glyph's natural PROPORTIONAL advance,
+      //    not the tabular one the DOM actually laid the spans out at. Measured live (t=4.90, the
+      //    reported end-of-leg frame): the DOM's tabular digit box is a uniform 74.34 design-px for
+      //    every digit (span.getBoundingClientRect().width / z), but Canvas's proportional
+      //    measureText() reports "0" at ~83px — ~9px too wide — and since letter-spacing:-0.03em is
+      //    tuned so adjacent tabular boxes sit flush (zero gap), any glyph wider than its box bleeds
+      //    straight into the next one. Three "0"s in a row each 9px over-width is exactly the fused,
+      //    "bolder and wider" blob Tymek flagged — merely centering each glyph on its true box
+      //    centre (the previous fix) can't correct this, because the drawn glyph itself is the
+      //    wrong width, not just wrongly positioned. Fix: after measuring, if a glyph is WIDER than
+      //    its true DOM box, scale it down horizontally (ctx.scale around its own centre) so it
+      //    fits inside that box exactly — this removes the bleed with a correction small enough
+      //    (≤10% on every character actually in "$150,000") to be imperceptible. A glyph NARROWER
+      //    than its box (Satoshi's tabular "1" is a wider, additionally-serifed alternate the
+      //    proportional glyph measures at barely 63% of — a genuinely different outline, not just
+      //    extra padding) is deliberately left unscaled rather than stretched to fit: Canvas cannot
+      //    draw that alternate glyph under any transform, so stretching the plain "1" only trades
+      //    the (harmless) narrow gap for a distorted, blob-like flag — never scale UP.
+      // EXACT glyphs: the locked counter is rasterised once through the browser's own layout engine (H.rasterText —
+      // SVG foreignObject + embedded Satoshi), because canvas fillText cannot reach tabular figures. The glyph painter
+      // below only covers the first frames before the raster has decoded.
+      var counterRaster = H.rasterText(counterEl);
+      function paintCounterFromDOM(ctx, t) {
+        if (counterRaster.img) { ctx.drawImage(counterRaster.img, counterRaster.x - counterRaster.pad, counterRaster.y - counterRaster.pad); return; }   // exact DOM glyphs
+        var d = rig.dom(t);
+        var spans = counterEl.querySelectorAll(":scope > span:not([data-layout-ignore])");
+        if (!spans.length) return;
+        ctx.save();
+        ctx.textBaseline = "alphabetic";
+        ctx.textAlign = "center";
+        ctx.shadowColor = "rgba(249,249,249,0.28)"; ctx.shadowBlur = 34;
+        for (var i = 0; i < spans.length; i++) {
+          var span = spans[i], r = span.getBoundingClientRect();
+          if (!r.width && !r.height) continue;
+          var cs = getComputedStyle(span);
+          var cx = (r.left + r.width / 2 - d.dx) / d.z, yTop = (r.top - d.dy) / d.z;
+          var boxW = r.width / d.z;
+          ctx.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+          ctx.fillStyle = cs.color;
+          var m = ctx.measureText(span.textContent);
+          var ascent = m.fontBoundingBoxAscent, descent = m.fontBoundingBoxDescent;
+          var lh = parseFloat(cs.lineHeight);
+          var natural = ascent + descent;
+          var halfLeading = isNaN(lh) ? 0 : (lh - natural) / 2;
+          var scaleX = m.width > 0 ? boxW / m.width : 1;
+          if (!isFinite(scaleX) || scaleX <= 0) scaleX = 1;
+          // Only ever shrink, never stretch: a glyph WIDER than its box (every digit/punct in
+          // "$150,000" measures within ~10% over) gets squeezed down just enough to stop bleeding
+          // into its neighbour — small enough to be invisible. A glyph NARROWER than its box is
+          // left at scaleX 1 (natural, still centred) instead of stretched up to match, because
+          // Canvas has no way to draw the true wider glyph correctly anyway (see above) — a big
+          // one-axis stretch of the wrong outline looks worse than the honest narrow gap.
+          scaleX = Math.max(0.75, Math.min(1, scaleX));
+          ctx.save();
+          ctx.translate(cx, 0);
+          ctx.scale(scaleX, 1);
+          ctx.fillText(span.textContent, 0, yTop + ascent + halfLeading);
+          ctx.restore();
+        }
+        ctx.restore();
+      }
+
+      // Three-phase camera (§8c rig): punched in on the recording -> dolly right to the hero
+      // title -> blurred pull-out that lands on the exact, pixel-identical full composition.
+      // liveBake re-bakes the world texture every tick of a leg (not just once): the <video>'s
+      // current frame is sampled with ctx.drawImage (synchronous, unlike rasterising an animating
+      // DOM subtree — see DESIGN-SYSTEM.md §8c's documented limitation, which this sidesteps
+      // rather than violates), so the recording keeps playing through both legs, not just the
+      // one frame at leg-start. It also lets `bake` paint the $150,000 + underline once they've
+      // landed, so leg 2's bake matches whichever content is currently on screen.
+      var rig = H.camera(tl, {
+        stage: document.getElementById("f17-stage"), canvas: document.getElementById("f17-gl"),
+        bgCss: "#000000", bg: [0, 0, 0, 1], dur: DUR, K: 1.5,
+        preset: { shutter: 0.5, spacing: 1.5, maxN: 64, ease: "power2.inOut" }, // shorter shutter: these legs still travel farther/faster than the usual 7-16%/s, so keep a longer sample cap
+        drift: drift,
+        liveBake: true,
+        bake: function (ctx, K, t) {
+          var n = Math.round((1.2 + t) * 30), leg = (n >= 81 && n <= 105) ? 1 : (n >= 162 && n <= 185) ? 2 : 0;
+          var fr = leg ? LEGF[leg][n - (leg === 1 ? 81 : 162)] : null;
+          if (fr && fr.complete && fr.naturalWidth) ctx.drawImage(fr, VX, VY, VW, VH);
+          else if (videoEl.readyState >= 2) ctx.drawImage(videoEl, VX, VY, VW, VH);   // preview-only fallback
+          // The hero title only exists once it has landed in hold B; leg 1 predates it entirely,
+          // so only leg 2 (from LEG2_START) ever needs to paint it.
+          if (t >= LEG2_START) {
+            paintCounterFromDOM(ctx, t);
+            if (ulPath2D) {
+              ctx.save();
+              ctx.strokeStyle = H.RED; ctx.lineWidth = 5; ctx.lineCap = "round"; ctx.lineJoin = "round";   // no glow: .hf-marks has no filter any more
+              ctx.stroke(ulPath2D);
+              ctx.restore();
+            }
+          }
+        },
+        keys: [
+          { t: 0.00, cx: 710, cy: 540, z: 1.30 },   // hold A: punched in on the card (its own centre)
+          { t: 1.50, cx: 710, cy: 540, z: 1.30 },
+          { t: 2.30, cx: 1540, cy: 480, z: 1.30 },  // leg 1 (0.8s): dolly right onto the hero title region
+          { t: 4.20, cx: 1540, cy: 480, z: 1.30 },  // hold B: title framed while it lands
+          { t: 4.95, cx: 960, cy: 540, z: 1.00 },   // leg 2 (0.75s): pull wide to the identity pose
+          { t: DUR, cx: 960, cy: 540, z: 1.00 }     // hold C: full composition, pixel-exact
+        ],
+        legs: [[1.50, 2.30], [4.20, 4.95]]
+      });
+
+      // Hold B (2.30-4.20): nothing animates during a leg (the stage is hidden then), so the
+      // reveal starts a quiet 0.2s after the camera settles on the title, then the odometer tears
+      // up and locks right-to-left, and the underline draws — landing before leg 2 begins.
+      tl.fromTo("#f17-counter", { opacity: 0, y: 30, scale: 0.86, transformOrigin: "0% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out" }, 2.35);
+      H.odometer(tl, counterEl, 2.35, 1.50, "$150,000", { hold: 0.60 });   // static "$0" 2.35–2.95, counts to 3.85 (leg 2 starts 4.20)
+      H.draw(tl, ulEl, 3.88, 0.28);
+
+      // Hold C (4.95-6.70): the marginalia writes itself once the pull-wide has landed. Shifted
+      // later than the original single-phase cut (was 3.95) so it never has to write through a
+      // leg — see report for the "write through the pull" alternative that was considered.
+      H.handwrite(tl, document.getElementById("f17-hand"), 4.98, 67);
+    }
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

@@ -1,0 +1,96 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Lit light ground: a cool blue breathing glow (Google's own accent) under the faint blueprint grid. */
+  /* Warm light spilling from the top-left corner around the card (the card covers the centre until the push) */
+  #f01-glow { left: -300px; top: -420px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(255,166,102,0.55) 0%, rgba(255,166,102,0) 65%); }
+  /* Ghost numeral, independent of the push — a background watermark, not part of the camera world. */
+  #f01-ghost { left: 1250px; top: -60px; font-size: 900px; }
+  /* The real Google AI Overview capture, cropped to the AI-Overview column (capture 1920x1080, crop x:180-1345 y:140-900). */
+  #f01-shot { left: 260px; top: 90px; width: 1400px; height: 914px; transform: rotate(1deg); background: #fff; }
+  #f01-shot img { width: 2307px; height: 1298px; margin-left: -216px; margin-top: -168px; object-fit: fill; }
+  /* "#2 in the world" — a white bold sans title spanning the visible frame at the scene's zoom (≈1.22–1.27x → ~1512–1574
+     design px wide, centred on the camera's cx ≈ 864). Sits in the dark ground above the card; 67 ms/char reveal kept. */
+  #f01-hand { left: 134px; top: -238px; width: 1460px; font-family: var(--hf-title); font-weight: 800; font-size: 168px; line-height: 1;
+    letter-spacing: -0.03em; color: #ffffff; text-align: center; white-space: nowrap; transform: none; }
+</style>
+<div data-hf-id="hf-a01r" id="root" class="hf-light" data-composition-id="01-search-engine" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-a01g" class="hf-ground-light"></div>
+  <div data-hf-id="hf-a01t" id="f01-ghost" data-layout-ignore="true" class="hf-ghost">2</div>
+  <div data-hf-id="hf-a01w" id="f01-glow" class="hf-glow"></div>
+  <div data-hf-id="hf-a01x" class="hf-grid"></div>
+
+  <div data-hf-id="hf-a01s" id="f01-stage" class="hf-stage">
+    <div data-hf-id="hf-a01h" id="f01-shot" class="hf-shot"><img data-hf-id="hf-a01i" id="f01-img" src="assets/captures/google-ai-overview-2nd-search-engine.png" alt=""></div>
+
+    <svg data-hf-id="hf-a01m" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-a01a" id="f01-arrow-shaft" />
+      <path data-hf-id="hf-a01b" id="f01-arrow-head" />
+    </svg>
+    <div style="clip-path: inset(0px)" data-hf-id="hf-a01n" id="f01-hand" class="hf-hand"><span data-hf-id="hf-o4yu">#</span><span data-hf-id="hf-hdrd">2</span><span data-hf-id="hf-uckh"> </span><span data-hf-id="hf-wbiw">i</span><span data-hf-id="hf-tjdp">n</span><span data-hf-id="hf-l73p"> </span><span data-hf-id="hf-r5jj">t</span><span data-hf-id="hf-vx7v">h</span><span data-hf-id="hf-xwr0">e</span><span data-hf-id="hf-me0s"> </span><span data-hf-id="hf-qr8i">w</span><span data-hf-id="hf-txoq">o</span><span data-hf-id="hf-ry5l">r</span><span data-hf-id="hf-ubzr">l</span><span data-hf-id="hf-xifz">d</span></div>
+  </div>
+  <canvas data-hf-id="hf-a01c" id="f01-gl" class="hf-gl"></canvas>
+  <div data-hf-id="hf-a01v" class="hf-vignette"></div>
+</div>
+<script>
+  (function () {
+    var ID = "01-search-engine", DUR = 8.35;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      function rr(ctx, x, y, w, h, r) {
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+      }
+      var img = document.getElementById("f01-img");
+
+      // Bed from t=0: cool glow breathes, ghost numeral drifts slowly (independent of the camera world).
+      tl.fromTo("#f01-glow", { scale: 0.92, opacity: 0.70 }, { scale: 1.08, opacity: 1.0, duration: DUR, ease: "sine.inOut" }, 0);
+      tl.fromTo("#f01-ghost", { x: 0, y: 0 }, { x: -40, y: 30, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.set("#f01-hand", { width: 1460, height: 168, immediateRender: true }, 0);
+
+      tl.set("#f01-hand", { x: -2, y: 83, immediateRender: true }, 0);
+
+      tl.set("#f01-hand", { rotation: 0, immediateRender: true }, 0);
+
+      // §8c camera: standing micro-push 0→0.4, then the leg (HFMotionBlur) 0.4→1.5 pushing 1.00→1.22 onto the
+      // first sentence, then a slow push hold to the end (bake = opaque ground + the artifact, same crop as the DOM).
+      H.camera(tl, {
+        stage: document.getElementById("f01-stage"), canvas: document.getElementById("f01-gl"),
+        bgCss: "transparent", bg: null, dur: DUR, K: 1.5, preset: "medium",
+        // Transparent world: only the artifact card is baked. The ground, light-rays, ghost numeral and breathing glow are
+        // DOM layers outside the camera stage; they show through the blur canvas, so the leg handoffs are exact by construction.
+        bake: function (ctx) {
+          var SX = 260, SY = 90, SW = 1400, SH = 914, ROT = 1, R = 14, DW = 2307, DH = 1298, MGL = -216, MGT = -168;
+          ctx.save(); ctx.translate(SX + SW / 2, SY + SH / 2); ctx.rotate(ROT * Math.PI / 180);
+          ctx.fillStyle = "#000"; ctx.shadowColor = "rgba(0,0,0,0.20)"; ctx.shadowBlur = 90; ctx.shadowOffsetY = 40;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.fill();
+          ctx.shadowColor = "rgba(0,0,0,0)"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.clip();
+          ctx.drawImage(img, -SW / 2 + MGL, -SH / 2 + MGT, DW, DH); ctx.restore();
+        },
+        keys: [
+          { t: 0.0, cx: 960, cy: 540, z: 1.000 },
+          { t: 0.4, cx: 960, cy: 540, z: 1.015 },   // standing micro-push
+          { t: 1.5, cx: 868, cy: 178, z: 1.220 },   // the leg: onto the first sentence
+          { t: DUR, cx: 860, cy: 170, z: 1.270 }    // slow push under the hold
+        ],
+        legs: [[0.4, 1.5]]
+      });
+
+      // "#2 in the world" writes itself, then a curved arrow points back into the highlighted sentence.
+      // Typewriter (Tymek: "add type animation"): 67 ms/char + 90 ms after each word, caret rides the text, 3 blinks, gone.
+      H.typewrite(tl, document.getElementById("f01-hand"), 1.9, 67, { wordPauseMs: 90, blinks: 3 });   // 15 chars → typed by ≈3.18, caret gone ≈4.43
+      var a = H.arrowPath(1030, 255, 867, 192, -60);
+      var shaft = document.getElementById("f01-arrow-shaft"), head = document.getElementById("f01-arrow-head");
+      shaft.setAttribute("d", a.shaft);head.setAttribute("d", a.head);
+      H.draw(tl, shaft, 4.405, 0.5);
+      H.draw(tl, head, 4.905, 0.15);
+      // 5.055 → 8.35: held, fully annotated, still pushing.
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

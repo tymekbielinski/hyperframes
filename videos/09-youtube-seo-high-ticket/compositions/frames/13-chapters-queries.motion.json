@@ -1,0 +1,7 @@
+{
+  "scene": "13-chapters-queries",
+  "duration_s": 8.0,
+  "rules": ["viewport-change", "svg-path-draw", "css-marker-patterns"],
+  "exit": { "vector": "slow settled push, z 1.10→1.14 at rest, still moving", "still_moving": true },
+  "entry": { "vector": "camera already panning down the list from t=0.4, glow/mark live from t=0", "from_rest": false }
+}

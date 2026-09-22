@@ -1,0 +1,14 @@
+{
+  "scene": "09-calendar-week",
+  "duration_s": 8.5,
+  "rules": [
+    "design-system-§6-calendar-build (card dead still, 8 peer events at 125 ms from 0.3 s → 1.175, each 0.24 s power3.out spring-pop)",
+    "HFHouse.push 1.00→1.10 (2.0→3.6) then hold push 1.10→1.13 (3.6→8.5), origin 300,530",
+    "HFHouse.swap hard 133 ms blue→red on the whole set at 4.3 (blue glow floor → red glow floor, 133 ms)",
+    "HFHouse.handwrite 67 ms/char 'from search →' 5.0→5.87",
+    "HFHouse.arrowPath + HFHouse.draw: shaft 5.5→5.95, head 5.95→6.07"
+  ],
+  "beats_s": { "events": [0.3, 1.42], "push": [2.0, 3.6], "swap": 4.3, "handwriting": [5.0, 5.87], "arrow": [5.5, 6.07] },
+  "exit": { "vector": "hold push about (300,530) 1.10→1.13 sine.inOut, ≈0 px/s at the final frame (mid-hold peak ≈ 13 px/s at the card's far edge); two glows breathing sine.inOut", "still_moving": true },
+  "entry": { "vector": "hard cut, artifact at full size and DEAD STILL by §6; two glows breathing (sine.inOut, ≈0 px/s at frame 0); first event lands at 0.3 s", "from_rest": true }
+}

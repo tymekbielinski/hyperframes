@@ -1,0 +1,45 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Solid bed in the recording's margin as Chromium paints it (#000, limited-range decode) — the unmasked clip blends into it edge-free.
+     No card, no clip, no rotation, no blur: the video is a plain composited layer (Tymek: "no masks, solid background"). */
+  #f03-bed { position: absolute; inset: 0; background: #000000; }
+  /* The recording IS the artifact: the proof card (video px 297..1563 x 23..967) lands at 660,130 @0.8552x, same geometry as before. */
+  #f03-card { position: absolute; left: 660px; top: 130px; width: 1080px; height: 800px; }
+  #f03-card video { display: block; width: 1642px; height: 843px; margin-left: -255px; margin-top: -22px; }
+  /* Marginalia lives in the black strip the recording never covers: the clip is unmasked, so its own frame starts at
+     design x=405 and the push drags that edge to x=349 — anything wider than that ends up over a sliding card. */
+  .f03-hand { font-size: 46px; transform: rotate(-6deg); }
+  #f03-hand1 { left: 22px; top: 432px; }
+  #f03-hand2 { left: 44px; top: 498px; }
+</style>
+<div data-hf-id="hf-mwn9" id="root" class="hf-dark" data-composition-id="03-proof-yiannis" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-f3u3" id="f03-bed"></div>
+
+  <div data-hf-id="hf-m1vr" id="f03-stage" class="hf-stage">
+    <div data-hf-id="hf-8w65" id="f03-card">
+      <video data-hf-id="hf-efnu" id="f03-proof" src="assets/media/proof-1080.mp4" data-start="0" data-duration="8.6" data-media-start="0" data-track-index="2" muted playsinline></video>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-v493" id="f03-hand1" class="hf-hand f03-hand">1 client per niche</div>
+  <div data-hf-id="hf-qg10" id="f03-hand2" class="hf-hand f03-hand">· 5 max</div>
+</div>
+<script>
+  (function () {
+    var ID = "03-proof-yiannis", DUR = 8.6;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      // Bed from t=0: the carousel plays (Tim → Yiannis → Jonas); the camera eases into the card 1.00→1.07 the whole scene.
+      H.push(tl, "#f03-stage", 0, DUR, 1.0, 1.07, "1200px 530px");
+
+      // "one person per niche … five clients" → the roster cap as marginalia beside the card (67ms/char).
+      H.handwrite(tl, document.getElementById("f03-hand1"), 2.5, 67);   // 18 chars → lands 3.71
+      H.handwrite(tl, document.getElementById("f03-hand2"), 3.75, 67);  // 7 chars → lands 4.22, then the card holds
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

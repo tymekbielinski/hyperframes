@@ -1,0 +1,7 @@
+{
+  "scene": "16-three-six-months",
+  "duration_s": 8.0,
+  "rules": ["svg-path-draw", "viewport-change"],
+  "exit": { "vector": "static — held final frame, ~0.5%/s settle push, no directional exit", "still_moving": true },
+  "entry": { "vector": "cut-in at full size, wide framing on the blank chart axis; title words + warm glow moving from t=0", "from_rest": false }
+}

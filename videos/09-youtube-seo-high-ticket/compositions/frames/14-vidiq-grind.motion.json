@@ -1,0 +1,7 @@
+{
+  "scene": "14-vidiq-grind",
+  "duration_s": 8.5,
+  "rules": ["viewport-change", "svg-path-draw"],
+  "exit": { "vector": "static — held final frame, only a ~1%/s settle push, no directional exit", "still_moving": true },
+  "entry": { "vector": "cut-in at full size already framed on the top of the table; glow/brandmark drifting from t=0", "from_rest": false }
+}

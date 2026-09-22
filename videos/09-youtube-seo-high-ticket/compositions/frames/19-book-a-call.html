@@ -1,0 +1,122 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* The page (the artifact) lives inside the stage so the HFMotionBlur bake matches the DOM 1:1.
+     Ground, brandmark and glow are untimed layers OUTSIDE the stage (siblings, per _house.md) — they
+     show straight through the transparent camera canvas during the leg, so they never need baking. */
+  #f19-mark { left: 1180px; top: 640px; width: 760px; height: 300px; }
+  #f19-mark img { width: 100%; height: 100%; object-fit: contain; filter: invert(1); }
+  #f19-glow { left: 560px; top: -320px; width: 900px; height: 720px; background: radial-gradient(circle, rgba(255,166,102,0.26) 0%, rgba(255,255,255,0) 65%); }
+  /* The real Cal.com booking page (1600×953) at 1.05×, cropped 67px top/bottom of its own dark padding.
+     Tymek: no rotation, no shiny border glow on this scene — scene-scoped override of the shared
+     .hf-shot chrome (house.css is off-limits): drop the rotate(), drop the hairline border, and hide
+     the ::before blurred bar + ::after gradient line so no other scene using .hf-shot is touched. */
+  #f19-page { left: 120px; top: 96px; width: 1680px; height: 860px; background: #000; border: none; }
+  #f19-page::before, #f19-page::after { display: none; }
+  #f19-page img { position: absolute; left: 0; top: -70px; width: 1680px; height: 1001px; object-fit: fill; }
+  /* Micro-detail: a panel-white patch over the "Please fill out the form…" tooltip, carrying the greyed dates it hid. */
+  #f19-clear { position: absolute; left: 909px; top: 413px; width: 246px; height: 80px; background: #FFFFFF; opacity: 0; font-family: var(--hf-ui); font-size: 14.7px; color: #D6D6D6; }
+  #f19-clear span { position: absolute; width: 28px; margin-left: -14px; margin-top: -9px; text-align: center; line-height: 18px; }
+  #f19-hand { left: 300px; top: 940px; font-size: 56px; transform: rotate(-2deg); }
+</style>
+<div data-hf-id="hf-l5ai" id="root" class="hf-dark" data-composition-id="19-book-a-call" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-f3u3" class="hf-ground-dark"></div>
+  <div data-hf-id="hf-nesp" id="f19-mark" class="hf-brandmark"><img data-hf-id="hf-tnyr" id="f19-markimg" src="assets/logos/calcom.svg" alt=""></div>
+  <div data-hf-id="hf-95nc" id="f19-glow" class="hf-glow"></div>
+  <div data-hf-id="hf-w1na" id="f19-stage" class="hf-stage">
+    <div data-hf-id="hf-pgod" id="f19-page" class="hf-shot">
+      <img data-hf-id="hf-z6t9" id="f19-img" src="assets/lifted/booking-1600.png" alt="">
+      <div data-hf-id="hf-36yv" id="f19-clear">
+        <span data-hf-id="hf-n1ls" style="left:28px;top:26px">21</span><span data-hf-id="hf-x7hj" style="left:75px;top:26px">22</span><span data-hf-id="hf-2lsi" style="left:123px;top:26px">23</span><span data-hf-id="hf-z49o" style="left:171px;top:26px">24</span><span data-hf-id="hf-wnq3" style="left:218px;top:26px">25</span>
+        <span data-hf-id="hf-mzw4" style="left:28px;top:65px">28</span><span data-hf-id="hf-iq11" style="left:75px;top:65px">29</span><span data-hf-id="hf-66l5" style="left:123px;top:65px">30</span>
+      </div>
+    </div>
+    <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-n9xu" id="f19-arrow-shaft" />
+      <path data-hf-id="hf-lmhk" id="f19-arrow-head" />
+      <path data-hf-id="hf-55uw" id="f19-ring" />
+    </svg>
+  </div>
+  <canvas data-hf-id="hf-zkzv" id="f19-gl" class="hf-gl"></canvas>
+  <div data-hf-id="hf-271l" class="hf-vignette"></div>
+
+  <div data-hf-id="hf-6wqs" id="f19-hand" class="hf-hand">first link in the description</div>
+</div>
+<script>
+  (function () {
+    var ID = "19-book-a-call", DUR = 8.5;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      // Page geometry (design coords) — shared by the DOM .hf-shot and the bake.
+      var SX = 120, SY = 96, SW = 1680, SH = 860, ROT = 0, IMG_H = 1001, IMG_DY = -70, R = 14;
+      var img = document.getElementById("f19-img");
+
+      // Lit ground — ONE continuous tween per element across the whole scene, not a hold-then-resume
+      // pair. Two fromTo/to tweens on the same element are not seek-safe (the renderer splits frames
+      // across parallel workers with independent seek histories, so alternate frames can resolve the
+      // two tweens differently) — this is what produced the reported "border/background disappears
+      // randomly" flicker. The camera leg (0.5→2.0) is baked from these elements' held DOM values
+      // (see bake below), so a single smooth tween across the leg is safe: the leg frames are painted
+      // from the bake, not the live DOM, and the DOM resumes exactly where the tween says it should be.
+      tl.fromTo("#f19-glow", { scale: 0.94, opacity: 0.80 }, { scale: 1.06, opacity: 1.0, duration: DUR, ease: "sine.inOut", immediateRender: false }, 0);
+      tl.fromTo("#f19-mark", { x: 0, y: 0 }, { x: -50, y: 30, duration: DUR, ease: "sine.inOut", immediateRender: false }, 0);
+
+      function rr(ctx, x, y, w, h, r) {
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+      }
+      // §8c camera: one leg 0.5→2.0 pushing 1.00→1.30 into the form (HFMotionBlur), then a slow DOM push 1.30→1.34 under the hold.
+      H.camera(tl, {
+        stage: document.getElementById("f19-stage"), canvas: document.getElementById("f19-gl"),
+        bgCss: "transparent", bg: null, dur: DUR, K: 1.5, preset: "medium",
+        // Transparent world: only the page (the artifact) is baked. Ground, brandmark and glow are
+        // untimed DOM layers outside the stage and show straight through the canvas during the leg —
+        // no repaint needed, so their handoff at both leg boundaries is exact by construction. This
+        // used to repaint the ground as solid black and the glow/mark from a single frozen snapshot
+        // (baked once, not per-tick), which drifted from the continuously-animating DOM layers and
+        // produced the reported "border/background disappears randomly" flicker at the leg edges.
+        bake: function (ctx) {
+          // the page: same house shadow as the DOM's un-overridden `.hf-shot` box-shadow (only the
+          // border and the ::before/::after hairline+glow-bar were stripped for this scene — see the
+          // CSS above — box-shadow was not, so it must still be painted here). Equivalent to
+          // `H.bakeImage(..., {chrome:false})` (no border stroke, no orange top bar) — bakeImage
+          // itself isn't called because this shot needs an oversized/offset image draw (the crop) that
+          // bakeImage's fixed dest-rect draw doesn't support.
+          ctx.save(); ctx.translate(SX + SW / 2, SY + SH / 2); ctx.rotate(ROT * Math.PI / 180);
+          ctx.fillStyle = "#171717";
+          ctx.shadowColor = "rgba(0,0,0,0.85)"; ctx.shadowBlur = 50; ctx.shadowOffsetY = 20; rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.fill();
+          ctx.shadowColor = "rgba(255,166,102,0.10)"; ctx.shadowBlur = 40; ctx.shadowOffsetY = 0; ctx.fill();
+          ctx.shadowColor = "rgba(0,0,0,0)"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.clip();
+          ctx.drawImage(img, -SW / 2, -SH / 2 + IMG_DY, SW, IMG_H); ctx.restore();
+        },
+        keys: [
+          { t: 0.0, cx: 960, cy: 540, z: 1.000 },
+          { t: 0.5, cx: 960, cy: 540, z: 1.012 },   // standing micro-push, then
+          { t: 2.0, cx: 930, cy: 500, z: 1.300 },   // the leg: into the form
+          { t: DUR, cx: 928, cy: 498, z: 1.340 }    // slow push under the hold
+        ],
+        legs: [[0.5, 2.0]]
+      });
+
+      // "first link in the description" → marginalia writes itself in the frame margin (67ms/char; outside the camera stage).
+      H.handwrite(tl, document.getElementById("f19-hand"), 1.9, 67);   // 29 chars → lands 3.84
+      // Micro-detail right after the leg lands: the tooltip clears and the dates it hid show through (0.3s).
+      tl.fromTo("#f19-clear", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out", immediateRender: false }, 2.2);
+      // "book a call" → red arrow from the margin to the Continue button (stage coords, so it tracks the push).
+      var a = H.arrowPath(453, 781, 736, 719, 80);
+      var shaft = document.getElementById("f19-arrow-shaft"), head = document.getElementById("f19-arrow-head");
+      shaft.setAttribute("d", a.shaft); head.setAttribute("d", a.head);
+      H.draw(tl, shaft, 3.4, 0.45);
+      H.draw(tl, head, 3.8, 0.15);
+      // "where you're currently standing" → ring around the calendar's next open day (Mon 7).
+      var ring = document.getElementById("f19-ring");
+      ring.setAttribute("d", H.ringPath(1058, 455, 30, 24, 3));
+      H.draw(tl, ring, 5.2, 0.55);
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

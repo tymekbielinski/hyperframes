@@ -1,0 +1,162 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Lit ground (light): a warm breathing glow + the "booked" blue-teal floor — this month stays good, nothing turns red. */
+  #f18-glow-warm { left: 140px; top: 20px; width: 1500px; height: 1000px; background: radial-gradient(circle, rgba(255,166,102,0.40) 0%, rgba(255,166,102,0) 62%); opacity: 0.85; }
+  #f18-glow-blue { left: -180px; top: 120px; width: 1150px; height: 920px; background: radial-gradient(circle, rgba(255,166,102,0.42) 0%, rgba(255,166,102,0) 62%); }
+
+  /* ---- Recreated Google Calendar — MONTH view (user exception: built at product fidelity; same chrome as frames 09/15) ---- */
+  #f18-cal { left: 120px; top: 120px; width: 1200px; height: 840px; background: #FFFFFF; transform: rotate(1.5deg); font-family: var(--hf-ui); color: #3C4043; -webkit-font-smoothing: antialiased; }
+  #f18-cal .gc-top { position: absolute; left: 0; top: 0; width: 1200px; height: 68px; display: flex; align-items: center; padding: 0 16px 0 10px; box-sizing: border-box; gap: 10px; }
+  #f18-cal .gc-ic { width: 26px; height: 26px; fill: #5F6368; flex: 0 0 auto; }
+  #f18-cal .gc-ibtn { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  #f18-cal .gc-logo { width: 40px; height: 40px; flex: 0 0 auto; margin-left: 2px; }
+  #f18-cal .gc-wordmark { font-size: 26px; color: #3C4043; margin: 0 22px 0 4px; white-space: nowrap; }
+  #f18-cal .gc-btn { height: 40px; padding: 0 18px; border: 1px solid #DADCE0; border-radius: 6px; display: flex; align-items: center; gap: 4px; font-size: 16px; font-weight: 500; color: #3C4043; white-space: nowrap; box-sizing: border-box; }
+  #f18-cal .gc-btn .gc-ic { width: 22px; height: 22px; margin-right: -6px; }
+  #f18-cal .gc-month { font-size: 26px; color: #3C4043; margin-left: 4px; white-space: nowrap; }
+  #f18-cal .gc-spacer { flex: 1 1 auto; }
+  #f18-cal .gc-avatar { width: 36px; height: 36px; border-radius: 50%; background: #7B4EFF; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; margin-left: 4px; flex: 0 0 auto; }
+
+  /* Month grid: weekday header strip, 5 rows × 7 columns (171.43 × 148.4), hairlines between cells. */
+  #f18-cal .gc-mdh { position: absolute; top: 76px; width: 171.43px; text-align: center; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: #70757A; }
+  #f18-cal .gc-mv { position: absolute; top: 98px; width: 1px; height: 742px; background: #DADCE0; }
+  #f18-cal .gc-mh { position: absolute; left: 0; width: 1200px; height: 1px; background: #DADCE0; }
+  #f18-cal .gc-mc { position: absolute; width: 171.43px; height: 148.4px; }
+  #f18-cal .gc-dnum { position: absolute; left: 0; right: 0; top: 6px; display: flex; justify-content: center; }
+  #f18-cal .gc-dnum span { height: 30px; min-width: 30px; padding: 0 7px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #3C4043; box-sizing: border-box; white-space: nowrap; }
+  #f18-cal .gc-other .gc-dnum span { color: #70757A; }
+  #f18-cal .gc-today .gc-dnum span { background: #1A73E8; color: #fff; font-weight: 500; }
+  /* Booked call pip — CSS default is the landed (blue) state; there is no red swap in this month. */
+  #f18-cal .gc-pip { position: absolute; left: 5px; right: 5px; top: 42px; height: 30px; background: #4285F4; color: #fff; border-radius: 4px; padding: 0 26px 0 8px; box-sizing: border-box; font-size: 16px; font-weight: 600; line-height: 30px; white-space: nowrap; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.45); will-change: transform, opacity; }
+  #f18-cal .gc-pip svg { position: absolute; right: 6px; top: 6px; width: 14px; height: 14px; fill: #fff; }
+
+  /* Right column: the odometer counter, its label (one green accent word), the red ring drawn around the number. */
+  #f18-counter { left: 1420px; top: 380px; font-size: 190px; opacity: 1; transform-origin: 0% 100%; }
+  #f18-label { position: absolute; left: 1424px; top: 600px; font-size: 36px; white-space: nowrap; }
+</style>
+<div data-hf-id="hf-l3fq" id="root" class="hf-light" data-composition-id="18-calendar-month" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-5zjt" class="hf-ground-light"></div>
+  <div data-hf-id="hf-7jrf" class="hf-grid"></div>
+  <div data-hf-id="hf-3mqv" id="f18-glow-warm" class="hf-glow"></div>
+  <div data-hf-id="hf-ocms" id="f18-glow-blue" class="hf-glow"></div>
+  <div data-hf-id="hf-271l" class="hf-vignette"></div>
+
+  <div data-hf-id="hf-54ir" id="f18-stage" class="hf-stage">
+    <div data-hf-id="hf-cgu9" id="f18-cal" class="hf-shot">
+      <div data-hf-id="hf-4pno" class="gc-top">
+        <div data-hf-id="hf-nzdg" class="gc-ibtn"><svg data-hf-id="hf-m2tx" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-fy5h" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg></div>
+        <svg data-hf-id="hf-hmz4" class="gc-logo" viewBox="0 0 40 40"><defs data-hf-id="hf-mh0t"><clippath data-hf-id="hf-ncyd" id="f18-logo-clip"><rect data-hf-id="hf-hyh6" width="40" height="40" rx="4" /></clippath></defs><g data-hf-id="hf-dc3n" clip-path="url(#f18-logo-clip)"><rect data-hf-id="hf-3kfc" width="40" height="40" fill="#fff" /><path data-hf-id="hf-ftb2" fill="#4285F4" d="M0 0h30.5v9.5H9.5v21H0z" /><rect data-hf-id="hf-wn6y" x="30.5" y="0" width="9.5" height="9.5" fill="#FBBC04" /><rect data-hf-id="hf-8qea" x="30.5" y="9.5" width="9.5" height="21" fill="#188038" /><rect data-hf-id="hf-suk4" x="9.5" y="30.5" width="21" height="9.5" fill="#34A853" /><rect data-hf-id="hf-k4rm" x="0" y="30.5" width="9.5" height="9.5" fill="#1967D2" /><path data-hf-id="hf-mnnd" fill="#EA4335" d="M30.5 40V30.5H40z" /><text data-hf-id="hf-n6bj" x="20" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#1967D2">31</text></g></svg>
+        <div data-hf-id="hf-8d66" class="gc-wordmark">Calendar</div>
+        <div data-hf-id="hf-y5mm" class="gc-btn">Today</div>
+        <div data-hf-id="hf-9ey4" class="gc-ibtn"><svg data-hf-id="hf-dekp" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-9aua" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg></div>
+        <div data-hf-id="hf-8811" class="gc-ibtn"><svg data-hf-id="hf-elhs" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-wz0a" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" /></svg></div>
+        <div data-hf-id="hf-krr0" class="gc-month">September 2026</div>
+        <div data-hf-id="hf-2aj3" class="gc-spacer"></div>
+        <div data-hf-id="hf-8mc2" class="gc-ibtn"><svg data-hf-id="hf-e76r" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-9m6z" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg></div>
+        <div data-hf-id="hf-alv7" class="gc-ibtn"><svg data-hf-id="hf-c7nm" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-8jtn" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z" /></svg></div>
+        <div data-hf-id="hf-b068" class="gc-ibtn"><svg data-hf-id="hf-btcl" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-tr1f" d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" /></svg></div>
+        <div data-hf-id="hf-radh" class="gc-btn">Month<svg data-hf-id="hf-d09o" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-lshs" d="M7 10l5 5 5-5z" /></svg></div>
+        <div data-hf-id="hf-9t95" class="gc-ibtn"><svg data-hf-id="hf-clyn" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-xqgj" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" /></svg></div>
+        <div data-hf-id="hf-aru8" class="gc-avatar">T</div>
+      </div>
+
+      <div data-hf-id="hf-kk71" class="gc-mdh" style="left:0">MON</div><div data-hf-id="hf-gn0t" class="gc-mdh" style="left:171.43px">TUE</div><div data-hf-id="hf-9hj4" class="gc-mdh" style="left:342.86px">WED</div><div data-hf-id="hf-jwev" class="gc-mdh" style="left:514.29px">THU</div><div data-hf-id="hf-raon" class="gc-mdh" style="left:685.71px">FRI</div><div data-hf-id="hf-scy6" class="gc-mdh" style="left:857.14px">SAT</div><div data-hf-id="hf-rps2" class="gc-mdh" style="left:1028.57px">SUN</div>
+      <div data-hf-id="hf-f0c2" class="gc-mh" style="top:98px"></div><div data-hf-id="hf-icq5" class="gc-mh" style="top:246.4px"></div><div data-hf-id="hf-dtbh" class="gc-mh" style="top:394.8px"></div><div data-hf-id="hf-dbe1" class="gc-mh" style="top:543.2px"></div><div data-hf-id="hf-cj5b" class="gc-mh" style="top:691.6px"></div>
+      <div data-hf-id="hf-77an" class="gc-mv" style="left:171.43px"></div><div data-hf-id="hf-bxlu" class="gc-mv" style="left:342.86px"></div><div data-hf-id="hf-pryy" class="gc-mv" style="left:514.29px"></div><div data-hf-id="hf-ojr2" class="gc-mv" style="left:685.71px"></div><div data-hf-id="hf-u8e0" class="gc-mv" style="left:857.14px"></div><div data-hf-id="hf-my1e" class="gc-mv" style="left:1028.57px"></div>
+
+      <!-- Row 1: Mon 31 Aug → Sun 6 Sep (September 2026 starts on a Tuesday) -->
+      <div data-hf-id="hf-1b20" class="gc-mc gc-other" style="left:0;top:98px"><div data-hf-id="hf-opbn" class="gc-dnum"><span data-hf-id="hf-p739">31</span></div></div>
+      <div data-hf-id="hf-zopz" class="gc-mc" style="left:171.43px;top:98px"><div data-hf-id="hf-9p5f" class="gc-dnum"><span data-hf-id="hf-arsg">Sep 1</span></div></div>
+      <div data-hf-id="hf-bpm8" class="gc-mc" style="left:342.86px;top:98px"><div data-hf-id="hf-9aue" class="gc-dnum"><span data-hf-id="hf-hdrd">2</span></div><div data-hf-id="hf-lwxl" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-y9f5" viewBox="0 0 24 24"><path data-hf-id="hf-odv1" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-ja8c" class="gc-mc" style="left:514.29px;top:98px"><div data-hf-id="hf-8wjd" class="gc-dnum"><span data-hf-id="hf-hs2e">3</span></div></div>
+      <div data-hf-id="hf-h3u0" class="gc-mc" style="left:685.71px;top:98px"><div data-hf-id="hf-8i8c" class="gc-dnum"><span data-hf-id="hf-gl5b">4</span></div><div data-hf-id="hf-2tav" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-svtx" viewBox="0 0 24 24"><path data-hf-id="hf-8m3l" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-qa72" class="gc-mc" style="left:857.14px;top:98px"><div data-hf-id="hf-83xb" class="gc-dnum"><span data-hf-id="hf-gzgc">5</span></div></div>
+      <div data-hf-id="hf-zrgy" class="gc-mc" style="left:1028.57px;top:98px"><div data-hf-id="hf-7pma" class="gc-dnum"><span data-hf-id="hf-fsj9">6</span></div></div>
+      <!-- Row 2: 7 → 13 (today = Thu 10) -->
+      <div data-hf-id="hf-brpo" class="gc-mc" style="left:0;top:246.4px"><div data-hf-id="hf-7bb9" class="gc-dnum"><span data-hf-id="hf-g6ua">7</span></div></div>
+      <div data-hf-id="hf-r9ea" class="gc-mc" style="left:171.43px;top:246.4px"><div data-hf-id="hf-6x08" class="gc-dnum"><span data-hf-id="hf-ezx7">8</span></div><div data-hf-id="hf-semd" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-u2r0" viewBox="0 0 24 24"><path data-hf-id="hf-9t0o" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-b2yj" class="gc-mc" style="left:342.86px;top:246.4px"><div data-hf-id="hf-6ip7" class="gc-dnum"><span data-hf-id="hf-fe88">9</span></div><div data-hf-id="hf-6gk5" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-tofz" viewBox="0 0 24 24"><path data-hf-id="hf-9epn" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-32i7" class="gc-mc gc-today" style="left:514.29px;top:246.4px"><div data-hf-id="hf-q17d" class="gc-dnum"><span data-hf-id="hf-2xa8">10</span></div></div>
+      <div data-hf-id="hf-6d8z" class="gc-mc" style="left:685.71px;top:246.4px"><div data-hf-id="hf-qfie" class="gc-dnum"><span data-hf-id="hf-2iz7">11</span></div><div data-hf-id="hf-a077" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-uvd2" viewBox="0 0 24 24"><path data-hf-id="hf-7f6i" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-qosx" class="gc-mc" style="left:857.14px;top:246.4px"><div data-hf-id="hf-qttf" class="gc-dnum"><span data-hf-id="hf-24o6">12</span></div></div>
+      <div data-hf-id="hf-y3t9" class="gc-mc" style="left:1028.57px;top:246.4px"><div data-hf-id="hf-r84g" class="gc-dnum"><span data-hf-id="hf-1qd5">13</span></div></div>
+      <!-- Row 3: 14 → 20 -->
+      <div data-hf-id="hf-ift4" class="gc-mc" style="left:0;top:394.8px"><div data-hf-id="hf-ofz9" class="gc-dnum"><span data-hf-id="hf-1c24">14</span></div></div>
+      <div data-hf-id="hf-uvsy" class="gc-mc" style="left:171.43px;top:394.8px"><div data-hf-id="hf-ouaa" class="gc-dnum"><span data-hf-id="hf-0xr3">15</span></div><div data-hf-id="hf-08q4" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-uh21" viewBox="0 0 24 24"><path data-hf-id="hf-70vh" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-2uev" class="gc-mc" style="left:342.86px;top:394.8px"><div data-hf-id="hf-p8lb" class="gc-dnum"><span data-hf-id="hf-0jg2">16</span></div><div data-hf-id="hf-h4bk" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-vnz4" viewBox="0 0 24 24"><path data-hf-id="hf-87sk" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-sluj" class="gc-mc" style="left:514.29px;top:394.8px"><div data-hf-id="hf-pmwc" class="gc-dnum"><span data-hf-id="hf-0551">17</span></div></div>
+      <div data-hf-id="hf-mmmn" class="gc-mc" style="left:685.71px;top:394.8px"><div data-hf-id="hf-mur5" class="gc-dnum"><span data-hf-id="hf-zqu0">18</span></div><div data-hf-id="hf-3zkk" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-v9o3" viewBox="0 0 24 24"><path data-hf-id="hf-7thj" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-adg1" class="gc-mc" style="left:857.14px;top:394.8px"><div data-hf-id="hf-n926" class="gc-dnum"><span data-hf-id="hf-zciz">19</span></div></div>
+      <div data-hf-id="hf-fa4t" class="gc-mc" style="left:1028.57px;top:394.8px"><div data-hf-id="hf-qsv6" class="gc-dnum"><span data-hf-id="hf-qd23">20</span></div></div>
+      <!-- Row 4: 21 → 27 -->
+      <div data-hf-id="hf-plo0" class="gc-mc" style="left:0;top:543.2px"><div data-hf-id="hf-qek5" class="gc-dnum"><span data-hf-id="hf-qrd4">21</span></div></div>
+      <div data-hf-id="hf-htpi" class="gc-mc" style="left:171.43px;top:543.2px"><div data-hf-id="hf-rlh8" class="gc-dnum"><span data-hf-id="hf-pkg1">22</span></div><div data-hf-id="hf-tclu" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-q3oq" viewBox="0 0 24 24"><path data-hf-id="hf-c6uu" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-5tef" class="gc-mc" style="left:342.86px;top:543.2px"><div data-hf-id="hf-r767" class="gc-dnum"><span data-hf-id="hf-pyr2">23</span></div></div>
+      <div data-hf-id="hf-63hv" class="gc-mc" style="left:514.29px;top:543.2px"><div data-hf-id="hf-se3a" class="gc-dnum"><span data-hf-id="hf-kpuv">24</span></div><div data-hf-id="hf-s3cu" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-ppdp" viewBox="0 0 24 24"><path data-hf-id="hf-bsjt" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-2crz" class="gc-mc" style="left:685.71px;top:543.2px"><div data-hf-id="hf-rzs9" class="gc-dnum"><span data-hf-id="hf-l45w">25</span></div><div data-hf-id="hf-hb2g" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-ymfj" viewBox="0 0 24 24"><path data-hf-id="hf-czyb" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-l6rp" class="gc-mc" style="left:857.14px;top:543.2px"><div data-hf-id="hf-t6pc" class="gc-dnum"><span data-hf-id="hf-jx8t">26</span></div></div>
+      <div data-hf-id="hf-qtvt" class="gc-mc" style="left:1028.57px;top:543.2px"><div data-hf-id="hf-sseb" class="gc-dnum"><span data-hf-id="hf-kbju">27</span></div></div>
+      <!-- Row 5: 28 → 30, then Oct 1 → 4 -->
+      <div data-hf-id="hf-a90a" class="gc-mc" style="left:0;top:691.6px"><div data-hf-id="hf-nmey" class="gc-dnum"><span data-hf-id="hf-tjib">28</span></div></div>
+      <div data-hf-id="hf-fsm0" class="gc-mc" style="left:171.43px;top:691.6px"><div data-hf-id="hf-n83x" class="gc-dnum"><span data-hf-id="hf-txtc">29</span></div><div data-hf-id="hf-buj3" class="gc-pip" data-layout-allow-overlap>Growth Call<svg data-hf-id="hf-z0qk" viewBox="0 0 24 24"><path data-hf-id="hf-de9c" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div></div>
+      <div data-hf-id="hf-mqp9" class="gc-mc" style="left:342.86px;top:691.6px"><div data-hf-id="hf-rkiz" class="gc-dnum"><span data-hf-id="hf-plea">30</span></div></div>
+      <div data-hf-id="hf-y494" class="gc-mc gc-other" style="left:514.29px;top:691.6px"><div data-hf-id="hf-ryu0" class="gc-dnum"><span data-hf-id="hf-u2xe">Oct 1</span></div></div>
+      <div data-hf-id="hf-uqk4" class="gc-mc gc-other" style="left:685.71px;top:691.6px"><div data-hf-id="hf-qrwx" class="gc-dnum"><span data-hf-id="hf-9exp">2</span></div></div>
+      <div data-hf-id="hf-v3iu" class="gc-mc gc-other" style="left:857.14px;top:691.6px"><div data-hf-id="hf-r67y" class="gc-dnum"><span data-hf-id="hf-1bga">3</span></div></div>
+      <div data-hf-id="hf-0w00" class="gc-mc gc-other" style="left:1028.57px;top:691.6px"><div data-hf-id="hf-pzav" class="gc-dnum"><span data-hf-id="hf-rktr">4</span></div></div>
+    </div>
+
+    <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-4ej7" id="f18-ring" />
+    </svg>
+    <div data-hf-id="hf-ae1j" id="f18-counter" class="hf-counter">10+</div>
+    <div data-hf-id="hf-5k35" id="f18-label" class="hf-title-text"><span data-hf-id="hf-bg3l" class="hf-accent-light">qualified</span> calls / month</div>
+  </div>
+</div>
+<script>
+  (function () {
+    var ID = "18-calendar-month", DUR = 8.6;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      var pips = gsap.utils.toArray("#f18-cal .gc-pip");   // DOM order = chronological (one pip per cell, row-major)
+      var counter = document.getElementById("f18-counter");
+
+      // Bed from t=0 (the card itself is DEAD STILL through the build — §6): the warm glow drifts and
+      // breathes, the blue floor breathes at its own rate. ONE fromTo per element — two fromTo tweens
+      // on the same element (drift + breathe, as this used to be split) are not seek-safe: the renderer
+      // splits frames across parallel workers with independent seek histories, so alternate frames can
+      // resolve the two tweens differently and the layer appears to flicker/change mid-scene. Combined
+      // into a single tween carrying all four animated properties.
+      tl.fromTo("#f18-glow-warm", { x: -30, y: 0, scale: 0.94, opacity: 0.75 },
+        { x: 40, y: -18, scale: 1.08, opacity: 1.0, duration: DUR, ease: "sine.inOut" }, 0);
+      tl.fromTo("#f18-glow-blue", { scale: 1.06, x: 0, y: 0 }, { scale: 0.96, x: 40, y: -24, duration: DUR, ease: "sine.inOut" }, 0);
+
+      // Pass 1 — 12 Growth Calls land day after day, exactly 125 ms apart from 0.4 s (0.4 → 1.775, last settles 2.02), spring-pop power3.out, no bounce.
+      pips.forEach(function (el, i) {
+        tl.fromTo(el, { opacity: 0, scale: 0.55, transformOrigin: "50% 50%" },
+                      { opacity: 1, scale: 1, duration: 0.24, ease: "power3.out" }, 0.4 + i * 0.125);
+      });
+
+      // The counter (counting-dynamic-scale × house odometer): hidden until 2.2; digits roll with rate blur 2.2 → 3.6 while the number grows 0.55 → 1;
+      // the "0" locks at 2.97, the "1" at 3.6 — on the spoken "10 plus". The label gets its own beat after the lock.
+      tl.set(counter, { opacity: 0 }, 0);
+      tl.set("#f18-label", { opacity: 0 }, 0);
+      tl.fromTo(counter, { scale: 0.55 }, { scale: 1, duration: 1.4, ease: "power3.out", immediateRender: false }, 1.9);
+      H.odometer(tl, counter, 1.9, 2.3, "10+", { hold: 1.0 });   // static "0+" 1.9–2.9, counts to 4.2 (ring draws 4.3)
+      tl.fromTo("#f18-label", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, 3.6);
+
+      // Pass 2 — the red ring draws around the locked number (≈4.0 → 4.55), marker style.
+      document.getElementById("f18-ring").setAttribute("d", H.ringPath(1580, 470, 212, 122, 3));
+      H.draw(tl, document.getElementById("f18-ring"), 4.3, 0.55);
+
+      // Camera: waits for the build, count and ring, then pushes 1.00 → 1.10 (4.5–6.5); then the §6 slow hold push to the cut, glow still breathing.
+      H.push(tl, "#f18-stage", 4.9, 1.6, 1.00, 1.10, "1000px 540px");
+      H.push(tl, "#f18-stage", 6.5, DUR - 6.5, 1.10, 1.115, "1000px 540px");
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

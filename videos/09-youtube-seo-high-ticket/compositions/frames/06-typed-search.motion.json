@@ -1,0 +1,7 @@
+{
+  "scene": "06-typed-search",
+  "duration_s": 7.85,
+  "rules": ["context-sensitive-cursor", "gsap-effects"],
+  "exit": { "vector": "slow uniform push, scale ~1.08 still climbing at ~1%/s", "still_moving": true },
+  "entry": { "vector": "glow breathing in + brandmark drift + stage push from scale 1.0, all live at t=0", "from_rest": false }
+}

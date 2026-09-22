@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contentporary — Short2 recut</title>
+    <style>
+      @font-face { font-family:"HND"; src:url("fonts/HND-700.woff2") format("woff2"); font-weight:700; font-display:block; }
+      @font-face { font-family:"HND"; src:url("fonts/HND-500.woff2") format("woff2"); font-weight:500; font-display:block; }
+      @font-face { font-family:"Inter"; src:url("fonts/Inter-400-latin.woff2") format("woff2"); font-weight:400; font-display:block; }
+      @font-face { font-family:"Inter"; src:url("fonts/Inter-700-latin.woff2") format("woff2"); font-weight:700; font-display:block; }
+      @font-face { font-family:"Caveat"; src:url("fonts/Caveat-700-latin.woff2") format("woff2"); font-weight:700; font-display:block; }
+      :root {
+        --dark-bg:#0C0C0C; --dark-label:#A8A9AB; --dark-title:#F9F9F9;
+        --light-bg:#ECECEC; --light-edge:#E5E5E5; --light-ink:#3A3A3A;
+        --red:#EE4B4A; --red-ink:#D93A39;
+        --accent-0:#EE4B4A; --accent-1:#EE4B4A; --accent-2:#EE4B4A; --accent-3:#EE4B4A; --accent-4:#EE4B4A;
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;
+        font-family:"HND","Inter",ui-sans-serif,system-ui,sans-serif;}
+      #stage{position:relative;width:100%;height:100%;overflow:hidden}
+      .video-wrapper{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+      .video-wrapper video{width:100%;height:100%;object-fit:cover}
+      .card-host{position:absolute;pointer-events:none;overflow:hidden}
+      .card-host .card{position:relative;width:100%;height:100%;overflow:hidden}
+      .card-host .word{display:inline-block}
+      .gl{position:absolute;inset:0;background:radial-gradient(ellipse 70% 46% at 50% 44%, #EFEFEF 0%, var(--light-bg) 52%, var(--light-edge) 100%)}
+      .gd{position:absolute;inset:0;background:var(--dark-bg)}
+      .lit-r{position:absolute;left:-240px;top:1080px;width:1560px;height:1100px;
+        background:radial-gradient(circle at 50% 50%, rgba(238,75,74,0.20) 0%, rgba(238,75,74,0.07) 42%, rgba(238,75,74,0) 72%)}
+      .lit-t{position:absolute;left:-180px;top:-320px;width:1440px;height:1000px;
+        background:radial-gradient(circle at 50% 50%, rgba(238,75,74,0.13) 0%, rgba(238,75,74,0) 68%)}
+      .vig{position:absolute;inset:-60px;background:radial-gradient(ellipse 62% 50% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.42) 100%)}
+      .grid{position:absolute;inset:0;opacity:.55;
+        background-image:linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px);
+        background-size:120px 120px}
+      .t-l{font-family:"HND",sans-serif;font-weight:700;color:var(--light-ink)}
+      .kick-l{font-family:"HND",sans-serif;font-weight:700;font-size:26px;letter-spacing:.24em;
+        text-transform:uppercase;color:var(--red)}
+      .hand{font-family:"Caveat",cursive;font-weight:700;color:var(--red-ink)}
+    </style>
+  </head>
+  <body>
+    <div id="stage" data-composition-id="short2-recut" data-start="0" data-duration="62.30"
+         data-fps="30" data-width="1080" data-height="1920">
+
+      <div class="video-wrapper" id="video-wrap">
+        <video id="bg-video" src="input-video.mp4" muted playsinline
+               data-start="0" data-duration="62.30" data-track-index="1"></video>
+      </div>
+      <audio id="source-audio" src="input-video.mp4" data-start="0" data-duration="62.30"
+             data-track-index="10" data-volume="1"></audio>
+
+      <!-- directional motion-blur filters for the house wipe, one per card -->
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+        <filter id="mb-card-04" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-card-04" stdDeviation="0 0"/></filter>
+        <filter id="mb-s3" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-s3" stdDeviation="0 0"/></filter>
+        <filter id="mb-s5" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-s5" stdDeviation="0 0"/></filter>
+        <filter id="mb-s6" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-s6" stdDeviation="0 0"/></filter>
+        <filter id="mb-card-06" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur id="mbfe-card-06" stdDeviation="0 0"/></filter>
+      </defs></svg>
+
+<div class="card-host clip" data-card-id="card-04" id="host-card-04" data-start="5.8500" data-duration="9.5800" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="card-04">
+          <style>
+            .card[data-card-id="card-04"] .root {
+              width: 100%; height: 100%;
+              position: relative;
+              background: radial-gradient(ellipse 1100px 1500px at 50% 38%, #1b1d22 0%, #101114 55%, #08090b 100%);
+              overflow: hidden;
+              font-family: "HND", "Inter", Helvetica, Arial, sans-serif;
+            }
+            .card[data-card-id="card-04"] .stage {
+              position: absolute; inset: 0;
+              transform-origin: 540px 960px;
+              will-change: transform;
+            }
+            .card[data-card-id="card-04"] .light {
+              position: absolute; left: -300px; top: -150px;
+              width: 1400px; height: 1400px; border-radius: 50%;
+              background: radial-gradient(circle, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 62%);
+              pointer-events: none;
+            }
+            .card[data-card-id="card-04"] .warm {
+              position: absolute; left: 50%; top: 1020px;
+              width: 1200px; height: 1200px; margin: -600px 0 0 -600px; border-radius: 50%;
+              background: radial-gradient(circle, rgba(255,68,51,0.17) 0%, rgba(255,68,51,0) 65%);
+              opacity: 0; pointer-events: none;
+            }
+            .card[data-card-id="card-04"] .kicker {
+              position: absolute; left: 0; top: 300px; width: 100%;
+              text-align: center; font-weight: 700; font-size: 30px;
+              letter-spacing: 0.16em; text-transform: uppercase;
+              background-image: linear-gradient(to top, #585c64 0%, #b6bac2 100%);
+              -webkit-background-clip: text; background-clip: text;
+              color: transparent; -webkit-text-fill-color: transparent;
+              opacity: 0;
+            }
+            .card[data-card-id="card-04"] .intro-block {
+              position: absolute; inset: 0;
+              transform-origin: 540px 820px;
+              opacity: 0;
+            }
+            .card[data-card-id="card-04"] .count-num {
+              position: absolute; left: 0; top: 520px; width: 100%;
+              text-align: center; font-weight: 800; font-size: 330px; line-height: 1;
+              letter-spacing: -0.03em;
+              background-image: linear-gradient(to top, #9ba0a8 0%, #ffffff 78%);
+              -webkit-background-clip: text; background-clip: text;
+              color: transparent; -webkit-text-fill-color: transparent;
+            }
+            .card[data-card-id="card-04"] .count-sub {
+              position: absolute; left: 0; top: 905px; width: 100%;
+              text-align: center; font-weight: 800; font-size: 76px;
+              letter-spacing: 0.03em; text-transform: uppercase;
+              background-image: linear-gradient(to top, #c2c6cd 0%, #ffffff 100%);
+              -webkit-background-clip: text; background-clip: text;
+              color: transparent; -webkit-text-fill-color: transparent;
+              opacity: 0;
+            }
+
+            .card[data-card-id="card-04"] .chan {
+              position: absolute; width: 300px; border-radius: 12px; overflow: hidden;
+              background: #fff; box-shadow: 0 22px 44px rgba(0,0,0,0.55), 0 4px 10px rgba(0,0,0,0.4);
+              opacity: 0;
+            }
+            .card[data-card-id="card-04"] .chan img { display: block; width: 100%; height: auto; }
+            .card[data-card-id="card-04"] .chips {
+              position: absolute; left: 0; top: 1035px; width: 100%;
+              text-align: center;
+            }
+            .card[data-card-id="card-04"] .chip {
+              display: inline-block; margin: 0 10px; padding: 14px 30px;
+              border: 1.5px solid rgba(255,255,255,0.22); border-radius: 999px;
+              background: rgba(255,255,255,0.05);
+              font-weight: 600; font-size: 32px; color: #c6c9cf;
+              opacity: 0;
+            }
+            /* Vignette rows — one illustrated mini-scene per pain point */
+            .card[data-card-id="card-04"] .vrow {
+              position: absolute; left: 40px; width: 1000px; height: 360px;
+              opacity: 0; will-change: transform, filter;
+            }
+            .card[data-card-id="card-04"] .vrow-1 { top: 560px; }
+            .card[data-card-id="card-04"] .vrow-2 { top: 950px; }
+            .card[data-card-id="card-04"] .vrow-3 { top: 1340px; }
+            .card[data-card-id="card-04"] .panel {
+              position: absolute; inset: 0; border-radius: 28px;
+              background: linear-gradient(180deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.018) 100%);
+              border: 1px solid rgba(255,255,255,0.09);
+              box-shadow: 0 24px 48px rgba(0,0,0,0.45);
+            }
+            .card[data-card-id="card-04"] .vrow-3 .panel {
+              border-color: rgba(255,68,51,0.35);
+              background: linear-gradient(180deg, rgba(255,68,51,0.07) 0%, rgba(255,68,51,0.02) 100%);
+            }
+            .card[data-card-id="card-04"] .g-wrap {
+              position: absolute; left: 30px; top: 30px; width: 330px; height: 300px;
+            }
+            .card[data-card-id="card-04"] .t-wrap {
+              position: absolute; left: 410px; top: 0; width: 560px; height: 100%;
+            }
+            .card[data-card-id="card-04"] .row-label {
+              position: absolute; left: 0; top: 52px; width: 100%;
+              font-weight: 800; font-size: 56px; letter-spacing: -0.015em;
+              background-image: linear-gradient(to top, #b3b7be 0%, #ffffff 100%);
+              -webkit-background-clip: text; background-clip: text;
+              color: transparent; -webkit-text-fill-color: transparent;
+              opacity: 0;
+            }
+            .card[data-card-id="card-04"] .vrow-3 .row-label {
+              background-image: linear-gradient(to top, #d92b1f 0%, #ff6a54 100%);
+            }
+            .card[data-card-id="card-04"] .row-stat {
+              position: absolute; left: 0; top: 138px; width: 100%;
+              font-weight: 800; font-size: 96px; line-height: 1; letter-spacing: -0.02em;
+              color: #ffffff;
+            }
+            .card[data-card-id="card-04"] .vrow-3 .row-stat { color: #ff4433; }
+            .card[data-card-id="card-04"] .row-stat-sub {
+              position: absolute; left: 0; top: 252px; width: 100%;
+              font-weight: 500; font-size: 32px; color: #8f939b;
+            }
+            .card[data-card-id="card-04"] .g-wrap svg { width: 100%; height: 100%; overflow: visible; }
+            /* battery (row 2) */
+            .card[data-card-id="card-04"] .battery {
+              position: absolute; left: 30px; top: 95px; width: 250px; height: 110px;
+              border: 5px solid rgba(255,255,255,0.55); border-radius: 22px;
+            }
+            .card[data-card-id="card-04"] .battery::after {
+              content: ""; position: absolute; right: -22px; top: 50%; margin-top: -22px;
+              width: 12px; height: 44px; border-radius: 4px;
+              background: rgba(255,255,255,0.55);
+            }
+            .card[data-card-id="card-04"] .seg {
+              position: absolute; top: 10px; width: 50px; height: 80px; border-radius: 10px;
+              background: #d6d9de;
+            }
+            .card[data-card-id="card-04"] .seg-1 { left: 10px; }
+            .card[data-card-id="card-04"] .seg-2 { left: 68px; }
+            .card[data-card-id="card-04"] .seg-3 { left: 126px; }
+            .card[data-card-id="card-04"] .seg-4 { left: 184px; }
+          </style>
+
+          <div class="root">
+            <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+              <defs>
+                <filter id="card-04-mb-r1" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur id="card-04-mbfe-r1" stdDeviation="0 0"/></filter>
+                <filter id="card-04-mb-r2" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur id="card-04-mbfe-r2" stdDeviation="0 0"/></filter>
+                <filter id="card-04-mb-r3" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur id="card-04-mbfe-r3" stdDeviation="0 0"/></filter>
+              </defs>
+            </svg>
+            <div class="stage" id="card-04-stage">
+              <div class="light" id="card-04-light"></div>
+              <div class="warm" id="card-04-warm"></div>
+              <div class="kicker" id="card-04-kicker">Why They Switch</div>
+
+              <div class="intro-block" id="card-04-intro">
+                <div class="chan" id="card-04-chan-0" style="left:14px;  top:322px; transform:rotate(-2.4deg)"><img src="shots/tim.png" alt=""></div>
+                <div class="chan" id="card-04-chan-1" style="left:772px; top:268px; transform:rotate(2.1deg)"><img src="shots/xavier.png" alt=""></div>
+                <div class="chan" id="card-04-chan-2" style="left:-26px; top:604px; transform:rotate(1.6deg)"><img src="shots/jonas.png" alt=""></div>
+                <div class="chan" id="card-04-chan-3" style="left:806px; top:566px; transform:rotate(-1.8deg)"><img src="shots/jack-rossi.png" alt=""></div>
+                <div class="chan" id="card-04-chan-4" style="left:26px;  top:1156px; transform:rotate(2.6deg)"><img src="shots/william-yu.png" alt=""></div>
+                <div class="chan" id="card-04-chan-5" style="left:764px; top:1198px; transform:rotate(-2.2deg)"><img src="shots/yiannis.png" alt=""></div>
+
+                <div class="count-num" id="card-04-count">0</div>
+                <div class="count-sub" id="card-04-count-sub">Entrepreneurs</div>
+                <div class="chips" id="card-04-chips">
+                  <span class="chip" id="card-04-chip-1">SMMA</span><span class="chip" id="card-04-chip-2">E-com</span><span class="chip" id="card-04-chip-3">AI Agency</span><span class="chip" id="card-04-chip-4">Sales</span>
+                </div>
+              </div>
+
+              <!-- vignette 1: rising CPM chart -->
+              <div class="vrow vrow-1" id="card-04-row-1">
+                <div class="panel"></div>
+                <div class="g-wrap">
+                  <svg viewBox="0 0 330 300">
+                    <defs>
+                      <linearGradient id="card-04-line-grad" x1="0" y1="1" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#e2732a"/>
+                        <stop offset="100%" stop-color="#ff4433"/>
+                      </linearGradient>
+                      <linearGradient id="card-04-area-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#ff4433" stop-opacity="0.55"/>
+                        <stop offset="100%" stop-color="#ff4433" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <line x1="15" y1="250" x2="315" y2="250" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+                    <line x1="15" y1="160" x2="315" y2="160" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+                    <line x1="15" y1="70" x2="315" y2="70" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+                    <path id="card-04-area" d="M 25 250 L 85 205 L 135 225 L 195 150 L 245 175 L 305 60 L 305 250 L 25 250 Z"
+                          fill="url(#card-04-area-grad)" opacity="0"/>
+                    <path id="card-04-line" d="M 25 250 L 85 205 L 135 225 L 195 150 L 245 175 L 305 60"
+                          fill="none" stroke="url(#card-04-line-grad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle id="card-04-dot" cx="305" cy="60" r="13" fill="#ff4433"
+                            style="filter: drop-shadow(0 0 10px rgba(255,68,51,0.9)); opacity: 0;"/>
+                  </svg>
+                </div>
+                <div class="t-wrap">
+                  <div class="row-label" id="card-04-label-1">Ad Costs Rising</div>
+                  <div class="row-stat" id="card-04-stat-1">$8.2</div>
+                  <div class="row-stat-sub">avg CPM, 12 months</div>
+                </div>
+              </div>
+
+              <!-- vignette 2: draining battery -->
+              <div class="vrow vrow-2" id="card-04-row-2">
+                <div class="panel"></div>
+                <div class="g-wrap">
+                  <div class="battery">
+                    <div class="seg seg-1" id="card-04-seg-1"></div>
+                    <div class="seg seg-2" id="card-04-seg-2"></div>
+                    <div class="seg seg-3" id="card-04-seg-3"></div>
+                    <div class="seg seg-4" id="card-04-seg-4"></div>
+                  </div>
+                </div>
+                <div class="t-wrap">
+                  <div class="row-label" id="card-04-label-2">Creative Fatigue</div>
+                  <div class="row-stat" id="card-04-stat-2">3.1%</div>
+                  <div class="row-stat-sub">CTR after 6 weeks</div>
+                </div>
+              </div>
+
+              <!-- vignette 3: shadow-ban — slashed eye + collapsing reach bars -->
+              <div class="vrow vrow-3" id="card-04-row-3">
+                <div class="panel"></div>
+                <div class="g-wrap">
+                  <svg viewBox="0 0 330 300">
+                    <g id="card-04-eye" stroke="rgba(255,255,255,0.75)" stroke-width="10" fill="none" stroke-linecap="round">
+                      <path d="M 45 130 Q 165 40 285 130 Q 165 220 45 130 Z"/>
+                      <circle cx="165" cy="130" r="34"/>
+                    </g>
+                    <g id="card-04-bars">
+                      <rect x="90" y="245" width="16" height="50" rx="5" fill="rgba(255,255,255,0.45)" transform-origin="98 295"/>
+                      <rect x="122" y="255" width="16" height="40" rx="5" fill="rgba(255,255,255,0.40)" transform-origin="130 295"/>
+                      <rect x="154" y="263" width="16" height="32" rx="5" fill="rgba(255,255,255,0.35)" transform-origin="162 295"/>
+                      <rect x="186" y="273" width="16" height="22" rx="5" fill="rgba(255,255,255,0.30)" transform-origin="194 295"/>
+                      <rect x="218" y="281" width="16" height="14" rx="5" fill="rgba(255,255,255,0.25)" transform-origin="226 295"/>
+                    </g>
+                    <line id="card-04-slash" x1="55" y1="225" x2="275" y2="35"
+                          stroke="#ff4433" stroke-width="14" stroke-linecap="round"
+                          style="filter: drop-shadow(0 0 8px rgba(255,68,51,0.7));"/>
+                  </svg>
+                </div>
+                <div class="t-wrap">
+                  <div class="row-label" id="card-04-label-3">Shadow-Banned</div>
+                  <div class="row-stat" id="card-04-stat-3">0%</div>
+                  <div class="row-stat-sub">reach, overnight</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div class="card-host clip" id="host-s3" data-card-id="s3" data-start="17.3000" data-duration="7.2000" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="s3"><style>
+          .card[data-card-id="s3"] .root{width:100%;height:100%;position:relative;overflow:hidden;
+            background:radial-gradient(ellipse 1100px 1500px at 50% 38%, #1b1d22 0%, #101114 55%, #08090b 100%);
+            font-family:"HND","Inter",Helvetica,Arial,sans-serif}
+          .card[data-card-id="s3"] .stage{position:absolute;inset:0;transform-origin:540px 960px;will-change:transform}
+          .card[data-card-id="s3"] .light{position:absolute;left:-300px;top:-150px;width:1400px;height:1400px;
+            border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 62%)}
+          .card[data-card-id="s3"] .warm{position:absolute;left:50%;top:1180px;width:1200px;height:1200px;
+            margin:-600px 0 0 -600px;border-radius:50%;
+            background:radial-gradient(circle, rgba(255,68,51,0.17) 0%, rgba(255,68,51,0) 65%);opacity:0}
+          .card[data-card-id="s3"] .kicker{position:absolute;left:0;top:296px;width:100%;text-align:center;
+            font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;
+            background-image:linear-gradient(to top,#585c64 0%,#b6bac2 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="s3"] .badge{position:absolute;left:318px;top:360px;height:120px;padding:0 34px 0 22px;
+            display:flex;align-items:center;gap:24px;border-radius:60px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+            border:1px solid rgba(255,255,255,0.10);box-shadow:0 22px 44px rgba(0,0,0,0.5);opacity:0}
+          .card[data-card-id="s3"] .fi{width:80px;height:80px;border-radius:22px;background:#17A05F;flex:none;
+            display:flex;align-items:center;justify-content:center;
+            font-weight:700;font-size:44px;color:#fff;letter-spacing:-.04em}
+          .card[data-card-id="s3"] .bname{font-weight:700;font-size:40px;color:#f2f3f5;letter-spacing:-.01em}
+          .card[data-card-id="s3"] .brole{font-weight:500;font-size:25px;color:#8f939b;letter-spacing:.10em;
+            text-transform:uppercase;margin-top:4px}
+          .card[data-card-id="s3"] .arc{position:absolute;left:468px;top:488px}
+          .card[data-card-id="s3"] .row{position:absolute;left:40px;width:1000px;height:300px;opacity:0;
+            will-change:transform}
+          .card[data-card-id="s3"] .panel{position:absolute;inset:0;border-radius:28px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.018) 100%);
+            border:1px solid rgba(255,255,255,0.09);box-shadow:0 24px 48px rgba(0,0,0,0.45)}
+          .card[data-card-id="s3"] .g{position:absolute;left:30px;top:34px;width:232px;height:232px}
+          .card[data-card-id="s3"] .g svg{width:100%;height:100%;overflow:visible}
+          .card[data-card-id="s3"] .t{position:absolute;left:290px;top:0;width:530px;height:100%}
+          .card[data-card-id="s3"] .lab{position:absolute;left:0;top:70px;width:100%;font-weight:800;
+            font-size:44px;line-height:1.32;letter-spacing:-.015em;
+            background-image:linear-gradient(to top,#b3b7be 0%,#ffffff 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:0}
+          .card[data-card-id="s3"] .sub{position:absolute;left:0;top:196px;width:100%;font-weight:500;
+            font-size:27px;color:#8f939b}
+          .card[data-card-id="s3"] .v{position:absolute;left:852px;top:90px;width:120px;height:120px;
+            border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0}
+          .card[data-card-id="s3"] .v svg{width:58px;height:58px}
+          .card[data-card-id="s3"] .v-yes{background:#1ea15e;box-shadow:0 12px 26px rgba(30,161,94,0.45)}
+          .card[data-card-id="s3"] .v-no{background:#ff4433;box-shadow:0 12px 26px rgba(255,68,51,0.45)}
+        </style>
+        <div class="root">
+          <div class="stage" id="s3-stage">
+            <div class="light" id="s3-light"></div>
+            <div class="warm" id="s3-warm"></div>
+            <div class="kicker" id="s3-kicker">What the job actually needs</div>
+
+            <div class="badge" id="s3-badge">
+              <div class="fi">fi</div>
+              <div><div class="bname">fiverr</div><div class="brole">Freelance video editor</div></div>
+            </div>
+
+            <svg class="arc" width="120" height="140" viewBox="0 0 120 140" fill="none">
+              <path id="s3-arc" d="M58 10 C70 38, 48 66, 62 100" stroke="#ff4433" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <path id="s3-arch" d="M44 86 L62 108 L80 84" stroke="#ff4433" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+
+            <div class="row" id="s3-r1" style="top:620px">
+              <div class="panel" id="s3-p1"></div>
+              <div class="g"><svg viewBox="0 0 232 232">
+                <rect x="16" y="46" width="200" height="140" rx="20" stroke="rgba(255,255,255,0.75)" stroke-width="9" fill="none"/>
+                <path d="M96 96 L150 116 L96 136 Z" fill="rgba(255,255,255,0.75)"/>
+              </svg></div>
+              <div class="t"><div class="lab" id="s3-l1">Makes your videos<br/>look good</div>
+                <div class="sub">craft, polish, pacing</div></div>
+              <div class="v v-yes" id="s3-v1"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></div>
+            </div>
+
+            <div class="row" id="s3-r2" style="top:960px">
+              <div class="panel" id="s3-p2"></div>
+              <div class="g"><svg viewBox="0 0 232 232">
+                <rect x="16" y="40" width="200" height="112" rx="26" stroke="rgba(255,255,255,0.75)" stroke-width="9" fill="none"/>
+                <path d="M98 76 L142 96 L98 116 Z" fill="rgba(255,255,255,0.75)"/>
+                <path d="M22 196 C64 196, 78 172, 106 172 C140 172, 152 200, 212 200"
+                      stroke="rgba(255,255,255,0.4)" stroke-width="8" stroke-linecap="round" fill="none"/>
+              </svg></div>
+              <div class="t"><div class="lab" id="s3-l2">Understands YouTube</div>
+                <div class="sub">packaging + retention</div></div>
+              <div class="v v-no" id="s3-v2"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></div>
+            </div>
+
+            <div class="row" id="s3-r3" style="top:1300px">
+              <div class="panel" id="s3-p3"></div>
+              <div class="g"><svg viewBox="0 0 232 232">
+                <rect x="26" y="146" width="34" height="56" rx="9" fill="rgba(255,255,255,0.42)"/>
+                <rect x="80" y="112" width="34" height="90" rx="9" fill="rgba(255,255,255,0.55)"/>
+                <rect x="134" y="74" width="34" height="128" rx="9" fill="rgba(255,255,255,0.70)"/>
+                <path d="M34 96 L96 62 L150 78 L206 30" stroke="#ff4433" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M172 26 L208 28 L204 62" stroke="#ff4433" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg></div>
+              <div class="t"><div class="lab" id="s3-l3">Understands business<br/>growth</div>
+                <div class="sub">what actually books calls</div></div>
+              <div class="v v-no" id="s3-v3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+<div class="card-host clip" id="host-s5" data-card-id="s5" data-start="28.1000" data-duration="6.4600" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="s5"><style>
+          .card[data-card-id="s5"] .root{width:100%;height:100%;position:relative;overflow:hidden}
+          .card[data-card-id="s5"] .hdr{position:absolute;left:72px;top:150px;font-family:"Inter",sans-serif;
+            font-weight:700;font-size:40px;color:#0F0F0F}
+          .card[data-card-id="s5"] .hdrn{font-family:"Inter",sans-serif;font-weight:400;font-size:32px;color:#606060;margin-left:18px}
+          .card[data-card-id="s5"] .cm{position:absolute;left:72px;width:944px;font-family:"Inter",sans-serif}
+          .card[data-card-id="s5"] .av{position:absolute;left:0;top:4px;width:88px;height:88px;border-radius:50%;
+            display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40px;color:#fff}
+          .card[data-card-id="s5"] .meta{margin-left:118px;font-weight:700;font-size:30px;color:#0F0F0F}
+          .card[data-card-id="s5"] .ago{font-weight:400;font-size:28px;color:#4B4B4B;margin-left:14px}
+          .card[data-card-id="s5"] .body{margin-left:118px;margin-top:12px;font-weight:400;font-size:34px;
+            line-height:48px;color:#0F0F0F}
+          .card[data-card-id="s5"] .acts{margin-left:118px;margin-top:18px;display:flex;align-items:center;gap:16px;
+            font-weight:500;font-size:26px;color:#4B4B4B}
+          .card[data-card-id="s5"] .lbl{position:absolute;font-family:"Caveat",cursive;font-weight:700;
+            font-size:56px;color:var(--red-ink)}
+        </style>
+        <div class="root">
+          <div class="gl"></div><div class="grid"></div>
+          <div class="cam" data-layout-allow-overflow id="s5-cam" style="position:absolute;inset:0">
+            <div class="hdr">142 Comments<span class="hdrn">Sort by</span></div>
+
+            <div class="cm" id="s5-c0" style="top:300px">
+              <div class="av" style="background:#5B8DEF">M</div>
+              <div class="meta">@markbuilds<span class="ago">2 days ago</span></div>
+              <div class="body">How do you actually get people to book a call after watching? I get the views, the calls just don't come.</div>
+              <div class="acts">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M7 22V11l5-9a2.5 2.5 0 0 1 2.4 3.2L13.5 9H20a2 2 0 0 1 2 2.4l-1.6 8A2 2 0 0 1 18.4 21H7z"/></svg>
+                <span>48</span>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M17 2v11l-5 9a2.5 2.5 0 0 1-2.4-3.2L10.5 15H4a2 2 0 0 1-2-2.4l1.6-8A2 2 0 0 1 5.6 3H17z"/></svg>
+                <span style="margin-left:10px">Reply</span>
+              </div>
+            </div>
+
+            <div class="cm" id="s5-c1" style="top:700px">
+              <div class="av" style="background:#C96A22">D</div>
+              <div class="meta">@dan.agencyops<span class="ago">5 days ago</span></div>
+              <div class="body">Feels like this only works if you already have an audience. Starting at zero seems like a 2 year project.</div>
+              <div class="acts">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M7 22V11l5-9a2.5 2.5 0 0 1 2.4 3.2L13.5 9H20a2 2 0 0 1 2 2.4l-1.6 8A2 2 0 0 1 18.4 21H7z"/></svg>
+                <span>31</span>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M17 2v11l-5 9a2.5 2.5 0 0 1-2.4-3.2L10.5 15H4a2 2 0 0 1-2-2.4l1.6-8A2 2 0 0 1 5.6 3H17z"/></svg>
+                <span style="margin-left:10px">Reply</span>
+              </div>
+            </div>
+
+            <div class="cm" id="s5-c2" style="top:1120px">
+              <div class="av" style="background:#7C5BD9">J</div>
+              <div class="meta">@jules.scaling<span class="ago">1 week ago</span></div>
+              <div class="body">What's your actual editing setup? Been looking for a system that doesn't eat my whole week.</div>
+              <div class="acts">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M7 22V11l5-9a2.5 2.5 0 0 1 2.4 3.2L13.5 9H20a2 2 0 0 1 2 2.4l-1.6 8A2 2 0 0 1 18.4 21H7z"/></svg>
+                <span>77</span>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#606060" stroke-width="1.8"><path d="M17 2v11l-5 9a2.5 2.5 0 0 1-2.4-3.2L10.5 15H4a2 2 0 0 1-2-2.4l1.6-8A2 2 0 0 1 5.6 3H17z"/></svg>
+                <span style="margin-left:10px">Reply</span>
+              </div>
+            </div>
+
+            <svg id="s5-u0" style="position:absolute;left:180px;top:512px" width="760" height="40" viewBox="0 0 760 40" fill="none">
+              <path id="s5-p0" d="M8 22 C170 10, 380 32, 560 16 C640 9, 700 22, 750 14" stroke="#EE4B4A" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+            <svg id="s5-u1" style="position:absolute;left:180px;top:912px" width="790" height="40" viewBox="0 0 790 40" fill="none">
+              <path id="s5-p1" d="M8 20 C190 32, 400 8, 590 24 C670 30, 730 16, 780 22" stroke="#EE4B4A" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+            <svg id="s5-u2" style="position:absolute;left:180px;top:1332px" width="740" height="40" viewBox="0 0 740 40" fill="none">
+              <path id="s5-p2" d="M8 18 C160 30, 360 8, 540 22 C620 28, 680 14, 730 20" stroke="#EE4B4A" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+
+            <div class="lbl" id="s5-l0" style="left:196px;top:552px;transform:rotate(-2deg)">the questions they ask</div>
+            <div class="lbl" id="s5-l1" style="left:196px;top:952px;transform:rotate(-1.4deg)">the objections they have</div>
+            <div class="lbl" id="s5-l2" style="left:196px;top:1372px;transform:rotate(-2.2deg)">what they already care about</div>
+          </div>
+        </div></div>
+      </div>
+
+<div class="card-host clip" id="host-s6" data-card-id="s6" data-start="34.6500" data-duration="6.7000" data-track-index="2"
+           style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="s6"><style>
+          .card[data-card-id="s6"] .root{width:100%;height:100%;position:relative;overflow:hidden}
+          .card[data-card-id="s6"] .badge{position:absolute;left:72px;top:330px;height:64px;border-radius:32px;
+            background:var(--red);color:#fff;display:flex;align-items:center;padding:0 30px;
+            font-family:"HND",sans-serif;font-weight:700;font-size:26px;letter-spacing:.2em;text-transform:uppercase}
+          .card[data-card-id="s6"] .cc{position:absolute;left:72px;width:936px;border-radius:18px;background:#FAFAFA;
+            border:1px solid #DCDCDC;box-shadow:0 18px 44px rgba(0,0,0,.10);padding:38px 42px}
+          .card[data-card-id="s6"] .cn{font-family:"HND",sans-serif;font-weight:700;font-size:24px;letter-spacing:.2em;
+            text-transform:uppercase;color:#909090;margin-bottom:16px}
+          .card[data-card-id="s6"] .ct{font-family:"HND",sans-serif;font-weight:700;font-size:46px;line-height:58px;
+            color:var(--light-ink);letter-spacing:-.015em}
+          .card[data-card-id="s6"] .cur{position:absolute;left:0;top:0}
+        </style>
+        <div class="root">
+          <div class="gl"></div><div class="grid"></div>
+          <div class="cam" data-layout-allow-overflow id="s6-cam" style="position:absolute;inset:0">
+            <div class="badge" id="s6-badge">This week's concepts</div>
+            <div class="cc" id="s6-k0" style="top:470px;transform:rotate(-0.6deg)">
+              <div class="cn">Concept 01</div>
+              <div class="ct">How We Book 20 Calls A Month From 500 Views</div>
+            </div>
+            <div class="cc" id="s6-k1" style="top:816px;transform:rotate(0.5deg)">
+              <div class="cn">Concept 02</div>
+              <div class="ct">The Offer Teardown: Why Your Retainer Isn't Closing</div>
+            </div>
+            <div class="cc" id="s6-k2" style="top:1162px;transform:rotate(-0.4deg)">
+              <div class="cn">Concept 03</div>
+              <div class="ct">I Rebuilt A $50K/Mo Agency's Funnel In 48 Hours</div>
+            </div>
+            <svg id="s6-ring" style="position:absolute;left:38px;top:780px" width="1004" height="330" viewBox="0 0 1004 330" fill="none">
+              <path id="s6-ringp" d="M116 40 C360 8, 700 12, 902 46 C982 62, 986 240, 890 282 C640 322, 330 320, 118 288 C24 268, 20 68, 130 42"
+                    stroke="#EE4B4A" stroke-width="7" stroke-linecap="round" fill="none"/></svg>
+            <svg class="cur" id="s6-cur" width="54" height="66" viewBox="0 0 54 66" fill="none">
+              <path d="M6 4 L6 52 L18 41 L26 60 L36 55 L28 37 L44 36 Z" fill="#151515" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>
+            <div class="hand" id="s6-pick" style="position:absolute;left:660px;top:1104px;font-size:56px;transform:rotate(-3deg)">you pick</div>
+          </div>
+        </div></div>
+      </div>
+
+<div class="card-host clip" data-card-id="card-06" id="host-card-06" data-start="54.2000" data-duration="8.1000" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px;visibility:hidden;opacity:0;">
+        <div class="card" data-card-id="card-06">
+          <style>
+            .card[data-card-id="card-06"] .root {
+              width: 100%; height: 100%;
+              position: relative;
+              background: transparent;
+              overflow: hidden;
+              font-family: "HND", "Inter", Helvetica, Arial, sans-serif;
+            }
+            .card[data-card-id="card-06"] .scrim {
+              position: absolute; left: 0; top: 820px; width: 100%; height: 1100px;
+              background: linear-gradient(to top,
+                rgba(7,8,10,0.82) 0%, rgba(7,8,10,0.72) 34%,
+                rgba(7,8,10,0.36) 68%, rgba(7,8,10,0) 100%);
+            }
+            .card[data-card-id="card-06"] .kicker {
+              position: absolute; left: 0; top: 1052px; width: 100%;
+              text-align: center; font-weight: 700; font-size: 27px;
+              letter-spacing: 0.14em; text-transform: uppercase;
+              background-image: linear-gradient(to top, #8f939b 0%, #d4d7dc 100%);
+              -webkit-background-clip: text; background-clip: text;
+              color: transparent; -webkit-text-fill-color: transparent;
+            }
+            .card[data-card-id="card-06"] .checks {
+              position: absolute; left: 220px; top: 1126px; width: 700px;
+            }
+            .card[data-card-id="card-06"] .check-row {
+              display: flex; align-items: center; gap: 24px;
+              margin-bottom: 26px;
+            }
+            .card[data-card-id="card-06"] .check-dot {
+              flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%;
+              background: #1ea15e; display: flex; align-items: center; justify-content: center;
+              box-shadow: 0 10px 22px rgba(30,161,94,0.45);
+            }
+            .card[data-card-id="card-06"] .check-dot svg { width: 26px; height: 26px; }
+            .card[data-card-id="card-06"] .check-text {
+              font-weight: 600; font-size: 42px; color: #f2f3f5;
+            }
+            .card[data-card-id="card-06"] .comment-label {
+              position: absolute; left: 0; top: 1344px; width: 100%;
+              text-align: center; font-weight: 700; font-size: 26px;
+              letter-spacing: 0.12em; text-transform: uppercase; color: #b6bac2;
+            }
+            .card[data-card-id="card-06"] .bubble {
+              position: absolute; left: 330px; top: 1398px; width: 420px; height: 138px;
+              border-radius: 32px; background: #ff4433;
+              box-shadow: 0 24px 60px rgba(255,68,51,0.45);
+              display: flex; align-items: center; justify-content: center;
+            }
+            .card[data-card-id="card-06"] .bubble::after {
+              content: ""; position: absolute; left: 62px; bottom: -20px;
+              width: 0; height: 0;
+              border-left: 13px solid transparent; border-right: 26px solid transparent;
+              border-top: 24px solid #ff4433;
+            }
+            .card[data-card-id="card-06"] .bubble-text {
+              color: #ffffff; font-weight: 700; font-size: 58px; letter-spacing: -0.01em;
+            }
+            .card[data-card-id="card-06"] .cursor {
+              position: absolute; left: 700px; top: 1484px; width: 78px; height: 78px;
+            }
+            .card[data-card-id="card-06"] .cursor svg { width: 100%; height: 100%; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.5)); }
+            .card[data-card-id="card-06"] .subtitle {
+              position: absolute; left: 90px; top: 1584px; width: 900px;
+              text-align: center; font-weight: 500; font-size: 33px; line-height: 1.3;
+              color: #c6c9cf;
+            }
+          </style>
+
+          <div class="root">
+            <div class="scrim" id="card-06-scrim" style="opacity:0;"></div>
+            <div class="kicker" id="card-06-kicker" style="opacity:0;">Qualify In 2 Seconds</div>
+
+            <div class="checks">
+              <div class="check-row" id="card-06-check-1">
+                <div class="check-dot" id="card-06-check-1-dot" style="opacity:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></div>
+                <div class="check-text" id="card-06-check-1-text" style="opacity:0;">High-Ticket Offer</div>
+              </div>
+              <div class="check-row" id="card-06-check-2">
+                <div class="check-dot" id="card-06-check-2-dot" style="opacity:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></div>
+                <div class="check-text" id="card-06-check-2-text" style="opacity:0;">5+ Active Clients</div>
+              </div>
+            </div>
+
+            <div class="comment-label" id="card-06-comment-label" style="opacity:0;">Comment</div>
+            <div class="bubble" id="card-06-bubble" style="opacity:0;">
+              <div class="bubble-text">&ldquo;FILM&rdquo;</div>
+            </div>
+            <div class="cursor" id="card-06-cursor" style="opacity:0;">
+              <svg viewBox="0 0 32 32"><path d="M6 3 L26 15 L16 17 L12 27 Z" fill="#ffffff" stroke="#16181c" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+
+            <div class="subtitle" id="card-06-subtitle" style="opacity:0;">We'll make you a free long-form YouTube video.</div>
+          </div>
+        </div>
+      </div>
+
+      <script src="vendor/gsap.min.js"></script>
+      <script>
+        (function () {
+          var gsap = window.gsap;
+          var tl = gsap.timeline({ paused: true });
+          var FPS = 30;
+          function q(t) { return Math.round(t * FPS) / FPS; }
+          function lerp(a, b, f) { return a + (b - a) * f; }
+          function smoothstep(f) { f = Math.max(0, Math.min(1, f)); return f * f * (3 - 2 * f); }
+          function track(keys) {
+            return function (t) {
+              if (t <= keys[0].t) return keys[0].v;
+              for (var i = 0; i < keys.length - 1; i++) {
+                var a = keys[i], b = keys[i + 1];
+                if (t >= a.t && t <= b.t) {
+                  var f = b.t === a.t ? 1 : (t - a.t) / (b.t - a.t);
+                  return lerp(a.v, b.v, smoothstep(f));
+                }
+              }
+              return keys[keys.length - 1].v;
+            };
+          }
+
+          /* ── house wipe: motion-blurred travelling mask (ported verbatim from
+                agency-lead-sources-intro, which is where this transition was authored) ── */
+          var GRAD_DIR = { left: "to left", right: "to right", down: "to bottom", up: "to top" };
+          /* Deterministic cubic-bezier solver (bisection) — the same one card-05's camera uses. */
+          function bezierEase(x1, y1, x2, y2) {
+            function bx(u) { return 3 * u * (1 - u) * (1 - u) * x1 + 3 * u * u * (1 - u) * x2 + u * u * u; }
+            function by(u) { return 3 * u * (1 - u) * (1 - u) * y1 + 3 * u * u * (1 - u) * y2 + u * u * u; }
+            return function (f) {
+              if (f <= 0) return 0; if (f >= 1) return 1;
+              var lo = 0, hi = 1, u;
+              for (var i = 0; i < 24; i++) { u = (lo + hi) / 2; if (bx(u) < f) lo = u; else hi = u; }
+              return by((lo + hi) / 2);
+            };
+          }
+          /* Symmetric ease-in-out: the wipe leaves and arrives at ZERO velocity, so neither
+             end of the transition snaps. power2.out/in put peak speed exactly at the cut,
+             which is what made the old 0.20s wipe feel aggressive. */
+          var wipeEase = bezierEase(0.65, 0, 0.35, 1);
+          /* Panels/bands travel on the same curve — GSAP takes an ease function directly.
+             power3.out was putting peak velocity on frame 1 of a 140px move, which is what
+             made the boxes feel like they were being thrown in. */
+          var slamEase = bezierEase(0.42, 0, 0.18, 1);
+          var WIPE_IN = 0.42, WIPE_OUT = 0.36;
+          function wipeInOut(id, start, end, dir) {
+            var sel = '.card-host[data-card-id="' + id + '"]';
+            var host = document.querySelector(sel);
+            var fe = document.getElementById("mbfe-" + id);
+            var horiz = dir === "left" || dir === "right";
+            var gdir = GRAD_DIR[dir];
+            function apply(raw, blurMax) {
+              var q = wipeEase(raw);
+              /* blur and mask feather ride the wipe's own speed — peak mid-travel, nothing
+                 at either end, which is how real motion blur behaves */
+              var speed = 4 * q * (1 - q);
+              if (fe) {
+                var v = blurMax * speed;
+                fe.setAttribute("stdDeviation", horiz ? v.toFixed(2) + " 0" : "0 " + v.toFixed(2));
+              }
+              if (!host) return;
+              /* The SVG filter is attached ONLY while the wipe is actually travelling.
+                 Leaving it on for the whole scene (even at stdDeviation 0) makes the
+                 renderer rasterise background-clip:text through the filter pipeline, which
+                 mis-composites those labels as offset ghosts — visible in the encoded frames
+                 but not in a live browser capture. */
+              if (q >= 1) {
+                host.style.webkitMaskImage = host.style.maskImage = "none";
+                host.style.filter = "none";
+                return;
+              }
+              host.style.filter = "url(#mb-" + id + ")";
+              var F = 8 + 34 * speed;
+              var a = q * (100 + F) - F, b = a + F;
+              var g = "linear-gradient(" + gdir + ", rgba(0,0,0,1) " + a.toFixed(2) + "%, rgba(0,0,0,0) " + b.toFixed(2) + "%)";
+              host.style.webkitMaskImage = g; host.style.maskImage = g;
+            }
+            var qi = { v: 0 }, qo = { v: 1 };
+            tl.set(sel, { visibility: "visible", opacity: 1 }, start);
+            tl.fromTo(qi, { v: 0 }, { v: 1, duration: WIPE_IN, ease: "none", immediateRender: false,
+              onUpdate: function () { apply(qi.v, 14); } }, start);
+            tl.fromTo(qo, { v: 1 }, { v: 0, duration: WIPE_OUT, ease: "none", immediateRender: false,
+              onUpdate: function () { apply(qo.v, 12); } }, end - WIPE_OUT);
+            tl.set(sel, { visibility: "hidden" }, end);
+          }
+
+          function popIn(sel, at, dur) {
+            tl.fromTo(sel, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: dur, ease: "back.out(1.6)" }, at);
+          }
+          function fadeIn(sel, at, dur) {
+            tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: dur, ease: "power2.out" }, at);
+          }
+          function kineticText(sel, at, opts) {
+            opts = opts || {};
+            var stagger = opts.stagger != null ? opts.stagger : 0.045;
+            var dur = opts.dur != null ? opts.dur : 0.45;
+            var y = opts.y != null ? opts.y : 26;
+            var el = document.querySelector(sel);
+            if (!el) return;
+            var cs = getComputedStyle(el);
+            var gradCSS = (cs.backgroundImage && cs.backgroundImage !== "none")
+              ? ("background-image:" + cs.backgroundImage + ";-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;")
+              : "";
+            var parts = el.innerHTML.split(/(<br\s*\/?>)/i);
+            el.innerHTML = parts.map(function (part) {
+              if (/^<br\s*\/?>$/i.test(part)) return part;
+              return part.split(/\s+/).filter(Boolean).map(function (word) {
+                return '<span class="kw" style="display:inline-block;opacity:0;' + gradCSS + '">' + word + '</span>';
+              }).join(' ');
+            }).join('');
+            var wds = el.querySelectorAll('.kw');
+            tl.set(el, { opacity: 1 }, at);
+            tl.fromTo(wds, { opacity: 0, y: y }, { opacity: 1, y: 0, duration: dur, ease: "back.out(1.5)", stagger: stagger }, at);
+          }
+
+          /* design-system primitives for the three hand-authored scenes */
+          function pop(sel, T, o) { o = o || {};
+            tl.fromTo(sel, { opacity: 0, scale: o.from == null ? 1.55 : o.from, filter: "blur(10px)" },
+              { opacity: 1, scale: 1, filter: "blur(0px)", duration: o.d == null ? 0.14 : o.d, ease: "power4.out" }, q(T));
+            tl.fromTo(sel, { y: o.sy == null ? 14 : o.sy }, { y: 0, duration: 0.7, ease: "power2.out" }, q(T)); }
+          function riseIn(sel, T, d) {
+            tl.fromTo(sel, { opacity: 0, y: 34, filter: "blur(8px)" },
+              { opacity: 1, y: 0, filter: "blur(0px)", duration: d == null ? 0.30 : d, ease: "power3.out" }, q(T)); }
+          function peers(list, T, step) { for (var i = 0; i < list.length; i++) riseIn(list[i], T + i * (step == null ? 0.125 : step)); }
+          function draw(sel, T, D, ease) {
+            var el = document.querySelector(sel); if (!el || !el.getTotalLength) return;
+            var L = el.getTotalLength();
+            tl.set(sel, { strokeDasharray: L, strokeDashoffset: L }, 0);
+            tl.to(sel, { strokeDashoffset: 0, duration: D, ease: ease || "power2.out" }, q(T)); }
+          function words(sel, T, step) {
+            tl.fromTo(sel + " .word", { opacity: 0, y: 16, filter: "blur(6px)" },
+              { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power3.out", stagger: step == null ? 0.20 : step }, q(T)); }
+          function camPush(sel, T, dur, from, to) {
+            tl.fromTo(sel, { scale: from }, { scale: to, duration: dur, ease: "sine.inOut" }, q(T)); }
+
+          /* ══════════════════════════════════════════════════════════════════
+             SCENE A — card-04, reused from agency-lead-sources-intro.
+             Same build, retimed to short2's VO, plus the six real client-channel
+             screenshots popping in around the "10+" while the odometer rolls.
+             5.85 → 15.30
+             ══════════════════════════════════════════════════════════════════ */
+          wipeInOut("card-04", 5.85, 15.43, "down");
+          (function () {
+            var S = 5.85, TOTAL = 9.45;
+            var LANDINGS = [5.05, 6.45, 8.45];
+            var JOLT_AMP = [9, 11, 15];
+            var countOf = track([{ t: 0.30, v: 0 }, { t: 1.20, v: 10 }, { t: TOTAL, v: 10 }]);
+            var stat1Of = track([{ t: 5.28, v: 8.2 }, { t: 5.95, v: 19.4 }, { t: TOTAL, v: 19.4 }]);
+            var stat2Of = track([{ t: 6.65, v: 3.1 }, { t: 7.30, v: 0.8 }, { t: TOTAL, v: 0.8 }]);
+            var stat3Of = track([{ t: 8.67, v: 34 }, { t: 9.27, v: 0 }, { t: TOTAL, v: 0 }]);
+
+            var countEl = document.getElementById("card-04-count");
+            var stat1El = document.getElementById("card-04-stat-1");
+            var stat2El = document.getElementById("card-04-stat-2");
+            var stat3El = document.getElementById("card-04-stat-3");
+            var stageEl = document.getElementById("card-04-stage");
+            var lightEl = document.getElementById("card-04-light");
+
+            var EPS = 0.008;
+            function rollBlur(fn, t, k) {
+              var rate = Math.abs(fn(t + EPS) - fn(t - EPS)) / (2 * EPS);
+              var b = Math.min(12, rate * k);
+              return b > 0.2 ? "blur(" + b.toFixed(2) + "px)" : "none";
+            }
+            var SLAM_DUR = 0.22;
+            var ROWS = [
+              { fe: document.getElementById("card-04-mbfe-r1"), at: LANDINGS[0] },
+              { fe: document.getElementById("card-04-mbfe-r2"), at: LANDINGS[1] },
+              { fe: document.getElementById("card-04-mbfe-r3"), at: LANDINGS[2] }
+            ];
+            ROWS.forEach(function (r, i) {
+              document.getElementById("card-04-row-" + (i + 1)).style.filter = "url(#card-04-mb-r" + (i + 1) + ")";
+            });
+
+            function render(t) {
+              var v = countOf(t);
+              countEl.textContent = Math.round(v) + (v >= 9.99 ? "+" : "");
+              countEl.style.filter = rollBlur(countOf, t, 0.55);
+              stat1El.textContent = "$" + stat1Of(t).toFixed(1);
+              stat1El.style.filter = rollBlur(stat1Of, t, 0.35);
+              stat2El.textContent = stat2Of(t).toFixed(1) + "%";
+              stat2El.style.filter = rollBlur(stat2Of, t, 1.6);
+              stat3El.textContent = Math.round(stat3Of(t)) + "%";
+              stat3El.style.filter = rollBlur(stat3Of, t, 0.12);
+              var bed = 1 + 0.055 * (t / TOTAL);
+              var jy = 0, js = 0;
+              for (var i = 0; i < LANDINGS.length; i++) {
+                var dt = t - LANDINGS[i];
+                if (dt > 0) { jy += JOLT_AMP[i] * Math.exp(-10 * dt) * Math.sin(34 * dt); js += 0.02 * Math.exp(-9 * dt); }
+              }
+              stageEl.style.transform = "translateY(" + jy.toFixed(2) + "px) scale(" + (bed + js).toFixed(4) + ")";
+              lightEl.style.transform =
+                "translate(" + lerp(-160, 420, t / TOTAL).toFixed(1) + "px," + lerp(0, 260, t / TOTAL).toFixed(1) + "px)";
+              for (var r = 0; r < ROWS.length; r++) {
+                var rp = (t - ROWS[r].at) / SLAM_DUR;
+                var bv = (rp > 0 && rp < 1) ? 34 * Math.pow(1 - rp, 2) : 0;
+                ROWS[r].fe.setAttribute("stdDeviation", "0 " + bv.toFixed(2));
+              }
+            }
+
+            /* Phase 1 — the claim */
+            kineticText("#card-04-kicker", S + 0.10, { stagger: 0.035, dur: 0.35, y: 16 });
+            tl.fromTo("#card-04-intro",
+              { opacity: 0, scale: 1.9, filter: "blur(14px)" },
+              { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, S + 0.24);
+            /* the real client channels land around the numeral, spatial-bounce order */
+            [["#card-04-chan-3", 0.52], ["#card-04-chan-0", 0.63], ["#card-04-chan-5", 0.74],
+             ["#card-04-chan-2", 0.85], ["#card-04-chan-4", 0.96], ["#card-04-chan-1", 1.07]]
+              .forEach(function (c) {
+                tl.fromTo(c[0],
+                  { opacity: 0, scale: 1.7, filter: "blur(10px)" },
+                  { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out" }, S + c[1]);
+              });
+            tl.fromTo("#card-04-count-sub",
+              { opacity: 0, scale: 2.0, filter: "blur(12px)" },
+              { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out" }, S + 1.42);
+            [["#card-04-chip-3", 1.64], ["#card-04-chip-1", 1.78], ["#card-04-chip-4", 1.92], ["#card-04-chip-2", 2.06]]
+              .forEach(function (c) {
+                tl.fromTo(c[0],
+                  { opacity: 0, scale: 1.8, filter: "blur(8px)" },
+                  { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out" }, S + c[1]);
+              });
+            tl.to("#card-04-intro",
+              { opacity: 0, scale: 1.55, filter: "blur(18px)", duration: 0.22, ease: "power2.in" }, S + 4.70);
+
+            /* Phase 2 — the three pressure vignettes */
+            function slamRow(sel, at, rot) {
+              tl.fromTo(sel, { opacity: 0, scale: 1.18, rotation: rot, y: 150 },
+                { opacity: 1, scale: 1, rotation: 0, y: 0, duration: SLAM_DUR, ease: slamEase }, S + at);
+            }
+            function dimRow(sel, at, o) {
+              tl.to(sel, { opacity: o, scale: 0.965, duration: 0.22, ease: "power2.out" }, S + at);
+            }
+
+            slamRow("#card-04-row-1", LANDINGS[0], -3.5);
+            kineticText("#card-04-label-1", S + LANDINGS[0] + 0.12, { stagger: 0.045, dur: 0.35 });
+            var lineEl = document.getElementById("card-04-line");
+            var LINE_LEN = lineEl.getTotalLength();
+            lineEl.setAttribute("stroke-dasharray", LINE_LEN);
+            lineEl.setAttribute("stroke-dashoffset", LINE_LEN);
+            lineEl.style.opacity = 0;
+            tl.set(lineEl, { opacity: 1 }, S + LANDINGS[0] + 0.20);
+            tl.to(lineEl, { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, S + LANDINGS[0] + 0.20);
+            tl.to("#card-04-area", { opacity: 1, duration: 0.5, ease: "power2.out" }, S + LANDINGS[0] + 0.33);
+            tl.fromTo("#card-04-dot", { opacity: 0, scale: 2.6 },
+              { opacity: 1, scale: 1, svgOrigin: "305 60", duration: 0.14, ease: "power4.out", immediateRender: false }, S + LANDINGS[0] + 0.76);
+
+            slamRow("#card-04-row-2", LANDINGS[1], 2.8);
+            dimRow("#card-04-row-1", LANDINGS[1], 0.55);
+            kineticText("#card-04-label-2", S + LANDINGS[1] + 0.12, { stagger: 0.045, dur: 0.35 });
+            tl.to("#card-04-seg-4", { opacity: 0.12, duration: 0.1, ease: "power2.in" }, S + LANDINGS[1] + 0.26);
+            tl.to("#card-04-seg-3", { opacity: 0.12, duration: 0.1, ease: "power2.in" }, S + LANDINGS[1] + 0.46);
+            tl.to("#card-04-seg-2", { opacity: 0.12, duration: 0.1, ease: "power2.in" }, S + LANDINGS[1] + 0.66);
+            tl.to("#card-04-seg-1", { backgroundColor: "#ff4433", duration: 0.15, ease: "power2.out" }, S + LANDINGS[1] + 0.84);
+            tl.to("#card-04-seg-1", { scale: 1.18, duration: 0.1, ease: "power2.out" }, S + LANDINGS[1] + 0.84);
+            tl.to("#card-04-seg-1", { scale: 1.0, duration: 0.18, ease: "power2.in" }, S + LANDINGS[1] + 0.94);
+
+            slamRow("#card-04-row-3", LANDINGS[2], -2.5);
+            dimRow("#card-04-row-1", LANDINGS[2], 0.4);
+            dimRow("#card-04-row-2", LANDINGS[2], 0.55);
+            kineticText("#card-04-label-3", S + LANDINGS[2] + 0.12, { stagger: 0.05, dur: 0.35 });
+            var slashEl = document.getElementById("card-04-slash");
+            var SLASH_LEN = slashEl.getTotalLength();
+            slashEl.setAttribute("stroke-dasharray", SLASH_LEN);
+            slashEl.setAttribute("stroke-dashoffset", SLASH_LEN);
+            slashEl.style.opacity = 0;
+            tl.set(slashEl, { opacity: 1 }, S + LANDINGS[2] + 0.22);
+            tl.to(slashEl, { strokeDashoffset: 0, duration: 0.22, ease: "power3.out" }, S + LANDINGS[2] + 0.22);
+            tl.to("#card-04-eye", { opacity: 0.3, duration: 0.25, ease: "power2.out" }, S + LANDINGS[2] + 0.40);
+            var barEls = document.querySelectorAll("#card-04-bars rect");
+            barEls.forEach(function (b, i) {
+              tl.to(b, { scaleY: 0.08, transformOrigin: "50% 100%", duration: 0.3, ease: "power3.in" }, S + LANDINGS[2] + 0.25 + i * 0.07);
+            });
+
+            tl.to("#card-04-warm", { opacity: 0.4, duration: 0.5, ease: "power2.out" }, S + LANDINGS[0]);
+            tl.to("#card-04-warm", { opacity: 0.7, duration: 0.5, ease: "power2.out" }, S + LANDINGS[1]);
+            tl.to("#card-04-warm", { opacity: 1.0, duration: 0.6, ease: "power2.out" }, S + LANDINGS[2]);
+
+            var drv = { t: 0 };
+            tl.to(drv, { t: TOTAL, duration: TOTAL, ease: "none", onUpdate: function () { render(drv.t); } }, S);
+          })();
+
+          /* ══════ SCENE B — what the job actually needs · 17.30 → 24.50 ══════
+             Rebuilt in card-04's panel language: gradient panels with their own
+             illustration, a graded verdict per row, red dread building under the stack.
+             The single arc from the fiverr badge into the stack is the only arrow. */
+          wipeInOut("s3", 17.30, 24.50, "down");
+          (function () {
+            var S = 17.30, TOT = 7.20;
+            var LAND = [2.65, 4.15, 5.55];              /* row landings, local seconds */
+            var JOLT = [8, 10, 13];
+            var stageEl = document.getElementById("s3-stage");
+            var lightEl = document.getElementById("s3-light");
+            function render(t) {
+              var bed = 1 + 0.05 * (t / TOT), jy = 0, js = 0;
+              for (var i = 0; i < LAND.length; i++) {
+                var dt = t - LAND[i];
+                if (dt > 0) { jy += JOLT[i] * Math.exp(-10 * dt) * Math.sin(34 * dt); js += 0.018 * Math.exp(-9 * dt); }
+              }
+              stageEl.style.transform = "translateY(" + jy.toFixed(2) + "px) scale(" + (bed + js).toFixed(4) + ")";
+              lightEl.style.transform =
+                "translate(" + lerp(-140, 380, t / TOT).toFixed(1) + "px," + lerp(0, 240, t / TOT).toFixed(1) + "px)";
+            }
+            function slam(sel, at, rot) {
+              tl.fromTo(sel, { opacity: 0, scale: 1.16, rotation: rot, y: 140 },
+                { opacity: 1, scale: 1, rotation: 0, y: 0, duration: 0.40, ease: slamEase }, S + at);
+            }
+            function dim(sel, at, o) {
+              tl.to(sel, { opacity: o, scale: 0.965, duration: 0.22, ease: "power2.out" }, S + at);
+            }
+            kineticText("#s3-kicker", S + 0.10, { stagger: 0.035, dur: 0.35, y: 16 });
+            tl.fromTo("#s3-badge", { opacity: 0, scale: 1.85, filter: "blur(14px)" },
+              { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, S + 0.30);
+            draw("#s3-arc", S + 1.95, 0.26); draw("#s3-arch", S + 2.14, 0.13);
+
+            slam("#s3-r1", LAND[0], -2.6);
+            kineticText("#s3-l1", S + LAND[0] + 0.12, { stagger: 0.045, dur: 0.35 });
+            popIn("#s3-v1", S + LAND[0] + 0.52, 0.30);
+
+            slam("#s3-r2", LAND[1], 2.4);
+            dim("#s3-r1", LAND[1], 0.62);
+            kineticText("#s3-l2", S + LAND[1] + 0.12, { stagger: 0.045, dur: 0.35 });
+            popIn("#s3-v2", S + LAND[1] + 0.62, 0.30);
+            tl.to("#s3-p2", { borderColor: "rgba(255,68,51,0.38)",
+              backgroundImage: "linear-gradient(180deg, rgba(255,68,51,0.08) 0%, rgba(255,68,51,0.02) 100%)",
+              duration: 0.26, ease: "power2.out" }, S + LAND[1] + 0.62);
+            tl.to("#s3-warm", { opacity: 0.55, duration: 0.5, ease: "power2.out" }, S + LAND[1] + 0.62);
+
+            slam("#s3-r3", LAND[2], -2.2);
+            dim("#s3-r1", LAND[2], 0.42);
+            dim("#s3-r2", LAND[2], 0.62);
+            kineticText("#s3-l3", S + LAND[2] + 0.12, { stagger: 0.045, dur: 0.35 });
+            popIn("#s3-v3", S + LAND[2] + 0.62, 0.30);
+            tl.to("#s3-p3", { borderColor: "rgba(255,68,51,0.38)",
+              backgroundImage: "linear-gradient(180deg, rgba(255,68,51,0.08) 0%, rgba(255,68,51,0.02) 100%)",
+              duration: 0.26, ease: "power2.out" }, S + LAND[2] + 0.62);
+            tl.to("#s3-warm", { opacity: 1.0, duration: 0.6, ease: "power2.out" }, S + LAND[2] + 0.62);
+
+            var d3 = { t: 0 };
+            tl.to(d3, { t: TOT, duration: TOT, ease: "none", onUpdate: function () { render(d3.t); } }, S);
+          })();
+
+          /* ══════ SCENE C — the ICP comments · 28.30 → 34.55 ══════ */
+          wipeInOut("s5", 28.30, 34.56, "down");
+          camPush("#s5-cam", 28.30, 6.25, 1.00, 1.07);
+          peers(["#s5-c0", "#s5-c1", "#s5-c2"], 28.50, 0.125);
+          draw("#s5-p0", 29.95, 0.34); pop("#s5-l0", 30.27, { from: 1.35 });
+          draw("#s5-p1", 31.55, 0.34); pop("#s5-l1", 31.87, { from: 1.35 });
+          draw("#s5-p2", 32.95, 0.34); pop("#s5-l2", 33.27, { from: 1.35 });
+
+          /* ══════ SCENE D — you pick the concept · 35.20 → 41.20 ══════ */
+          wipeInOut("s6", 35.20, 41.20, "down");
+          camPush("#s6-cam", 35.20, 6.00, 1.00, 1.06);
+          pop("#s6-badge", 35.35, { from: 1.4 });
+          peers(["#s6-k0", "#s6-k1", "#s6-k2"], 35.75, 0.125);
+          tl.set("#s6-cur", { x: 980, y: 1720, opacity: 0 }, q(38.50));
+          tl.to("#s6-cur", { opacity: 1, duration: 0.12 }, q(38.60));
+          tl.to("#s6-cur", { x: 600, y: 994, duration: 0.85, ease: "power2.inOut" }, q(38.70));
+          tl.to("#s6-cur", { scale: 0.86, duration: 0.07, ease: "power2.in" }, q(39.60));
+          tl.to("#s6-cur", { scale: 1, duration: 0.12, ease: "power2.out" }, q(39.67));
+          draw("#s6-ringp", 39.85, 0.40);
+          pop("#s6-pick", 40.35, { from: 1.4 });
+          tl.to("#s6-cur", { opacity: 0, duration: 0.14 }, q(40.60));
+
+          /* ══════════════════════════════════════════════════════════════════
+             SCENE E — card-06, reused from agency-lead-sources-intro.
+             The CTA close as an ON-TALKING-HEAD overlay: the footage keeps playing
+             behind a rising scrim. Retimed to short2's outro. 55.30 → 62.30
+             ══════════════════════════════════════════════════════════════════ */
+          tl.set('.card-host[data-card-id="card-06"]', { visibility: "visible", opacity: 1 }, 54.20);
+          /* the scrim arrives on its own — 1.0s ease-out, settled by 55.20, then a full
+             second of nothing before the first line lands at 56.20 */
+          tl.fromTo("#card-06-scrim", { opacity: 0 }, { opacity: 1, duration: 1.00, ease: "power2.out" }, 54.20);
+          kineticText("#card-06-kicker", 56.20, { stagger: 0.035, dur: 0.35, y: 16 });
+          popIn("#card-06-check-1-dot", 56.85, 0.30);
+          kineticText("#card-06-check-1-text", 56.90, { stagger: 0.045, dur: 0.4 });
+          popIn("#card-06-check-2-dot", 58.10, 0.30);
+          kineticText("#card-06-check-2-text", 58.15, { stagger: 0.045, dur: 0.4 });
+          fadeIn("#card-06-comment-label", 59.25, 0.25);
+          popIn("#card-06-bubble", 59.48, 0.40);
+          popIn("#card-06-cursor", 59.83, 0.30);
+          kineticText("#card-06-subtitle", 60.60, { stagger: 0.03, dur: 0.35, y: 18 });
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["short2-recut"] = tl;
+        })();
+
+      </script>
+    </div>
+  </body>
+</html>

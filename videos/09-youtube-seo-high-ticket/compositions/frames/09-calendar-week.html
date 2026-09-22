@@ -1,0 +1,156 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Lit ground (light): a warm breathing glow + the "booked" blue floor that turns red on the swap. */
+  #f09-glow-warm { left: 160px; top: 20px; width: 1500px; height: 1000px; background: radial-gradient(circle, rgba(255,166,102,0.42) 0%, rgba(255,166,102,0) 62%); opacity: 0.85; }
+  #f09-glow-blue { left: -160px; top: 120px; width: 1150px; height: 920px; background: radial-gradient(circle, rgba(255,166,102,0.40) 0%, rgba(255,166,102,0) 62%); }
+  #f09-glow-red  { left: -160px; top: 120px; width: 1150px; height: 920px; background: radial-gradient(circle, rgba(238,75,74,0.46) 0%, rgba(238,75,74,0) 62%); opacity: 0; }
+
+  /* ---- Recreated Google Calendar — week view (user exception: built at product fidelity) ---- */
+  #f09-cal { left: 260px; top: 135px; width: 1400px; height: 790px; background: #FFFFFF; transform: rotate(1.5deg); font-family: var(--hf-ui); color: #3C4043; -webkit-font-smoothing: antialiased; }
+  #f09-cal .gc-top { position: absolute; left: 0; top: 0; width: 1400px; height: 68px; display: flex; align-items: center; padding: 0 16px 0 10px; box-sizing: border-box; gap: 10px; }
+  #f09-cal .gc-ic { width: 26px; height: 26px; fill: #5F6368; flex: 0 0 auto; }
+  #f09-cal .gc-ibtn { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  #f09-cal .gc-logo { width: 40px; height: 40px; flex: 0 0 auto; margin-left: 2px; }
+  #f09-cal .gc-wordmark { font-size: 26px; color: #3C4043; margin: 0 22px 0 4px; white-space: nowrap; }
+  #f09-cal .gc-btn { height: 40px; padding: 0 18px; border: 1px solid #DADCE0; border-radius: 6px; display: flex; align-items: center; gap: 4px; font-size: 16px; font-weight: 500; color: #3C4043; white-space: nowrap; box-sizing: border-box; }
+  #f09-cal .gc-btn .gc-ic { width: 22px; height: 22px; margin-right: -6px; }
+  #f09-cal .gc-month { font-size: 26px; color: #3C4043; margin-left: 4px; white-space: nowrap; }
+  #f09-cal .gc-spacer { flex: 1 1 auto; }
+  #f09-cal .gc-avatar { width: 36px; height: 36px; border-radius: 50%; background: #7B4EFF; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; margin-left: 4px; flex: 0 0 auto; }
+
+  #f09-cal .gc-dh { position: absolute; left: 0; top: 68px; width: 1400px; height: 90px; border-bottom: 1px solid #DADCE0; box-sizing: border-box; }
+  #f09-cal .gc-tz { position: absolute; left: 0; top: 68px; width: 78px; text-align: right; font-size: 12px; color: #70757A; }
+  #f09-cal .gc-dayh { position: absolute; top: 0; width: 187.14px; height: 90px; }
+  #f09-cal .gc-dow { position: absolute; left: 0; right: 0; top: 8px; text-align: center; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: #70757A; }
+  #f09-cal .gc-dn { position: absolute; left: 0; right: 0; top: 30px; display: flex; justify-content: center; }
+  #f09-cal .gc-dn span { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #3C4043; }
+  #f09-cal .gc-today .gc-dow { color: #1A73E8; }
+  #f09-cal .gc-today .gc-dn span { background: #1A73E8; color: #fff; font-weight: 500; }
+
+  #f09-cal .gc-grid { position: absolute; left: 0; top: 158px; width: 1400px; height: 632px; overflow: hidden; }
+  #f09-cal .gc-vl { position: absolute; top: 0; width: 1px; height: 632px; background: #DADCE0; }
+  #f09-cal .gc-hl { position: absolute; left: 90px; width: 1310px; height: 1px; background: #DADCE0; }
+  #f09-cal .gc-hr { position: absolute; left: 0; width: 78px; margin-top: -8px; text-align: right; font-size: 12px; color: #70757A; }
+
+  /* Event chip — CSS default is the landed (red) poster state; the timeline sets it blue at t=0 and swaps it back. */
+  #f09-cal .gc-ev { position: absolute; width: 181px; height: 64px; background: #EE4B4A; color: #fff; border-radius: 6px; padding: 5px 8px; box-sizing: border-box; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55); will-change: transform, opacity; }
+  #f09-cal .gc-ev b { display: block; font-weight: 700; font-size: 21px; line-height: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  #f09-cal .gc-ev i { display: block; font-style: normal; font-weight: 700; font-size: 19px; line-height: 21px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  #f09-cal .gc-ev svg { position: absolute; right: 8px; bottom: 6px; width: 18px; height: 18px; fill: #fff; }
+
+  #f09-hand { left: 60px; top: 300px; font-size: 60px; transform: rotate(-8deg); }
+</style>
+<div data-hf-id="hf-xd0y" id="root" class="hf-light" data-composition-id="09-calendar-week" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-5zjt" class="hf-ground-light"></div>
+  <div data-hf-id="hf-7jrf" class="hf-grid"></div>
+  <div data-hf-id="hf-trmp" id="f09-glow-warm" class="hf-glow"></div>
+  <div data-hf-id="hf-ho36" id="f09-glow-blue" class="hf-glow"></div>
+  <div data-hf-id="hf-gijj" id="f09-glow-red" class="hf-glow"></div>
+  <div data-hf-id="hf-271l" class="hf-vignette"></div>
+
+  <div data-hf-id="hf-l67h" id="f09-stage" class="hf-stage">
+    <div data-hf-id="hf-2wvj" id="f09-cal" class="hf-shot">
+      <div data-hf-id="hf-4pno" class="gc-top">
+        <div data-hf-id="hf-nzdg" class="gc-ibtn"><svg data-hf-id="hf-m2tx" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-fy5h" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg></div>
+        <svg data-hf-id="hf-hmz4" class="gc-logo" viewBox="0 0 40 40"><defs data-hf-id="hf-mh0t"><clippath data-hf-id="hf-lxsf" id="f09-logo-clip"><rect data-hf-id="hf-hyh6" width="40" height="40" rx="4" /></clippath></defs><g data-hf-id="hf-xnlp" clip-path="url(#f09-logo-clip)"><rect data-hf-id="hf-3kfc" width="40" height="40" fill="#fff" /><path data-hf-id="hf-ftb2" fill="#4285F4" d="M0 0h30.5v9.5H9.5v21H0z" /><rect data-hf-id="hf-wn6y" x="30.5" y="0" width="9.5" height="9.5" fill="#FBBC04" /><rect data-hf-id="hf-8qea" x="30.5" y="9.5" width="9.5" height="21" fill="#188038" /><rect data-hf-id="hf-suk4" x="9.5" y="30.5" width="21" height="9.5" fill="#34A853" /><rect data-hf-id="hf-k4rm" x="0" y="30.5" width="9.5" height="9.5" fill="#1967D2" /><path data-hf-id="hf-mnnd" fill="#EA4335" d="M30.5 40V30.5H40z" /><text data-hf-id="hf-n6bj" x="20" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#174EA6">31</text></g></svg>
+        <div data-hf-id="hf-8d66" class="gc-wordmark">Calendar</div>
+        <div data-hf-id="hf-y5mm" class="gc-btn">Today</div>
+        <div data-hf-id="hf-9ey4" class="gc-ibtn"><svg data-hf-id="hf-dekp" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-9aua" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg></div>
+        <div data-hf-id="hf-8811" class="gc-ibtn"><svg data-hf-id="hf-elhs" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-wz0a" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" /></svg></div>
+        <div data-hf-id="hf-krr0" class="gc-month">September 2026</div>
+        <div data-hf-id="hf-2aj3" class="gc-spacer"></div>
+        <div data-hf-id="hf-8mc2" class="gc-ibtn"><svg data-hf-id="hf-e76r" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-9m6z" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg></div>
+        <div data-hf-id="hf-alv7" class="gc-ibtn"><svg data-hf-id="hf-c7nm" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-8jtn" d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z" /></svg></div>
+        <div data-hf-id="hf-b068" class="gc-ibtn"><svg data-hf-id="hf-btcl" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-tr1f" d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" /></svg></div>
+        <div data-hf-id="hf-3lp9" class="gc-btn">Week<svg data-hf-id="hf-d09o" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-lshs" d="M7 10l5 5 5-5z" /></svg></div>
+        <div data-hf-id="hf-9t95" class="gc-ibtn"><svg data-hf-id="hf-clyn" class="gc-ic" viewBox="0 0 24 24"><path data-hf-id="hf-xqgj" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" /></svg></div>
+        <div data-hf-id="hf-aru8" class="gc-avatar">T</div>
+      </div>
+
+      <div data-hf-id="hf-tosr" class="gc-dh">
+        <div data-hf-id="hf-z4xq" class="gc-tz">GMT+02</div>
+        <div data-hf-id="hf-0325" class="gc-dayh" style="left:90px"><div data-hf-id="hf-otaz" class="gc-dow">MON</div><div data-hf-id="hf-6yz1" class="gc-dn"><span data-hf-id="hf-g6ua">7</span></div></div>
+        <div data-hf-id="hf-916r" class="gc-dayh" style="left:277.14px"><div data-hf-id="hf-f97r" class="gc-dow">TUE</div><div data-hf-id="hf-okox" class="gc-dn"><span data-hf-id="hf-ezx7">8</span></div></div>
+        <div data-hf-id="hf-vuol" class="gc-dayh" style="left:464.29px"><div data-hf-id="hf-pe51" class="gc-dow">WED</div><div data-hf-id="hf-prm0" class="gc-dn"><span data-hf-id="hf-fe88">9</span></div></div>
+        <div data-hf-id="hf-vjf7" class="gc-dayh gc-today" style="left:651.43px"><div data-hf-id="hf-tfla" class="gc-dow">THU</div><div data-hf-id="hf-pdaz" class="gc-dn"><span data-hf-id="hf-2xa8">10</span></div></div>
+        <div data-hf-id="hf-8jv3" class="gc-dayh" style="left:838.57px"><div data-hf-id="hf-pemq" class="gc-dow">FRI</div><div data-hf-id="hf-ndru" class="gc-dn"><span data-hf-id="hf-2iz7">11</span></div></div>
+        <div data-hf-id="hf-j27w" class="gc-dayh" style="left:1025.71px"><div data-hf-id="hf-hs7x" class="gc-dow">SAT</div><div data-hf-id="hf-mzgt" class="gc-dn"><span data-hf-id="hf-24o6">12</span></div></div>
+        <div data-hf-id="hf-rtki" class="gc-dayh" style="left:1212.86px"><div data-hf-id="hf-jpkr" class="gc-dow">SUN</div><div data-hf-id="hf-o6dw" class="gc-dn"><span data-hf-id="hf-1qd5">13</span></div></div>
+      </div>
+
+      <div data-hf-id="hf-on0z" class="gc-grid">
+        <div data-hf-id="hf-ouol" class="gc-vl" style="left:90px"></div><div data-hf-id="hf-hp17" class="gc-vl" style="left:277.14px"></div><div data-hf-id="hf-4ntp" class="gc-vl" style="left:464.29px"></div><div data-hf-id="hf-pa6z" class="gc-vl" style="left:651.43px"></div><div data-hf-id="hf-9pqf" class="gc-vl" style="left:838.57px"></div><div data-hf-id="hf-gulg" class="gc-vl" style="left:1025.71px"></div><div data-hf-id="hf-q9gq" class="gc-vl" style="left:1212.86px"></div>
+        <div data-hf-id="hf-p1jf" class="gc-hl" style="top:14px"></div><div data-hf-id="hf-s8us" class="gc-hr" style="top:14px">7 AM</div>
+        <div data-hf-id="hf-ssim" class="gc-hl" style="top:82px"></div><div data-hf-id="hf-w1z2" class="gc-hr" style="top:82px">8 AM</div>
+        <div data-hf-id="hf-0diu" class="gc-hl" style="top:150px"></div><div data-hf-id="hf-dpvf" class="gc-hr" style="top:150px">9 AM</div>
+        <div data-hf-id="hf-58bl" class="gc-hl" style="top:218px"></div><div data-hf-id="hf-zmdk" class="gc-hr" style="top:218px">10 AM</div>
+        <div data-hf-id="hf-0t1s" class="gc-hl" style="top:286px"></div><div data-hf-id="hf-pafi" class="gc-hr" style="top:286px">11 AM</div>
+        <div data-hf-id="hf-194s" class="gc-hl" style="top:354px"></div><div data-hf-id="hf-5kko" class="gc-hr" style="top:354px">12 PM</div>
+        <div data-hf-id="hf-lqxg" class="gc-hl" style="top:422px"></div><div data-hf-id="hf-t430" class="gc-hr" style="top:422px">1 PM</div>
+        <div data-hf-id="hf-qt37" class="gc-hl" style="top:490px"></div><div data-hf-id="hf-cpn8" class="gc-hr" style="top:490px">2 PM</div>
+        <div data-hf-id="hf-ztzm" class="gc-hl" style="top:558px"></div><div data-hf-id="hf-c0dg" class="gc-hr" style="top:558px">3 PM</div>
+        <div data-hf-id="hf-3nr6" class="gc-hl" style="top:626px"></div>
+
+        <!-- 8 booked calls, in landing order (Tue 10 → Wed 14:30 → Thu 11 → Thu 8 → Fri 12 → Tue 13 → Mon 9 → Fri 9) -->
+        <div data-hf-id="hf-lit0" class="gc-ev" style="left:280.14px;top:219px"><b data-layout-allow-overlap data-hf-id="hf-gg0w">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-d1to">10 – 11am</i><svg data-hf-id="hf-y9f5" viewBox="0 0 24 24"><path data-hf-id="hf-odv1" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+        <div data-hf-id="hf-gd7r" class="gc-ev" style="left:467.29px;top:525px"><b data-layout-allow-overlap data-hf-id="hf-4o2c">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-ak3j">2:30 – 3:30pm</i><svg data-hf-id="hf-svtx" viewBox="0 0 24 24"><path data-hf-id="hf-8m3l" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+        <div data-hf-id="hf-qvbc" class="gc-ev" style="left:654.43px;top:287px"><b data-layout-allow-overlap data-hf-id="hf-i0g0">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-77qn">11am – 12pm</i><svg data-hf-id="hf-u2r0" viewBox="0 0 24 24"><path data-hf-id="hf-9t0o" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+        <div data-hf-id="hf-nhz8" class="gc-ev" style="left:654.43px;top:83px"><b data-layout-allow-overlap data-hf-id="hf-lf28">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-allo">8 – 9am</i><svg data-hf-id="hf-tofz" viewBox="0 0 24 24"><path data-hf-id="hf-9epn" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+        <div data-hf-id="hf-xr0v" class="gc-ev" style="left:841.57px;top:355px"><b data-layout-allow-overlap data-hf-id="hf-j9ui">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-43jy">12 – 1pm</i><svg data-hf-id="hf-uvd2" viewBox="0 0 24 24"><path data-hf-id="hf-7f6i" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+        <div data-hf-id="hf-cdn5" class="gc-ev" style="left:280.14px;top:423px"><b data-layout-allow-overlap data-hf-id="hf-7yqd">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-aonv">1 – 2pm</i><svg data-hf-id="hf-uh21" viewBox="0 0 24 24"><path data-hf-id="hf-70vh" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+        <div data-hf-id="hf-m0yc" class="gc-ev" style="left:93px;top:151px"><b data-layout-allow-overlap data-hf-id="hf-9901">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-ks5p">9 – 10am</i><svg data-hf-id="hf-vnz4" viewBox="0 0 24 24"><path data-hf-id="hf-87sk" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+        <div data-hf-id="hf-bxw5" class="gc-ev" style="left:841.57px;top:151px"><b data-layout-allow-overlap data-hf-id="hf-slan">Growth Call</b><i data-layout-allow-overlap data-hf-id="hf-h22p">9 – 10am</i><svg data-hf-id="hf-v9o3" viewBox="0 0 24 24"><path data-hf-id="hf-7thj" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg></div>
+      </div>
+    </div>
+
+    <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-v3p5" id="f09-ar-shaft" />
+      <path data-hf-id="hf-wd7x" id="f09-ar-head" />
+    </svg>
+    <div data-hf-id="hf-1641" id="f09-hand" class="hf-hand">from search →</div>
+  </div>
+</div>
+<script>
+  (function () {
+    var ID = "09-calendar-week", DUR = 8.5;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      var BLUE = "#4285F4", RED = H.RED;
+      var evs = gsap.utils.toArray("#f09-cal .gc-ev");
+
+      // Bed from t=0 (the card itself is DEAD STILL through the build — §6): two glows breathe at their own rates.
+      tl.fromTo("#f09-glow-warm", { scale: 0.94, opacity: 0.75 }, { scale: 1.08, opacity: 1.0, duration: DUR, ease: "sine.inOut" }, 0);
+      tl.fromTo("#f09-glow-blue, #f09-glow-red", { scale: 1.06, x: 0, y: 0 }, { scale: 0.96, x: 40, y: -24, duration: DUR, ease: "sine.inOut" }, 0);
+
+      // Pass 1 — 8 booked calls land BLUE, exactly 125 ms apart from 0.3 s, spring-pop (power3.out, no bounce).
+      tl.set(evs, { backgroundColor: BLUE }, 0);
+      evs.forEach(function (el, i) {
+        tl.fromTo(el, { opacity: 0, scale: 0.55, transformOrigin: "50% 50%" },
+                      { opacity: 1, scale: 1, duration: 0.24, ease: "power3.out" }, 0.3 + i * 0.125);
+      });
+
+      // Camera: waits for the build, then pushes 1.00 → 1.10 (2.0–3.6) toward Monday; then the §6 slow hold push.
+      H.push(tl, "#f09-stage", 2.0, 1.6, 1.00, 1.10, "300px 530px");
+      H.push(tl, "#f09-stage", 3.6, DUR - 3.6, 1.10, 1.13, "300px 530px");
+
+      // Pass 2 — "converting them to a call" (≈4.3 s): the WHOLE set flips red in one 133 ms swap; the ground's light follows.
+      H.swap(tl, evs, 4.3, { backgroundColor: RED });
+      tl.to("#f09-glow-blue", { opacity: 0, duration: 0.133, ease: "none" }, 4.3);
+      tl.to("#f09-glow-red", { opacity: 1, duration: 0.133, ease: "none" }, 4.3);
+
+      // Marginalia (≈5.0 s): "from search →" writes at 67 ms/char while the curved red arrow draws into Monday's call.
+      H.handwrite(tl, document.getElementById("f09-hand"), 5.0, 67);           // 13 chars → ends 5.87
+      var ar = H.arrowPath(340, 362, 445, 424, -55);
+      document.getElementById("f09-ar-shaft").setAttribute("d", ar.shaft);
+      document.getElementById("f09-ar-head").setAttribute("d", ar.head);
+      H.draw(tl, document.getElementById("f09-ar-shaft"), 5.5, 0.45);
+      H.draw(tl, document.getElementById("f09-ar-head"), 5.95, 0.12);
+      // 6.07 → 8.5: held, fully annotated, still pushing.
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

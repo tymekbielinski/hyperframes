@@ -1,0 +1,23 @@
+{
+  "scene": "17-rank-revenue",
+  "duration_s": 6.7,
+  "rules": ["camera-rig (three-phase: punch-in -> dolly -> pull-wide)", "HFMotionBlur (live-baked video texture + DOM-metric glyph bake, per-leg)", "counting-dynamic-scale (odometer, rate blur)", "svg-path-draw", "sine-wave-loop (micro-drift under all phases)"],
+  "camera": {
+    "K": 1.5,
+    "preset": { "shutter": 0.5, "spacing": 1.5, "maxN": 64, "ease": "power2.inOut" },
+    "drift": "sine, amp 5px/4px, periods 4.3s/3.1s, x/y out of phase",
+    "phases": [
+      { "phase": "hold A", "t": [0.00, 1.50], "pose": { "cx": 710, "cy": 540, "z": 1.30 }, "note": "punched in on the proof-card recording, live video plays" },
+      { "phase": "leg 1", "t": [1.50, 2.30], "pose_to": { "cx": 1540, "cy": 480, "z": 1.30 }, "note": "dolly right onto the hero title region (0.8s); blurred, video kept live via per-frame rebake" },
+      { "phase": "hold B", "t": [2.30, 4.20], "pose": { "cx": 1540, "cy": 480, "z": 1.30 }, "note": "$150,000 lands (enter 2.50), odometer rolls 2.60-3.70 and locks right-to-left, underline draws 3.75-4.05" },
+      { "phase": "leg 2", "t": [4.20, 4.95], "pose_to": { "cx": 960, "cy": 540, "z": 1.00 }, "note": "blurred pull-wide to the identity pose (0.75s), pixel-exact DOM layout; title bake painted glyph-by-glyph from the DOM's own char spans (getBoundingClientRect / computed font), not a separate fillText string, for font parity at the handoff" },
+      { "phase": "hold C", "t": [4.95, 6.70], "pose": { "cx": 960, "cy": 540, "z": 1.00 }, "note": "full composition; marginalia writes itself from 4.98 (67ms/char, lands ~6.655)" }
+    ]
+  },
+  "exit": { "vector": "hold, camera settled at identity, still_moving (micro-drift only)", "still_moving": true },
+  "entry": { "vector": "hard cut in; recording already playing; camera already punched in at 1.30x", "from_rest": false },
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#f17-counter", "bySec": 2.8 },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 2 }
+  ]
+}

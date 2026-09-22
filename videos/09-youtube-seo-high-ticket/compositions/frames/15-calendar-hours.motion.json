@@ -1,0 +1,14 @@
+{
+  "scene": "15-calendar-hours",
+  "duration_s": 8.7,
+  "rules": [
+    "design-system-§6-calendar-build (card dead still, 8 peer blocks at 125 ms from 0.3 s, power3.out spring-pop)",
+    "counting-dynamic-scale (scale 0.55→1 power3.out 1.6→3.0 under HFHouse.odometer rate-blur roll, suffix after the lock at 3.0)",
+    "HFHouse.push 1.00→1.10 (3.2→4.6) then hold push 1.10→1.115 (4.6→8.7), origin 900,540",
+    "HFHouse.swap hard 133 ms blue→red on the whole set at 6.2 (glow floor follows)",
+    "HFHouse.handwrite 67 ms/char: 6.35→7.49, 7.5→8.30"
+  ],
+  "beats_s": { "blocks": [0.3, 1.42], "counter": [1.6, 3.0], "suffix": 3.0, "push": [3.2, 4.6], "swap": 6.2, "handwriting": [6.35, 8.3] },
+  "exit": { "vector": "hold push about (900,540) 1.10→1.115 sine.inOut, ≈0 px/s at the final frame (mid-hold peak ≈ 3 px/s at the card edge); glow drift ≈ 8 px/s (blurred bed)", "still_moving": true },
+  "entry": { "vector": "hard cut, artifact at full size and DEAD STILL by §6; warm glow drifting linearly ≈ 8 px/s from frame 0; first block lands at 0.3 s", "from_rest": false }
+}

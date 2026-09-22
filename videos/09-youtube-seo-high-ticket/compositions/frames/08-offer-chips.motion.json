@@ -1,0 +1,14 @@
+{
+  "scene": "08-offer-chips",
+  "duration_s": 8.95,
+  "rules": ["anchored-layout-expand (HFHouse.chip: dot seeds, pill grows sideways)", "spring-pop-entrance (the chip dot)", "svg-path-draw (thin red arcs + handwriting arrow)", "handwriting-type-on"],
+  "beats": [
+    { "t": 1.0, "chip": "BOOKING (Cal.com, #1F1F1F + white border)", "arc": "1.20-1.74" },
+    { "t": 3.0, "chip": "LEAD MAGNET (mock page card, #2B5FD9)", "arc": "3.20-3.74" },
+    { "t": 5.5, "chip": "INSTAGRAM (#C13584)", "arc": "5.70-6.24" },
+    { "t": 7.5, "chip": "SUBSCRIBE (YouTube, #D62828)", "arc": "7.70-8.24" },
+    { "t": 7.9, "handwriting": "'high-intent leads' at 38 ms/char (lands 8.55) + drawn arrow 8.30-8.55" }
+  ],
+  "exit": { "vector": "stage push 1.00→1.06 over 8.95s (sine.inOut) ≈ 0.3 %/s at the end ≈ 1 px/s at the shot edge; glow + mark drift continue; no exit tween (hard cut)", "still_moving": true },
+  "entry": { "vector": "artifact already at full size; push starting from 1.00, glow breathing, blurred YouTube mark drifting ≈ 10 px/s", "from_rest": false }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "status": "BUILT — same system as short2 / short4",
+  "composition": { "fps": 30, "width": 1080, "height": 1920, "durationSeconds": 58.36, "layout": "portrait", "themeId": "contentporary-reels", "seed": 58 },
+  "videoTrack": { "sourcePath": "input-video.mp4", "startSec": 0, "endSec": 58.36, "bounds": { "x": 0, "y": 0, "width": 1080, "height": 1920 } },
+  "subtitles": { "enabled": false, "note": "burned into the source footage" },
+  "designSystem": {
+    "spec": "context/design-system.md — normative",
+    "structure": "full-frame graphic scenes the edit wipes to; ~53% coverage, face carries the rest",
+    "sourceCuts": [7.5, 14.333, 20.567, 30.3, 36.8, 41.6, 48.6, 58.367],
+    "boundaryRule": "every scene end = its nearest source cut + 0.36 (the exit-wipe duration), so the cut happens while the graphic still covers the frame",
+    "reused": "sc from short4; s5 and s6 from short2; card-06 from agency-lead-sources-intro",
+    "annotation": "#EE4B4A",
+    "motion": "bezier-eased wipe (0.65,0,0.35,1); panels slam on (0.42,0,0.18,1); odometers blur on rate of change"
+  },
+  "scenes": [
+    { "id": "face", "startSec": 0.0, "endSec": 2.20, "ground": "footage", "intent": "'Most agency owners do not need more video ideas.'" },
+    { "id": "sa", "startSec": 2.20, "endSec": 7.86, "ground": "dark", "intent": "NEW. Volume vs return: 30 daily short-form tiles flood in at 60ms — a flood, not a peer set — while the counter rolls 0->30 with blur riding its rate. Then a hand-drawn bracket and one line of marginalia, 'and almost nothing back'. No fabricated return figure; the asymmetry carries it." },
+    { "id": "face", "startSec": 7.86, "endSec": 9.90, "ground": "footage", "intent": "'The problem is not volume.'" },
+    { "id": "sb", "startSec": 9.90, "endSec": 14.69, "ground": "dark", "intent": "NEW. The real constraint as a time axis: the track draws, short-form takes a 78px sliver of it, a dashed threshold marks where a high-ticket buyer actually commits, then a bracket spans the gap and 'not enough time' lands in Caveat." },
+    { "id": "face", "startSec": 14.69, "endSec": 21.50, "ground": "footage", "intent": "'Instead of another content calendar, we build a YouTube acquisition system.'" },
+    { "id": "sc", "startSec": 21.50, "endSec": 30.66, "ground": "dark", "reusedFrom": "short4 sc", "intent": "REUSED, order swapped — short3 says the calls before the revenue. Kicker names the Printing Prediction System as the VO does (21.25), Tim's real channel header lands on 'my client Tim' (23.18), then 20 and $50K roll on the odometer mechanic." },
+    { "id": "s5", "startSec": 30.85, "endSec": 37.16, "ground": "light", "reusedFrom": "short2 s5", "intent": "REUSED verbatim. The rebuilt YouTube comments, each annotated with a red underline and Caveat marginalia naming it — questions / objections / what they already care about. Matches short3's ICP line word for word." },
+    { "id": "face", "startSec": 37.16, "endSec": 38.60, "ground": "footage", "intent": "'Then every week we research what's trending.'" },
+    { "id": "s6", "startSec": 38.60, "endSec": 44.60, "ground": "light", "reusedFrom": "short2 s6", "intent": "REUSED verbatim. Three concept cards, cursor travels in and picks concept 02, hand-drawn ring strokes around it, 'you pick' in marginalia. Shows the client-facing output, never the research tool." },
+    { "id": "face", "startSec": 44.60, "endSec": 50.20, "ground": "footage", "intent": "'My team handles production, I manage strategy, only five clients at a time.'" },
+    { "id": "card-06", "startSec": 50.20, "endSec": 58.36, "ground": "overlay", "reusedFrom": "agency-lead-sources-intro card-06", "intent": "REUSED. Scrim fades over 1.2s settling at 51.40, a full second before the first line at 52.40. Checks land on 'high ticket offer' (52.95) and 'five plus active clients' (54.30); the FILM bubble pops at 55.94, on the word (55.98-56.30)." }
+  ]
+}

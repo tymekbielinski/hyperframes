@@ -1,0 +1,57 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* Solid white bed in the feed recording's own edge colour — the unmasked clip blends into it edge-free
+     (Tymek: "remove the rounded corners on the instagram feed footage, background white so it matches exactly the edges"). */
+  #f05-bed { position: absolute; inset: 0; background: #f9f9f9; }
+  #f05-drift { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  /* The feed recording, unmasked: no bezel, no radius, no shadow — square-cut footage sitting on the matching bed. */
+  #f05-phone { position: absolute; left: 534px; top: 110px; width: 452px; height: 800px; transform: rotate(2deg); }
+  #f05-phone video { display: block; width: 452px; height: 800px; object-fit: cover; background: #f9f9f9; }
+  .f05-hand { font-size: 72px; transform: rotate(-5deg); }
+  #f05-hand1 { left: 1100px; top: 420px; }
+  #f05-hand2 { left: 1120px; top: 510px; }
+</style>
+<div data-hf-id="hf-biit" id="root" class="hf-light" data-composition-id="05-dumb-scroll" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-5zjt" id="f05-bed"></div>
+
+  <div data-hf-id="hf-w1zl" id="f05-stage" class="hf-stage">
+    <div data-hf-id="hf-n35m" id="f05-drift">
+      <div data-hf-id="hf-va4j" id="f05-phone">
+        <video data-hf-id="hf-anrx" id="f05-feed" src="assets/media/ig-scroll.mp4" data-start="0" data-duration="8" data-media-start="5" data-playback-rate="3" data-track-index="2" muted playsinline></video>
+      </div>
+      <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+        <path data-hf-id="hf-2gbd" id="f05-arrow-shaft" />
+        <path data-hf-id="hf-g7pp" id="f05-arrow-head" />
+      </svg>
+      <div data-hf-id="hf-9vl7" id="f05-hand1" class="hf-hand f05-hand">no problem</div>
+      <div data-hf-id="hf-5jss" id="f05-hand2" class="hf-hand f05-hand">· no search</div>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    var ID = "05-dumb-scroll", DUR = 8.0;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      // Bed from t=0: the feed scrolls; the footage drifts laterally (−16→+16px) under a whisper of push.
+      H.push(tl, "#f05-stage", 0, DUR, 1.0, 1.03, "760px 520px");
+      tl.fromTo("#f05-drift", { x: -16 }, { x: 16, duration: DUR, ease: "sine.inOut" }, 0);
+
+      // "dumb scroll" → the marginalia writes itself, two chained lines (67ms/char, dead air between).
+      H.handwrite(tl, document.getElementById("f05-hand1"), 2.0, 67);   // 10 chars → lands 2.67
+      H.handwrite(tl, document.getElementById("f05-hand2"), 2.9, 67);   // 11 chars → lands 3.64
+
+      // "never actually looking" → the red arrow draws downward beside the phone, with the scroll.
+      var a = H.arrowPath(1140, 650, 1078, 890, -60);
+      var shaft = document.getElementById("f05-arrow-shaft"), head = document.getElementById("f05-arrow-head");
+      shaft.setAttribute("d", a.shaft); head.setAttribute("d", a.head);
+      H.draw(tl, shaft, 4.5, 0.45);
+      H.draw(tl, head, 4.9, 0.15);
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

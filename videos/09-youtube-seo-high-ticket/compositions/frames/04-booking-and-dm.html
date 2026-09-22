@@ -1,0 +1,134 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  /* shared lit ground — ONE constant background for the whole scene: no breathing, no crossfade, and the camera
+     leg bakes only the artifact, so the ground never changes while the shot moves. */
+  #f04-mark1 { left: 200px; top: 300px; width: 1500px; height: 330px; opacity: 0.5; }
+  #f04-mark1 img { width: 100%; height: 100%; object-fit: contain; filter: invert(0.85); }
+  #f04-mark2 { left: 1080px; top: -120px; width: 860px; height: 860px; opacity: 0; }
+  #f04-mark2 img { width: 100%; height: 100%; object-fit: contain; }
+  #f04-glow1 { left: 520px; top: -420px; width: 1000px; height: 760px; background: radial-gradient(circle, rgba(255,166,102,0.26) 0%, rgba(255,255,255,0) 65%); opacity: 0.9; }
+  #f04-glow2 { left: 1040px; top: -300px; width: 1000px; height: 900px; background: radial-gradient(circle, rgba(255,166,102,0.26) 0%, rgba(255,255,255,0) 65%); opacity: 0; }
+  /* phase wrappers — each carries the §1 wipe filter */
+  .f04-phase { position: absolute; inset: 0; will-change: opacity; }
+  #f04-p1 { filter: url(#f04-filt1); }
+  #f04-p2 { filter: url(#f04-filt2); opacity: 0; visibility: hidden; }
+  /* phase 1 — the real Cal.com booking page, wide, 1.5° off-axis */
+  #f04-book { left: 260px; top: 120px; width: 1400px; height: 834px; transform: rotate(1.5deg); }
+  /* phase 2 — the real Instagram profile, cropped below its logged-out header bar, −1° off-axis */
+  #f04-ig { left: 230px; top: 100px; width: 1460px; height: 860px; transform: rotate(-1deg); background: #fff; }
+  #f04-ig img { width: 2375.6px; height: 1336.3px; margin-left: -457.8px; margin-top: -76.7px; object-fit: fill; }
+  /* the note lives on the black bed just right of the profile card (card ends at x=1690, +1° tilt) — red pen on the
+     white screenshot measured 2.3:1, unreadable; out here it is red on black and sits level with the ringed handle. */
+  #f04-hand { left: 1726px; top: 138px; font-size: 50px; transform: rotate(-5deg); }   /* black bed right of the card (pushed edge x≈1712), level with the ringed handle */
+</style>
+<div data-hf-id="hf-p3vb" id="root" class="hf-dark" data-composition-id="04-booking-and-dm" data-width="1920" data-height="1080">
+  <svg data-hf-id="hf-30au" width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter data-hf-id="hf-qaoh" id="f04-filt1" x="-10%" y="-10%" width="120%" height="120%"><fegaussianblur data-hf-id="hf-0yrh" id="f04-fe1" stdDeviation="0 0" /></filter>
+    <filter data-hf-id="hf-wdfw" id="f04-filt2" x="-10%" y="-10%" width="120%" height="120%"><fegaussianblur data-hf-id="hf-knz0" id="f04-fe2" stdDeviation="0 0" /></filter>
+  </svg>
+
+  <div data-hf-id="hf-f3u3" class="hf-ground-dark"></div>
+  <div data-hf-id="hf-ssvk" id="f04-mark1" class="hf-brandmark"><img data-hf-id="hf-t36n" id="f04-mark1-img" src="assets/logos/calcom.svg" alt=""></div>
+  <div data-hf-id="hf-3od7" id="f04-mark2" class="hf-brandmark"><img data-hf-id="hf-0v0p" src="assets/logos/instagram.svg" alt=""></div>
+  <div data-hf-id="hf-g9jr" id="f04-glow1" class="hf-glow"></div>
+  <div data-hf-id="hf-7lnw" id="f04-glow2" class="hf-glow"></div>
+  <div data-hf-id="hf-271l" class="hf-vignette"></div>
+
+  <!-- PHASE 1 · 0 → 6.2s · "use the first link in the description to schedule a call with me" -->
+  <div data-hf-id="hf-0kds" id="f04-p1" class="f04-phase">
+    <div data-hf-id="hf-9cpx" id="f04-stage1" class="hf-stage">
+      <div data-hf-id="hf-okth" id="f04-book" class="hf-shot"><img data-hf-id="hf-p4ir" id="f04-book-img" src="assets/lifted/booking-1600.png" alt=""></div>
+      <svg data-hf-id="hf-o0kg" class="hf-marks" viewBox="0 0 1920 1080">
+        <path data-hf-id="hf-cndc" id="f04-arrow-shaft" />
+        <path data-hf-id="hf-r26y" id="f04-arrow-head" />
+        <g data-hf-id="hf-k9km" transform="rotate(1.5 960 537)"><path data-hf-id="hf-0c9j" id="f04-uline" /></g>
+      </svg>
+    </div>
+    <canvas data-hf-id="hf-8s1d" id="f04-gl" class="hf-gl"></canvas>
+  </div>
+
+  <!-- PHASE 2 · 6.2 → 10.85s · "or you can just DM me on Instagram if you have any questions" -->
+  <div data-hf-id="hf-bfvf" id="f04-p2" class="f04-phase">
+    <div data-hf-id="hf-daty" id="f04-stage2" class="hf-stage">
+      <div data-hf-id="hf-j7t2" id="f04-ig" class="hf-shot"><img data-hf-id="hf-xg63" src="assets/captures/ig-profile.png" alt=""></div>
+      <svg data-hf-id="hf-44bc" class="hf-marks" viewBox="0 0 1920 1080">
+        <g data-hf-id="hf-htjt" transform="rotate(-1 960 530)"><path data-hf-id="hf-ctu6" id="f04-ring" /></g>
+      </svg>
+      <div data-hf-id="hf-w7j5" id="f04-hand" class="hf-hand">DM me</div>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    var ID = "04-booking-and-dm", DUR = 10.85, WIPE = 6.2;
+    gsap.set("#f04-hand", { x: -699, y: -7 });
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      var $ = function (id) { return document.getElementById(id); };
+      // Booking page geometry (design coords) — the 1600x953 lift sits at (260,120) 1400 wide => scale 0.875.
+      var BX = 260, BY = 120, BW = 1400, BH = 834, BS = 0.875;
+      function D(ix, iy) { return [BX + ix * BS, BY + iy * BS]; }
+
+      /* ---- #f04-mark2 (Instagram brandmark) is `display:none` via .hf-brandmark (house.css) — it never
+             paints. It previously carried TWO tweens (a full-duration x/y/rotation fromTo plus a later
+             opacity `to`), which is exactly the seek-unsafe shape the house doc bans even though this
+             element renders nothing; removed rather than consolidated since there is no visible bed to
+             preserve. #f04-mark1's amber glow + #f04-glow1/2 (below) carry the lit-ground story instead. ---- */
+
+      /* ---- phase 1 camera (§8c rig): hold 0→0.4, one leg 0.4→1.65 onto the form (1.00→1.20), then a slow hold push ---- */
+      var bookImg = $("f04-book-img"), markImg = $("f04-mark1-img");
+      H.camera(tl, {
+        stage: $("f04-stage1"), canvas: $("f04-gl"),
+        bgCss: "transparent", bg: null, dur: DUR, K: 1.5, preset: "medium",   // transparent world: the DOM ground shows through the leg unchanged
+        bake: function (ctx, K) {
+          // Artifact only (shadow + page). The ground, warm glow and vignette are DOM layers underneath the transparent
+          // blur canvas, so they are pixel-identical before, during and after the leg (Tymek: "make it constant background").
+          // the house shadow under the shot (drawn as a rotated rounded slab first — bakeImage clips to the image itself)
+          ctx.save(); ctx.translate(BX + BW / 2, BY + BH / 2); ctx.rotate(1.5 * Math.PI / 180);
+          ctx.shadowColor = "rgba(0,0,0,0.55)"; ctx.shadowBlur = 110; ctx.shadowOffsetY = 48; ctx.fillStyle = "#101010";
+          var X = -BW / 2, Y = -BH / 2, r = 14; ctx.beginPath();
+          ctx.moveTo(X + r, Y); ctx.arcTo(X + BW, Y, X + BW, Y + BH, r); ctx.arcTo(X + BW, Y + BH, X, Y + BH, r); ctx.arcTo(X, Y + BH, X, Y, r); ctx.arcTo(X, Y, X + BW, Y, r); ctx.closePath(); ctx.fill();
+          ctx.restore();
+          H.bakeImage(ctx, bookImg, BX, BY, BW, BH, 1.5, 14);
+        },
+        keys: [ { t: 0.0, cx: 960, cy: 540, z: 1.00 }, { t: 0.4, cx: 960, cy: 540, z: 1.00 },
+                { t: 1.65, cx: 960, cy: 505, z: 1.20 },                       // the leg: 16 %/s, in the quiet before the first mark
+                { t: WIPE, cx: 960, cy: 500, z: 1.27 }, { t: DUR, cx: 960, cy: 500, z: 1.27 } ],
+        legs: [[0.4, 1.65]]
+      });
+
+      /* ---- pass 2 marks, after the leg, on the spoken cues ---- */
+      // "first link in the description" ≈ 1.9s: hand-drawn arc from the dark margin up to the page title "Book time with me now"
+      var tTitle = D(600, 166);                                        // title left edge, vertical centre (image coords 600,166)
+      var arrow = H.arrowPath(330, 560, Math.round(tTitle[0] - 18), Math.round(tTitle[1] + 6), -110);
+      $("f04-arrow-shaft").setAttribute("d", arrow.shaft); $("f04-arrow-head").setAttribute("d", arrow.head);
+      H.draw(tl, $("f04-arrow-shaft"), 1.9, 0.5);
+      H.draw(tl, $("f04-arrow-head"), 2.34, 0.16);
+      // "schedule a call" ≈ 3.6s: red underline under "30 min · Google Meet" (image x 461→628, baseline y≈404), drawn in the page's own rotated frame
+      var u0 = D(461, 407);
+      $("f04-uline").setAttribute("d", H.underlinePath(Math.round(u0[0]), Math.round(u0[1]), Math.round(167 * BS), 5));
+      H.draw(tl, $("f04-uline"), 3.6, 0.42);
+
+      /* ---- phase handoff ≈ 6.2s, "or you can just DM me on Instagram": the §1 bezier wipe along the horizontal axis.
+             Phase 1 wipes OFF to the left (its edge travels left), phase 2 wipes IN from the right 0.10s behind it — one push. ---- */
+      H.wipeOut(tl, $("f04-p1"), $("f04-fe1"), WIPE, "right", 0.36);
+      H.wipeIn(tl, $("f04-p2"), $("f04-fe2"), WIPE + 0.10, "left", 0.42);
+      // the ground is lit by the story: the warm glow settles as phase 2 lands (single tween, #f04-mark2 stays untouched)
+      tl.to("#f04-glow1", { opacity: 0.55, duration: 0.7, ease: "sine.inOut" }, WIPE);
+
+      /* ---- phase 2: slow hold push toward the handle (bed), ring on the handle, "DM me" scrawled ---- */
+      H.push(tl, "#f04-stage2", WIPE + 0.1, DUR - WIPE - 0.1, 1.0, 1.03, "960px 380px");   // gentler push: keeps the card off the right margin so the note can stay at house size
+      // IG capture crop: region x 370→1550, y 62→757 of the 1920x1080 capture => scale 1.2373 into the 1460x860 shot at (230,100)
+      var IS = 1.2373; function I(ix, iy) { return [230 + (ix - 370) * IS, 100 + (iy - 62) * IS]; }
+      var h0 = I(805, 100), h1 = I(935, 122);                            // the handle "tymek.bielinski"
+      var rc = [(h0[0] + h1[0]) / 2, (h0[1] + h1[1]) / 2];
+      $("f04-ring").setAttribute("d", H.ringPath(Math.round(rc[0]), Math.round(rc[1]), Math.round((h1[0] - h0[0]) / 2 + 34), 38, 3));
+      H.draw(tl, $("f04-ring"), 7.6, 0.55);                              // "DM me" spoken ≈ 7.6
+      H.handwrite(tl, $("f04-hand"), 8.4, 67);                           // 5 chars → lands 8.74
+    }
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

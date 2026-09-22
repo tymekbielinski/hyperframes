@@ -1,0 +1,96 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  #f06-mark { left: 1150px; top: -210px; width: 1000px; height: 700px; }
+  #f06-mark img { width: 100%; height: 100%; object-fit: contain; }
+  #f06-glow { left: -170px; top: 380px; width: 1100px; height: 760px; background: radial-gradient(circle, rgba(255,166,102,0.26) 0%, rgba(255,255,255,0) 65%); opacity: 0.85; }
+
+  #f06-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+
+  /* Phase 1 — empty search bar capture, cropped to the top-bar row (native crop x:270-1670, y:0-96, 1:1). */
+  #f06-phase1 { left: 260px; top: 170px; width: 1400px; height: 96px; transform: rotate(-1deg); background: #000000; }
+  #f06-phase1 img { position: absolute; left: -270px; top: 0; width: 1920px; height: 1080px; max-width: none; }
+  #f06-cover { position: absolute; left: 390px; top: 6px; width: 630px; height: 46px; background: #121212; }
+  #f06-typed-wrap { position: absolute; left: 395px; top: 8px; height: 40px; font-family: var(--hf-ui); font-weight: 400; font-size: 27px; color: #F1F1F1; white-space: pre; line-height: 40px; }
+  #f06-caret { display: inline-block; width: 3px; height: 27px; background: #F1F1F1; margin-left: 1px; vertical-align: -5px; }
+  #f06-marks1 { position: absolute; left: 0; top: 0; width: 1400px; height: 96px; overflow: visible; pointer-events: none; }
+  #f06-marks1 path { fill: none; stroke: var(--hf-red); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+
+  /* Phase 2 — results capture, cropped to exclude the sponsored slot (native crop x:430-1730, y:400-1080, 1:1). */
+  #f06-phase2 { left: 310px; top: 290px; width: 1300px; height: 680px; transform: rotate(-1deg); background: #000000; opacity: 0; }
+  #f06-phase2 img { position: absolute; left: -430px; top: -400px; width: 1920px; height: 1080px; max-width: none; }
+  #f06-marks2 { position: absolute; left: 0; top: 0; width: 1300px; height: 680px; overflow: visible; pointer-events: none; }
+  #f06-marks2 path { fill: none; stroke: var(--hf-red); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+</style>
+<div data-hf-id="hf-f06r" id="root" class="hf-dark" data-composition-id="06-typed-search" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-f06g" class="hf-ground-dark"></div>
+  <div data-hf-id="hf-f06m" id="f06-mark" class="hf-brandmark"><img data-hf-id="hf-f06mi" src="assets/logos/youtube.svg" alt=""></div>
+  <div data-hf-id="hf-f06gl" id="f06-glow" class="hf-glow"></div>
+
+  <div data-hf-id="hf-f06st" id="f06-stage">
+    <div data-hf-id="hf-f06p1" id="f06-phase1" class="hf-shot">
+      <img data-hf-id="hf-f06i1" src="assets/captures/yt-searchbar-empty-dark.png" alt="">
+      <div data-hf-id="hf-f06cv" id="f06-cover"></div>
+      <div data-hf-id="hf-f06tw" id="f06-typed-wrap"><span data-hf-id="hf-f06tx" id="f06-typed"></span><span data-hf-id="hf-f06cr" id="f06-caret"></span></div>
+      <svg data-hf-id="hf-f06sv1" id="f06-marks1" viewBox="0 0 1400 96"><path data-hf-id="hf-f06ul" id="f06-uline" /></svg>
+    </div>
+
+    <div data-hf-id="hf-f06p2" id="f06-phase2" class="hf-shot">
+      <img data-hf-id="hf-f06i2" src="assets/captures/yt-search-b2b-ads-dark.png" alt="">
+      <svg data-hf-id="hf-f06sv2" id="f06-marks2" viewBox="0 0 1300 680"><path data-hf-id="hf-f06rg" id="f06-ring" /></svg>
+    </div>
+  </div>
+  <div data-hf-id="hf-f06vg" class="hf-vignette"></div>
+</div>
+<script>
+  (function () {
+    var ID = "06-typed-search", DUR = 7.85;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      var QUERY = "how to run ads for my B2B SaaS company";
+      var TYPE_START = 0.6, MS_PER_CHAR = 67, TYPE_DUR = QUERY.length * MS_PER_CHAR / 1000;
+      var ENTER_T = 3.6;
+
+      // Bed: something moves from t=0 — the glow breathes, the blurred mark drifts, a gentle continuous push.
+      H.push(tl, "#f06-stage", 0, DUR, 1.0, 1.08, "960px 460px");
+      tl.fromTo("#f06-glow", { scale: 0.92, opacity: 0.7 }, { scale: 1.08, opacity: 1.0, duration: DUR, ease: "sine.inOut" }, 0);
+      tl.fromTo("#f06-mark", { x: 0, y: 0, rotation: -4 }, { x: -50, y: 35, rotation: -1, duration: DUR, ease: "sine.inOut" }, 0);
+
+      // Phase 1 — the query types itself in (67ms/char, substring growth so the caret truly trails it —
+      // a pure function of driver time, seek-safe either direction, not GSAP TextPlugin (not guaranteed loaded)).
+      var typedEl = document.getElementById("f06-typed");
+      var typeDrv = { t: 0 };
+      tl.fromTo(typeDrv, { t: 0 }, { t: TYPE_DUR, duration: TYPE_DUR, ease: "none", immediateRender: false, onUpdate: function () {
+        var n = Math.min(QUERY.length, Math.floor((typeDrv.t / TYPE_DUR) * QUERY.length + 0.0001));
+        typedEl.textContent = QUERY.slice(0, n);
+      } }, TYPE_START);
+
+      var uline = document.getElementById("f06-uline");
+      uline.setAttribute("d", H.underlinePath(395, 46, 532, 2));
+      H.draw(tl, uline, TYPE_START, TYPE_DUR, "none");
+
+      // Deterministic caret: solid while actively typing, a pure square-wave blink otherwise.
+      var caretEl = document.getElementById("f06-caret");
+      var caretDrv = { t: 0 }, BLINK_PERIOD = 0.5333;
+      tl.fromTo(caretDrv, { t: 0 }, { t: ENTER_T + 0.2, duration: ENTER_T + 0.2, ease: "none", immediateRender: false, onUpdate: function () {
+        var t = caretDrv.t;
+        var typing = t >= TYPE_START && t <= TYPE_START + TYPE_DUR;
+        var blinkOn = Math.sin((t * 2 * Math.PI) / BLINK_PERIOD) > 0;
+        caretEl.style.opacity = (typing || blinkOn) ? 1 : 0;
+      } }, 0);
+
+      // On Enter — a hard 133ms swap, not a fade: phase 1 out, phase 2 (results) in.
+      H.swap(tl, "#f06-phase1", ENTER_T, { autoAlpha: 0 });
+      H.swap(tl, "#f06-phase2", ENTER_T, { autoAlpha: 1 });
+
+      // Ring the first ORGANIC result (Sean Bacastow — the sponsored slot above it was cropped out of this shot).
+      var ring = document.getElementById("f06-ring");
+      ring.setAttribute("d", H.ringPath(622, 132, 598, 133, 5));
+      H.draw(tl, ring, 4.9, 0.55);
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>

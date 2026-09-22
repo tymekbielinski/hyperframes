@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 3,
+  "status": "BUILT \u2014 rebuilt against context/design-system.md, same treatment as short2",
+  "composition": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "durationSeconds": 45.8,
+    "layout": "portrait",
+    "themeId": "contentporary-reels",
+    "seed": 41
+  },
+  "videoTrack": {
+    "sourcePath": "input-video.mp4",
+    "startSec": 0,
+    "endSec": 45.8,
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "subtitles": {
+    "enabled": false,
+    "note": "burned into the source footage"
+  },
+  "designSystem": {
+    "spec": "context/design-system.md \u2014 normative",
+    "structure": "full-frame graphic scenes the edit hard-wipes to; ~58% coverage, face carries the rest",
+    "reused": "card-06 lifted from videos/agency-lead-sources-intro and retimed; card-05 was tried and dropped \u2014 its argument is not short4's",
+    "annotation": "#EE4B4A",
+    "type": {
+      "titles": "HelveticaNowDisplay Bold",
+      "ui": "Inter",
+      "marginalia": "Caveat"
+    },
+    "motion": "house motion-blurred wipe between scenes; peer sets 125ms; chained beats 300-630ms; odometers blur on rate of change"
+  },
+  "scenes": [
+    {
+      "id": "face",
+      "startSec": 0.0,
+      "endSec": 2.2,
+      "ground": "footage",
+      "intent": "Hook to camera: 'your meta ads can bring you a shit ton of leads'."
+    },
+    {
+      "id": "sa",
+      "startSec": 2.3,
+      "endSec": 12.6,
+      "ground": "dark",
+      "intent": "Reel A's canonical two-pass (design-system \u00a76) applied to short4's own argument, rebuilt from the first-take concepts. Pass 1: the sales calendar fills with 10 blue booked pips at 125ms in spatial-bounce order, then 'Fully booked' lands. Pass 2: the SAME pips recolour to red in one 133ms hard swap \u2014 not staggered \u2014 and 'and none of them trust you' lands under it in red as the warm glow rises. Then the calendar block blurs out and the 60-minute call bar takes the frame: hatched 'Building trust' half, red 'The actual conversation' half, axis 00:00/30:00/60:00, then a hand-drawn bracket under the wasted half and 'could have happened before' in Caveat."
+    },
+    {
+      "id": "face",
+      "startSec": 12.6,
+      "endSec": 15.6,
+      "ground": "footage",
+      "intent": "'Now compare that with a lead who's been watching your content.'"
+    },
+    {
+      "id": "sb",
+      "startSec": 15.6,
+      "endSec": 29.49,
+      "ground": "dark",
+      "intent": "The funnel on a multi-phase camera. The stage is 2800px against a 1920px frame, so the layout is never presented all at once \u2014 it is read in three passes (the mouth, what it transfers, the cone and the call), each leg eased on cubic-bezier(0.65,0,0.35,1) with the motion blur derived from the camera's own velocity. Each band lands inside the tail of its own leg so the frame is never empty mid-move. Closes on a fourth leg that pulls out to Z=0.80 and holds the complete funnel shape for a beat before the wipe."
+    },
+    {
+      "id": "face",
+      "startSec": 29.49,
+      "endSec": 32.9,
+      "ground": "footage",
+      "intent": "'The call becomes about whether they like you personally as much as they liked your content.'"
+    },
+    {
+      "id": "sc",
+      "startSec": 32.9,
+      "endSec": 37.6,
+      "ground": "dark",
+      "intent": "The proof, opening on Tim's REAL YouTube channel header (from the client-channels folder) tilted 1.4deg with a soft shadow, so the numbers are attached to an actual person rather than a text label. Then $50K and 20 roll on card-04's odometer mechanic \u2014 blur riding the rate of change, locking sharp at rest \u2014 each on its own slammed panel, green glow rising under the second."
+    },
+    {
+      "id": "card-06",
+      "startSec": 37.7,
+      "endSec": 45.8,
+      "ground": "overlay",
+      "reusedFrom": "agency-lead-sources-intro card-06 (was 43.93)",
+      "intent": "REUSED. CTA close as an on-talking-head overlay. Scrim softened (0.94 -> 0.82 alpha) and given its own 1.2s fade settling at 38.90, a full second before the first line at 39.90. Checks land on 'high ticket offer' (40.35) and 'five plus active clients' (41.65); the bubble reads FILM and pops at 43.28, on the word (43.32-43.64)."
+    }
+  ]
+}

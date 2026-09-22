@@ -1,0 +1,36 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+node_modules/
+.npm/
+dist/
+out/
+renders/
+snapshots/
+**/.hyperframes/
+**/.thumbnails/
+**/.media/
+**/captured-frames/
+**/compiled/
+**/work-*/
+
+# Project-specific generated edit packages and interchange files.
+videos/instantly-youtube/
+*.xml
+*.edl
+*.srt
+*.stderr
+*.log
+
+# Source footage, audio, proxies, and rendered deliverables stay outside Git.
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac

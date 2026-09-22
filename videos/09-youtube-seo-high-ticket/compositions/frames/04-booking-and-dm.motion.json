@@ -1,0 +1,11 @@
+{
+  "scene": "04-booking-and-dm",
+  "duration_s": 10.85,
+  "rules": ["css-marker-patterns", "svg-path-draw", "house-camera-leg (HFHouse.camera / HFMotionBlur)", "house-bezier-wipe (HFHouse.wipeOut + wipeIn, horizontal)", "handwriting-type-on"],
+  "phases": [
+    { "t": [0.0, 6.2], "artifact": "assets/lifted/booking-1600.png", "camera": "hold 1.00 (0-0.4s) → leg 0.4-1.65s to 1.20 on the form (≈16 %/s, HFMotionBlur) → hold push to 1.27 by 6.2s", "marks": [{ "t": 1.9, "mark": "arrow → 'Book time with me now'" }, { "t": 3.6, "mark": "underline under '30 min · Google Meet'" }] },
+    { "t": [6.2, 10.85], "artifact": "assets/captures/ig-profile.png (header bar cropped)", "wipe": "phase 1 out 6.20-6.56 (edge travels left), phase 2 in 6.30-6.72 from the right", "camera": "push 1.00 → 1.06 about (960,380)", "marks": [{ "t": 7.6, "mark": "ring around the handle tymek.bielinski (capture is logged-out — no Message button exists)" }, { "t": 8.4, "mark": "handwriting 'DM me' (67 ms/char, lands 8.74)" }] }
+  ],
+  "exit": { "vector": "scale push on the IG stage, ≈ +0.6 %/s about (960,380) ≈ 3 px/s at the shot edge; no exit tween (hard cut)", "still_moving": true },
+  "entry": { "vector": "camera hold at 1.00 for 0.4s with the glow breathing and the blurred mark drifting ≈ 9 px/s; artifact already at full size", "from_rest": false }
+}

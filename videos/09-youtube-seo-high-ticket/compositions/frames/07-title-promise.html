@@ -1,0 +1,105 @@
+<template>
+<style>
+  #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--hf-title); }
+  #f07-mark { left: 1150px; top: -210px; width: 1000px; height: 700px; }
+  #f07-mark img { width: 100%; height: 100%; object-fit: contain; }
+  #f07-glow { left: -160px; top: 460px; width: 1100px; height: 760px; background: radial-gradient(circle, rgba(255,166,102,0.26) 0%, rgba(255,255,255,0) 65%); }
+  /* The real watch page (1920x1080 capture), cropped 1:1 to the player + title + views line (native x0-1358, y69-975). */
+  #f07-page { left: 281px; top: 90px; width: 1358px; height: 906px; transform: rotate(-1deg); background: #000; }
+  #f07-page img { position: absolute; left: 0; top: -69px; width: 1920px; height: 1080px; max-width: none; }
+  /* real thumbnail composited over the capture's player region (native player rect x16-1359,y68-823 -> local x16,y-1,1343x755.4) */
+  #f07-page #f07-thumb { left: 16px; top: -1px; width: 1343px; height: 755.4375px; object-fit: cover; border-radius: 14px; }
+</style>
+<div data-hf-id="hf-f07r" id="root" class="hf-dark" data-composition-id="07-title-promise" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-f07g" class="hf-ground-dark"></div>
+  <div data-hf-id="hf-f07m" id="f07-mark" class="hf-brandmark"><img data-hf-id="hf-f07mi" id="f07-markimg" src="assets/logos/youtube.svg" alt=""></div>
+  <div data-hf-id="hf-f07gl" id="f07-glow" class="hf-glow"></div>
+  <div data-hf-id="hf-f07st" id="f07-stage" class="hf-stage">
+
+    <div data-hf-id="hf-f07p" id="f07-page" class="hf-shot">
+      <img data-hf-id="hf-f07i" id="f07-img" src="assets/captures/yt-watch-tim-dark.png" alt="">
+      <img data-hf-id="hf-f07th" id="f07-thumb" src="assets/user/tim-thumbnail.jpg" alt="">
+    </div>
+
+    <svg data-hf-id="hf-f07sv" class="hf-marks" viewBox="0 0 1920 1080">
+      <path data-hf-id="hf-f07ring" id="f07-ring" />
+      <path data-hf-id="hf-f07ul" id="f07-uline" />
+    </svg>
+
+
+  </div>
+  <canvas data-hf-id="hf-f07gc" id="f07-gl" class="hf-gl"></canvas>
+  <div data-hf-id="hf-f07vg" class="hf-vignette"></div>
+</div>
+<script>
+  (function () {
+    var ID = "07-title-promise", DUR = 8.0;
+    var tl = gsap.timeline({ paused: true });
+    var H = window.HFHouse;
+    if (H) {
+      var SX = 281, SY = 90, SW = 1358, SH = 906, ROT = -1, CROPY = 69, R = 14;
+      var img = document.getElementById("f07-img"), markImg = document.getElementById("f07-markimg");
+      var thumb = document.getElementById("f07-thumb");
+      var ring = document.getElementById("f07-ring");
+      // player rect in the capture's own local coords (same frame as #f07-img's left0/top-69 offset): x16,y-1,1343x755.4
+      var TX = 16, TY = -1, TW = 1343, TH = 755.4375, TR = 14;
+
+      // Title bbox in stage coords (native title 9-309,836-865 → design x290-590,y857-886), centre (440,871).
+      // Views line "15K views" (native 16-100,940-957 → design x297-381,y961-978).
+      ring.setAttribute("d", H.ringPath(440, 871, 175, 42, 3));
+
+      // Lit ground: glow + blurred YouTube mark animate to t=1.6 (leg start), HOLD through the leg (1.6-2.9)
+      // so the frozen bake matches exactly, then resume — same trick as 19-book-a-call.
+      // one continuous tween per bed layer: two tweens on one element resolve differently per render worker (flicker)
+      tl.fromTo("#f07-glow", { scale: 0.92, opacity: 0.70 }, { scale: 1.08, opacity: 1.0, duration: DUR, ease: "sine.inOut", immediateRender: false }, 0);
+      tl.fromTo("#f07-mark", { x: 0, y: 0, rotation: -4 }, { x: -50, y: 35, rotation: -1, duration: DUR, ease: "sine.inOut", immediateRender: false }, 0);
+
+      // Ring lands while the camera is tight on the title ("resonate with the title").
+      H.draw(tl, ring, 0.9, 0.55);
+
+      function rr(ctx, x, y, w, h, r) {
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+      }
+      // §8c camera: open tight on the title (z1.6, 0→1.6 hold), one leg 1.6→2.9 pulling out to frame the
+      // player (z1.05), then a slow push under the final hold. The ring is baked in — it's already drawn
+      // and static by the time the leg starts, so it must be painted into the world texture too.
+      H.camera(tl, {
+        stage: document.getElementById("f07-stage"), canvas: document.getElementById("f07-gl"),
+        bgCss: "transparent", bg: null, dur: DUR, K: 1.5, preset: "medium",   // transparent world: the DOM ground/glow show through the leg unchanged
+        bake: function (ctx) {
+          // artifact only — ground/glow/brandmark are DOM layers under the transparent canvas
+          ctx.save(); ctx.translate(SX + SW / 2, SY + SH / 2); ctx.rotate(ROT * Math.PI / 180);
+          ctx.fillStyle = "#000"; ctx.shadowColor = "rgba(0,0,0,0.55)"; ctx.shadowBlur = 110; ctx.shadowOffsetY = 48; rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.fill();
+          ctx.shadowColor = "rgba(0,0,0,0.35)"; ctx.shadowBlur = 24; ctx.shadowOffsetY = 8; ctx.fill();
+          ctx.shadowColor = "rgba(0,0,0,0)"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+          rr(ctx, -SW / 2, -SH / 2, SW, SH, R); ctx.clip();
+          ctx.drawImage(img, 0, CROPY, SW, SH, -SW / 2, -SH / 2, SW, SH);
+          ctx.save(); rr(ctx, TX - SW / 2, TY - SH / 2, TW, TH, TR); ctx.clip();
+          ctx.drawImage(thumb, TX - SW / 2, TY - SH / 2, TW, TH); ctx.restore();
+          ctx.restore();
+          ctx.save(); ctx.strokeStyle = "#EE4B4A"; ctx.lineWidth = 5; ctx.lineCap = "round"; ctx.lineJoin = "round";
+          ctx.stroke(new Path2D(ring.getAttribute("d"))); ctx.restore();
+        },
+        keys: [
+          { t: 0.0, cx: 440, cy: 871, z: 1.60 },
+          { t: 1.6, cx: 440, cy: 871, z: 1.60 },
+          { t: 2.9, cx: 960, cy: 534, z: 1.05 },
+          { t: DUR, cx: 955, cy: 530, z: 1.07 }
+        ],
+        legs: [[1.6, 2.9]]
+      });
+
+      // After the leg — red underline under "15K views".
+      var uline = document.getElementById("f07-uline");
+      uline.setAttribute("d", H.underlinePath(295, 978, 90, 4));
+      H.draw(tl, uline, 3.3, 0.4);
+
+      // (the "clear promise" note and the arrow that pointed at it were removed at Tymek's request — the ring on the
+      //  title and the underline under the view count carry the beat; the missing note element used to throw here)
+    }
+    window.__timelines = window.__timelines || {};
+    window.__timelines[ID] = tl;
+  })();
+</script>
+</template>
